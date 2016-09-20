@@ -67,7 +67,7 @@ public class MainFXApplication extends Application {
             controller.setMainApp(this);
 
             // Set the Main App title
-            mainScreen.setTitle("Main Page");
+            mainScreen.setTitle("Main Pagex");
 
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);

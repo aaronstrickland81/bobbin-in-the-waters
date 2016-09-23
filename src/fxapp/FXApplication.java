@@ -1,23 +1,22 @@
 package fxapp;
 
+        import controller.CourseOverviewController;
+        import controller.MainScreenController;
+        import controller.StudentEditController;
 
-import controller.CourseOverviewController;
-import controller.MainScreenController;
-import controller.StudentEditController;
+        import javafx.application.Application;
+        import javafx.fxml.FXMLLoader;
+        import javafx.scene.Scene;
+        import javafx.scene.layout.AnchorPane;
+        import javafx.scene.layout.BorderPane;
+        import javafx.stage.Modality;
+        import javafx.stage.Stage;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+        import model.Student;
 
-import model.Student;
-
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+        import java.io.IOException;
+        import java.util.logging.Level;
+        import java.util.logging.Logger;
 
 
 /**
@@ -40,7 +39,7 @@ public class MainFXApplication extends Application {
     public void start(Stage primaryStage) {
         mainScreen = primaryStage;
         initRootLayout(mainScreen);
-        showCourseOverview(mainScreen);
+        showLoginPage(mainScreen);
     }
 
     /**
@@ -63,8 +62,8 @@ public class MainFXApplication extends Application {
             rootLayout = loader.load();
 
             // Give the controller access to the main app.
-            MainScreenController controller = loader.getController();
-            controller.setMainApp(this);
+//            MainScreenController controller = loader.getController();
+//            controller.setMainApp(this);
 
             // Set the Main App title
             mainScreen.setTitle("Main Pagex");
@@ -92,23 +91,23 @@ public class MainFXApplication extends Application {
      *
      * @param mainScreen  the main stage to show this view in
      */
-    private void showCourseOverview(Stage mainScreen) {
+    private void showLoginPage(Stage mainScreen) {
         try {
             // Load course overview.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainFXApplication.class.getResource("../view/CourseOverview.fxml"));
-            AnchorPane courseOverview = loader.load();
+            loader.setLocation(MainFXApplication.class.getResource("../view/loginPage.fxml"));
+            AnchorPane loginPage = loader.load();
 
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(courseOverview);
+            // Set login page into the center of root layout.
+            rootLayout.setCenter(loginPage);
 
             // Give the controller access to the main app.
-            CourseOverviewController controller = loader.getController();
-            controller.setMainApp(this);
+//            CourseOverviewController controller = loader.getController();
+//            controller.setMainApp(this);
 
         } catch (IOException e) {
             //error on load, so log it
-            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for CourseOverview!!");
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for loginPage!!");
             e.printStackTrace();
         }
 

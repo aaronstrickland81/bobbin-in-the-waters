@@ -4,19 +4,20 @@ package fxapp;
 //        import controller.MainScreenController;
 //        import controller.StudentEditController;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+        import javafx.application.Application;
+        import javafx.fxml.FXMLLoader;
+        import javafx.scene.Scene;
+        import javafx.scene.layout.AnchorPane;
+        import javafx.scene.layout.BorderPane;
+        import javafx.stage.Modality;
+        import javafx.stage.Stage;
 
-//import model.User;
+        import model.User;
+        import controller.LoginController;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+        import java.io.IOException;
+        import java.util.logging.Level;
+        import java.util.logging.Logger;
 
 
 /**
@@ -27,13 +28,15 @@ import java.util.logging.Logger;
  */
 public class FXApplication extends Application {
     /**  the java logger for this class */
-    private static final Logger LOGGER =Logger.getLogger("MainFXApplication");
+    private static final Logger LOGGER =Logger.getLogger("FXApplication");
 
     /** the main container for the application window */
     private Stage mainScreen;
 
     /** the main layout for the main window */
     private BorderPane rootLayout;
+
+    private User user;
 
     @Override
     public void start(Stage primaryStage) {
@@ -58,7 +61,7 @@ public class FXApplication extends Application {
         try {
             // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(FXApplication.class.getResource("../view/MainScreen.fxml"));
+            loader.setLocation(FXApplication.class.getResource("../view/rootLayout.fxml"));
             rootLayout = loader.load();
 
             // Give the controller access to the main app.
@@ -102,8 +105,11 @@ public class FXApplication extends Application {
             rootLayout.setCenter(loginPage);
 
             // Give the controller access to the main app.
-//            CourseOverviewController controller = loader.getController();
-//            controller.setMainApp(this);
+            LoginController controller = loader.getController();
+
+            if (controller.verifyLogin()) {
+                showMainPage(mainScreen);
+            }
 
         } catch (IOException e) {
             //error on load, so log it
@@ -113,37 +119,26 @@ public class FXApplication extends Application {
 
     }
 
+    private void showMainPage(Stage mainScreen) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource("../view/MainScreen.fxml"));
+            AnchorPane mainPage = loader.load();
 
-//    public boolean showStudentAddDialog(Student student) {
-//        try {
-//            // Load the fxml file and create a new stage for the popup dialog.
-//            FXMLLoader loader = new FXMLLoader();
-//            loader.setLocation(MainFXApplication.class.getResource("../view/StudentEditDialog.fxml"));
-//            AnchorPane page = loader.load();
-//
-//            // Create the dialog Stage.
-//            Stage dialogStage = new Stage();
-//            dialogStage.setTitle("Edit Student");
-//            dialogStage.initModality(Modality.WINDOW_MODAL);
-//            dialogStage.initOwner(mainScreen);
-//            Scene scene = new Scene(page);
-//            dialogStage.setScene(scene);
-//
-//            // Set the person into the controller.
-//            StudentEditController controller = loader.getController();
-//            controller.setDialogStage(dialogStage);
-//            controller.setStudent(student);
-//
-//            // Show the dialog and wait until the user closes it
-//            dialogStage.showAndWait();
-//
-//            return controller.isOkClicked();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-//    }
+            Scene scene = new Scene(mainPage);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
+            e.printStackTrace();
+        }
+    }
+
+
+
+
 
 
     public static void main(String[] args) {

@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+defaultTasks 'jar'
+
+version = '1.0'
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'bobbin-in-the-waters',
+            'Implementation-Version': version,
+            'Main-Class': 'fxapp.FXApplication'
+    }
+}
+
+dependencies {
+}

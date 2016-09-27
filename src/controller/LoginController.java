@@ -11,7 +11,7 @@ import model.User;
 
 /**
  * The controller for the login page
- * 
+ *
  * @author Karthik Praturu
  */
 public class LoginController {
@@ -79,11 +79,11 @@ public class LoginController {
         }
     }
 
-    private boolean verifyUsername(StringProperty uname) {
+    private boolean verifyUsername(String uname) {
         return uname.toString().equals("user");
     }
 
-    private boolean verifyPassword(StringProperty pword) {
+    private boolean verifyPassword(String pword) {
         return pword.toString().equals("pass");
     }
 

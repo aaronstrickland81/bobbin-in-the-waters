@@ -64,10 +64,6 @@ public class FXApplication extends Application {
             loader.setLocation(FXApplication.class.getResource("../view/rootLayout.fxml"));
             rootLayout = loader.load();
 
-            // Give the controller access to the main app.
-//            MainScreenController controller = loader.getController();
-//            controller.setMainApp(this);
-
             // Set the Main App title
             mainScreen.setTitle("Main Page");
 
@@ -96,7 +92,7 @@ public class FXApplication extends Application {
      */
     private void showLoginPage(Stage mainScreen) {
         try {
-            // Load course overview.
+            // Load login page.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource("../view/loginPage.fxml"));
             AnchorPane loginPage = loader.load();
@@ -119,6 +115,11 @@ public class FXApplication extends Application {
 
     }
 
+    /**
+     * Shows main page when login is valid and checks when logout is pressed
+     *
+     * @param mainScreen the screen to display the scene
+     */
     private void showMainPage(Stage mainScreen) {
         try {
             FXMLLoader loader = new FXMLLoader();

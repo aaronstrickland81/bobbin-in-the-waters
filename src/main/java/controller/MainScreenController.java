@@ -20,7 +20,7 @@ public class MainScreenController {
     }
 
     /**
-     * Called when the user clicks the login button
+     * Called when the user clicks the logout button
      */
     @FXML
     private void handleLogout() {
@@ -42,6 +42,11 @@ public class MainScreenController {
 
     }
 
+    /**
+     * Checks to see if the user has pressed the logout button
+     * 
+     * @return boolean representing whether they have pressed the button or not
+     */
     public boolean verifyLogout() {
         return _logoutPressed;
     }

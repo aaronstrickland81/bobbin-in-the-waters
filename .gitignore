@@ -4,6 +4,7 @@
 *.iml
 out/
 build/
+.gradle/
 
 .Trashes
 

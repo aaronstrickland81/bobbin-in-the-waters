@@ -4,12 +4,12 @@ package fxapp;
 //        import controller.MainScreenController;
 //        import controller.StudentEditController;
 
+        import controller.MainScreenController;
         import javafx.application.Application;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
         import javafx.scene.layout.AnchorPane;
         import javafx.scene.layout.BorderPane;
-        import javafx.stage.Modality;
         import javafx.stage.Stage;
 
         import model.User;
@@ -128,6 +128,11 @@ public class FXApplication extends Application {
             Scene scene = new Scene(mainPage);
             mainScreen.setScene(scene);
             mainScreen.show();
+
+            MainScreenController controller = loader.getController();
+            if (controller.verifyLogout()) {
+                showLoginPage(mainScreen);
+            }
 
         } catch (IOException e) {
             //error on load, so log it

@@ -49,7 +49,7 @@ public class LoginController {
      * @return  true if the user has logged in.
      */
     public boolean verifyLogin() {
-        return _loginAuthenticated
+        return _loginAuthenticated;
     }
 
     /**
@@ -102,7 +102,6 @@ public class LoginController {
         if (pwField.getText() == null || pwField.getText().length() == 0) {
             errorMessage += "No valid major entered!\n";
         }
-
 
         //no error message means success / good input
         if (errorMessage.length() == 0) {

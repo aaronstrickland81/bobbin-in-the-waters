@@ -58,7 +58,7 @@ public class LoginController {
     @FXML
     private void handleLoginAttempt() {
         if (isInputValid()) {
-            _user = new User();
+            _user = new User(userField.getText(), pwField.getText());
             String errorMessage = "";
 
             if (!verifyPassword(_user.getPassword())

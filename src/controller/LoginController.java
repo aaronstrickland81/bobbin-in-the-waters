@@ -80,11 +80,11 @@ public class LoginController {
     }
 
     private boolean verifyUsername(StringProperty uname) {
-
+        return uname.toString().equals("user");
     }
 
     private boolean verifyPassword(StringProperty pword) {
-
+        return pword.toString().equals("pass");
     }
 
     /**

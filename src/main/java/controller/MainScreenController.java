@@ -1,5 +1,6 @@
 package controller;
 
+import fxapp.FXApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
@@ -15,10 +16,15 @@ public class MainScreenController {
     private Stage _dialogStage;
     private Boolean _logoutPressed;
 
+    private FXApplication app;
+
     public void setDialogStage(Stage dialogStage) {
         _dialogStage = dialogStage;
     }
 
+    public void setMainApp(FXApplication fxapp) {
+        app = fxapp;
+    }
     /**
      * Called when the user clicks the logout button
      */
@@ -36,15 +42,17 @@ public class MainScreenController {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             _logoutPressed = true;
+            app.backToLoginPage();
         } else {
             _logoutPressed = false;
         }
+        //app.backToLoginPage();
 
     }
 
     /**
      * Checks to see if the user has pressed the logout button
-     * 
+     *
      * @return boolean representing whether they have pressed the button or not
      */
     public boolean verifyLogout() {

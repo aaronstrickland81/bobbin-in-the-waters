@@ -42,7 +42,7 @@ public class FXApplication extends Application {
     public void start(Stage primaryStage) {
         mainScreen = primaryStage;
         initRootLayout(mainScreen);
-        showLoginPage(mainScreen);
+        showLoginPage();
     }
 
     /**
@@ -88,9 +88,9 @@ public class FXApplication extends Application {
      * precondition - the main stage is already initialized and showing (initRootLayout has been called)
      * postcondition - the view is initialized and displayed
      *
-     * @param mainScreen  the main stage to show this view in
+     *
      */
-    private void showLoginPage(Stage mainScreen) {
+    public void showLoginPage() {
         try {
             // Load login page.
             FXMLLoader loader = new FXMLLoader();
@@ -102,10 +102,13 @@ public class FXApplication extends Application {
 
             // Give the controller access to the main app.
             LoginController controller = loader.getController();
+            controller.setDialogStage(getMainScreen());
+            controller.setMainApp(this);
 
-            if (controller.verifyLogin()) {
-                showMainPage(mainScreen);
-            }
+
+           // if (controller.verifyLogin()) {
+              //  showMainPage();
+            //}
 
         } catch (IOException e) {
             //error on load, so log it
@@ -118,9 +121,9 @@ public class FXApplication extends Application {
     /**
      * Shows main page when login is valid and checks when logout is pressed
      *
-     * @param mainScreen the screen to display the scene
+     *
      */
-    private void showMainPage(Stage mainScreen) {
+    public void showMainPage() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource("../view/MainScreen.fxml"));
@@ -131,9 +134,38 @@ public class FXApplication extends Application {
             mainScreen.show();
 
             MainScreenController controller = loader.getController();
-            if (controller.verifyLogout()) {
-                showLoginPage(mainScreen);
-            }
+            controller.setMainApp(this);
+//            if (controller.verifyLogout()) {
+//                showLoginPage(mainScreen);
+//            }
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Shows main page when login is valid and checks when logout is pressed
+     *
+     *
+     */
+    public void backToLoginPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource("../view/loginPage.fxml"));
+            AnchorPane mainPage = loader.load();
+
+            Scene scene = new Scene(mainPage);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+            LoginController controller = loader.getController();
+            controller.setMainApp(this);
+//            if (controller.verifyLogout()) {
+//                showLoginPage(mainScreen);
+//            }
 
         } catch (IOException e) {
             //error on load, so log it

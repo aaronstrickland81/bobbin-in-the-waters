@@ -1,5 +1,6 @@
 package controller;
 
+import fxapp.FXApplication;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -30,9 +31,17 @@ public class LoginController {
     /** The user trying to log in*/
     private User _user;
 
+    // REf to FX APP
+    private FXApplication app;
+
 
     /** flag to signal whether dialog was closed normally */
     private boolean _loginAuthenticated = false;
+
+
+    public void setMainApp(FXApplication fxapp) {
+        app = fxapp;
+    }
 
     /**
      * Sets the stage of this dialog.
@@ -74,7 +83,8 @@ public class LoginController {
                 alert.showAndWait();
             } else {
                 _loginAuthenticated = true;
-                _dialogStage.close();
+                //_dialogStage.show();
+                app.showMainPage();
             }
         }
     }

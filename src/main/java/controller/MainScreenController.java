@@ -34,8 +34,8 @@ public class MainScreenController {
         // Show the error message if bad data
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.initOwner(_dialogStage);
-        alert.setTitle("Are you sure you want to Logout?");
-        alert.setHeaderText("Logout");
+        alert.setTitle("Confirm Logout");
+        alert.setHeaderText("Confirm Logout");
         alert.setContentText("Are you sure you want to Logout?");
 
 

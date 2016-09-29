@@ -4,6 +4,7 @@ import fxapp.FXApplication;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
@@ -23,7 +24,7 @@ public class LoginController {
     private TextField userField;
 
     @FXML
-    private TextField pwField;
+    private PasswordField pwField;
 
     /** The window for this dialog*/
     private Stage _dialogStage;

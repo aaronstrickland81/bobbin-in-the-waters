@@ -36,8 +36,6 @@ public class FXApplication extends Application {
     /** the main layout for the main window */
     private BorderPane rootLayout;
 
-    private User user;
-
     @Override
     public void start(Stage primaryStage) {
         mainScreen = primaryStage;
@@ -135,9 +133,27 @@ public class FXApplication extends Application {
 
             MainScreenController controller = loader.getController();
             controller.setMainApp(this);
-//            if (controller.verifyLogout()) {
-//                showLoginPage(mainScreen);
-//            }
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
+            e.printStackTrace();
+        }
+    }
+
+    public void showRegistrationPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource
+                    ("../view/registrationPage.fxml"));
+            AnchorPane mainPage = loader.load();
+
+            Scene scene = new Scene(mainPage);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+            RegistrationController controller = loader.getController();
+            controller.setMainApp(this);
 
         } catch (IOException e) {
             //error on load, so log it
@@ -163,9 +179,6 @@ public class FXApplication extends Application {
 
             LoginController controller = loader.getController();
             controller.setMainApp(this);
-//            if (controller.verifyLogout()) {
-//                showLoginPage(mainScreen);
-//            }
 
         } catch (IOException e) {
             //error on load, so log it

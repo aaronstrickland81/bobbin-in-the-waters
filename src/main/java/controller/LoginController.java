@@ -108,10 +108,10 @@ public class LoginController {
 
         //for now just check they actually typed something
         if (userField.getText() == null || userField.getText().length() == 0) {
-            errorMessage += "No valid student name!\n";
+            errorMessage += "No username entered\n";
         }
         if (pwField.getText() == null || pwField.getText().length() == 0) {
-            errorMessage += "No valid major entered!\n";
+            errorMessage += "No password entered\n";
         }
 
         //no error message means success / good input

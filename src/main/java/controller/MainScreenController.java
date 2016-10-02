@@ -46,8 +46,11 @@ public class MainScreenController {
         } else {
             _logoutPressed = false;
         }
-        //app.backToLoginPage();
+    }
 
+    @FXML
+    private void handleEdit() {
+        app.showEditPage();
     }
 
     /**

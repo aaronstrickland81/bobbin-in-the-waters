@@ -5,6 +5,7 @@ package fxapp;
 //        import controller.StudentEditController;
 
         import controller.MainScreenController;
+        import controller.ProfileController;
         import javafx.application.Application;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
@@ -22,9 +23,8 @@ package fxapp;
 
 /**
  * Main application class.
- *
+ * <p>
  * This class handles all the scene switching to reuse the main stage.
- *
  */
 public class FXApplication extends Application {
     /**  the java logger for this class */
@@ -117,7 +117,7 @@ public class FXApplication extends Application {
     }
 
     /**
-     * Shows main page when login is valid and checks when logout is pressed
+     * Displays main screen
      *
      *
      */
@@ -141,7 +141,11 @@ public class FXApplication extends Application {
         }
     }
 
-    public void showRegistrationPage() {
+
+    /**
+     * shows registration page when button is clicked
+     */
+    /*public void showRegistrationPage() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource
@@ -160,7 +164,7 @@ public class FXApplication extends Application {
             LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
             e.printStackTrace();
         }
-    }
+    }*/
 
     /**
      * Shows main page when login is valid and checks when logout is pressed
@@ -187,6 +191,26 @@ public class FXApplication extends Application {
         }
     }
 
+    public void showEditPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource
+                    ("../view/profile.fxml"));
+            AnchorPane mainPage = loader.load();
+
+            Scene scene = new Scene(mainPage);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+            ProfileController controller = loader.getController();
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for Profile");
+            e.printStackTrace();
+        }
+    }
 
 
 

@@ -87,7 +87,7 @@ public class RegistrationController {
                     + ";" + lastNameField.getText();
             //TODO: output user info to CSV
             _registrationCompleted = true;
-            app.showMainPage();
+            app.backToLoginPage();
         }
     }
 

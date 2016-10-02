@@ -96,8 +96,13 @@ public class RegistrationController {
             in.append(userInfo);
 
             _registrationCompleted = true;
-            app.showMainPage();
+            app.backToLoginPage();
         }
+    }
+
+    @FXML
+    private void handleCancel() {
+        app.backToLoginPage();
     }
 
     /**

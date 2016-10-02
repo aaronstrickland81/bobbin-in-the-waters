@@ -6,6 +6,7 @@ package fxapp;
 
         import controller.MainScreenController;
         import controller.ProfileController;
+        import controller.RegistrationController;
         import javafx.application.Application;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
@@ -145,7 +146,7 @@ public class FXApplication extends Application {
     /**
      * shows registration page when button is clicked
      */
-    /*public void showRegistrationPage() {
+    public void showRegistrationPage() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource
@@ -164,7 +165,7 @@ public class FXApplication extends Application {
             LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
             e.printStackTrace();
         }
-    }*/
+    }
 
     /**
      * Shows main page when login is valid and checks when logout is pressed
@@ -191,6 +192,9 @@ public class FXApplication extends Application {
         }
     }
 
+    /**
+     * Displays edit profile page
+     */
     public void showEditPage() {
         try {
             FXMLLoader loader = new FXMLLoader();

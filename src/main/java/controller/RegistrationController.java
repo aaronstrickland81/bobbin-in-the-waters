@@ -10,6 +10,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.AccountType;
 
+import javax.lang.model.type.PrimitiveType;
+import java.io.*;
+
 /**
  * Created by Aaron Strickland on 9/18/2016.
  *
@@ -79,13 +82,19 @@ public class RegistrationController {
 
     /** Called when the user clicks the register button */
     @FXML
-    private void handleRegistrationAttempt() {
+    private void handleRegistrationAttempt() throws IOException {
         if (this.isInputValid()) {
+            //output user info to CSV
             String userInfo = userField.getText() + ";" + passField.getText()
                     + ";" + accountTypeComboBox.getValue().toString() + ";"
                     + emailField.getText() + ";" + firstNameField.getText()
-                    + ";" + lastNameField.getText();
-            //TODO: output user info to CSV
+                    + ";" + lastNameField.getText() + "\n";
+            File users = new File("../../../resources/user.csv");
+            //create new file if it does not exist
+            users.createNewFile();
+            PrintWriter in = new PrintWriter(users);
+            in.append(userInfo);
+
             _registrationCompleted = true;
             app.showMainPage();
         }
@@ -100,22 +109,26 @@ public class RegistrationController {
         String errorMessage = "";
 
         //check if they actually typed something
-        if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
+        if (firstNameField.getText() == null
+                || firstNameField.getText().length() == 0) {
             errorMessage += "No first name entered\n";
         }
-        if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
+        if (lastNameField.getText() == null
+                || lastNameField.getText().length() == 0) {
             errorMessage += "No last name entered\n";
         }
         if (userField.getText() == null || userField.getText().length() == 0) {
             errorMessage += "No username entered\n";
         }
-        if (emailField.getText() == null || emailField.getText().length() == 0) {
+        if (emailField.getText() == null
+                || emailField.getText().length() == 0) {
             errorMessage += "No email entered\n";
         }
         if (passField.getText() == null || passField.getText().length() == 0) {
             errorMessage += "No password entered\n";
         }
-        if (confirmPassField.getText() == null || confirmPassField.getText().length() == 0) {
+        if (confirmPassField.getText() == null
+                || confirmPassField.getText().length() == 0) {
             errorMessage += "No confirm password entered\n";
         }
         if (accountTypeComboBox.getValue() == null) {

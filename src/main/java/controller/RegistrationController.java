@@ -91,6 +91,11 @@ public class RegistrationController {
         }
     }
 
+    @FXML
+    private void handleCancel() {
+        app.backToLoginPage();
+    }
+
     /**
      * Validates the user input in the text fields.
      *

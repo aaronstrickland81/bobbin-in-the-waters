@@ -130,4 +130,10 @@ public class LoginController {
             return false;
         }
     }
+
+    @FXML
+    private void handleRegistration() {
+        app.showRegistrationPage();
+    }
+
 }

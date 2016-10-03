@@ -9,6 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import model.User;
+import model.UserDatabaseInterface;
+
+import java.io.IOException;
 
 
 /**
@@ -67,6 +70,17 @@ public class LoginController {
      */
     @FXML
     private void handleLoginAttempt() {
+        try {
+            UserDatabaseInterface uDB = UserDatabaseInterface.getInstance("./src/main/resources/users.csv");
+        } catch (IOException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(_dialogStage);
+            alert.setTitle("Incorrect password and/or username ");
+            alert.setHeaderText("Please correct invalid fields");
+            alert.setContentText("Couldn't find csv");
+            alert.showAndWait();
+        }
+        /*
         if (isInputValid()) {
             _user = new User(userField.getText(), pwField.getText());
             String errorMessage = "";
@@ -88,6 +102,7 @@ public class LoginController {
                 app.showMainPage();
             }
         }
+        */
     }
 
     private boolean verifyUsername(String uname) {

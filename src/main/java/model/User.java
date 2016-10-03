@@ -89,6 +89,10 @@ public class User {
         setPassword(pass);
     }
 
+    public User(String user, String pass) {
+        this(user, pass, AccountType.USER);
+    }
+
     public User() {
         this("user", "pass", AccountType.USER);
     }

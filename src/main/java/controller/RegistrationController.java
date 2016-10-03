@@ -89,11 +89,10 @@ public class RegistrationController {
                     + ";" + accountTypeComboBox.getValue().toString() + ";"
                     + emailField.getText() + ";" + firstNameField.getText()
                     + ";" + lastNameField.getText() + "\n";
-            File users = new File("../../../resources/user.csv");
-            //create new file if it does not exist
-            users.createNewFile();
-            PrintWriter in = new PrintWriter(users);
+            File users = new File("./src/main/resources/users.csv");
+            FileWriter in = new FileWriter(users, true);
             in.append(userInfo);
+            in.close();
 
             _registrationCompleted = true;
             app.backToLoginPage();

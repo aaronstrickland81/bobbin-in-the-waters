@@ -8,12 +8,26 @@ import java.util.ArrayList;
 
 public class UserDatabaseInterface {
     private static UserDatabaseInterface instance = null;
-    public ArrayList<String[]> userData;
+    private ArrayList<String[]> userData;
 
+    /**
+     * Private constructor of this class that initializes an array
+     * representing the database.
+     *
+     * @param fname The path to file
+     * @throws IOException if csv is not at specified fname path
+     */
     private UserDatabaseInterface(String fname) throws IOException {
         populateArray(fname);
     }
 
+    /**
+     * Returns an instance of this class.
+     *
+     * @param fname the path to file
+     * @return an instance of a UserDatabaseInterface
+     * @throws IOException if csv is not at specified fname path
+     */
     public static UserDatabaseInterface getInstance(String fname) throws IOException{
         if (instance == null) {
             instance = new UserDatabaseInterface(fname);
@@ -21,6 +35,30 @@ public class UserDatabaseInterface {
         return instance;
     }
 
+    /**
+     * Verifies that the user is in database
+     *
+     * @param uname the username to check
+     * @param pword password to check
+     * @return true if user is in database, false otherwise.
+     */
+    public boolean verifyUser(String uname, String pword) {
+        for (String[] row : userData) {
+            if (row[0].equals(uname) && row[1].equals(pword)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Populates an ArrayList with data in csv.
+     * Each entry of the ArrayList is a String
+     * array corresponding to the user data.
+     *
+     * @param fname the path to file
+     * @throws IOException if csv is not at specified fname path.
+     */
     private void populateArray(String fname) throws IOException {
         userData = new ArrayList<>();
         BufferedReader dataBR = new BufferedReader(new FileReader(new File(fname)));

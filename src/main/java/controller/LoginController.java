@@ -72,45 +72,35 @@ public class LoginController {
     private void handleLoginAttempt() {
         try {
             UserDatabaseInterface uDB = UserDatabaseInterface.getInstance("./src/main/resources/users.csv");
+
+            if (isInputValid()) {
+                _user = new User(userField.getText(), pwField.getText());
+                String errorMessage = "";
+
+                if (!uDB.verifyUser(_user.getUname(), _user.getPassword())) {
+                    _loginAuthenticated = false;
+                    // Show the error message if bad data
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.initOwner(_dialogStage);
+                    alert.setTitle("Incorrect password and/or username ");
+                    alert.setHeaderText("Please correct invalid fields");
+                    alert.setContentText(errorMessage);
+
+                    alert.showAndWait();
+                } else {
+                    _loginAuthenticated = true;
+                    //_dialogStage.show();
+                    app.showMainPage();
+                }
+            }
         } catch (IOException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(_dialogStage);
-            alert.setTitle("Incorrect password and/or username ");
-            alert.setHeaderText("Please correct invalid fields");
-            alert.setContentText("Couldn't find csv");
+            alert.setTitle("FATAL ERROR");
+            alert.setHeaderText("Error Code: 0x0003");
+            alert.setContentText("Cannot Load CSV");
             alert.showAndWait();
         }
-        /*
-        if (isInputValid()) {
-            _user = new User(userField.getText(), pwField.getText());
-            String errorMessage = "";
-
-            if (!verifyPassword(_user.getPassword())
-                    || !verifyUsername(_user.getUname())) {
-                _loginAuthenticated = false;
-                // Show the error message if bad data
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.initOwner(_dialogStage);
-                alert.setTitle("Incorrect password and/or username ");
-                alert.setHeaderText("Please correct invalid fields");
-                alert.setContentText(errorMessage);
-
-                alert.showAndWait();
-            } else {
-                _loginAuthenticated = true;
-                //_dialogStage.show();
-                app.showMainPage();
-            }
-        }
-        */
-    }
-
-    private boolean verifyUsername(String uname) {
-        return uname.toString().equals("user");
-    }
-
-    private boolean verifyPassword(String pword) {
-        return pword.toString().equals("pass");
     }
 
     /**

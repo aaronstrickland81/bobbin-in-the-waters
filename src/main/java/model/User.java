@@ -1,5 +1,7 @@
 package model;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.SnapshotResult;
@@ -19,6 +21,7 @@ public class User {
     public final StringProperty password = new SimpleStringProperty();
     public final StringProperty fname = new SimpleStringProperty();
     public final StringProperty lname = new SimpleStringProperty();
+    public final ObjectProperty<AccountType> type = new SimpleObjectProperty<>();
 
 
     public String getUname() {
@@ -31,6 +34,14 @@ public class User {
 
     public void setUname(String uname) {
         this.uname.set(uname);
+    }
+
+    public AccountType getType() {
+        return type.get();
+    }
+
+    public ObjectProperty<AccountType> typeProperty() {
+        return type;
     }
 
     public String getPassword() {
@@ -69,12 +80,16 @@ public class User {
         this.lname.set(lname);
     }
 
-    public User(String user, String pass) {
+    public void setType(AccountType t) {
+        this.type.set(t);
+    }
+
+    public User(String user, String pass, AccountType type) {
         setUname(user);
         setPassword(pass);
     }
 
     public User() {
-        this("user", "pass");
+        this("user", "pass", AccountType.USER);
     }
 }

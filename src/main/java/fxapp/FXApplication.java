@@ -8,6 +8,7 @@ package fxapp;
         import controller.ProfileController;
         import controller.RegistrationController;
         import javafx.application.Application;
+        import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
         import javafx.scene.layout.AnchorPane;
@@ -229,6 +230,11 @@ public class FXApplication extends Application {
         }
     }
 
+    /** Automamtically called upon app close */
+    @Override
+    public void stop() throws Exception {
+        UserDatabaseInterface.close();
+    }
 
 
 

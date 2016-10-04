@@ -111,7 +111,7 @@ public class UserDatabaseInterface {
      * Updates database with changes.
      */
     public static void close() throws IOException {
-        FileWriter in = new FileWriter(new File(".src/main/resources/users.csv"), false);
+        FileWriter in = new FileWriter(new File("./src/main/resources/users.csv"), false);
         for (User _user : userData) {
             String userInfo = _user.getUname() + ";"
                                 + _user.getPassword() + ";"

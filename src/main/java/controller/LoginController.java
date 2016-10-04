@@ -70,35 +70,25 @@ public class LoginController {
      */
     @FXML
     private void handleLoginAttempt() {
-        try {
-            UserDatabaseInterface uDB = UserDatabaseInterface.getInstance("./src/main/resources/users.csv");
 
-            if (isInputValid()) {
-                _user = new User(userField.getText(), pwField.getText());
-                String errorMessage = "";
+        if (isInputValid()) {
+            _user = UserDatabaseInterface.verifyUser(userField.getText(), pwField.getText());
+            String errorMessage = "";
 
-                if (!uDB.verifyUser(_user.getUname(), _user.getPassword())) {
-                    _loginAuthenticated = false;
-                    // Show the error message if bad data
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.initOwner(_dialogStage);
-                    alert.setTitle("Incorrect password and/or username ");
-                    alert.setHeaderText("Please correct invalid fields");
-                    alert.setContentText(errorMessage);
+            if (_user != null) {
+                _loginAuthenticated = false;
+                // Show the error message if bad data
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.initOwner(_dialogStage);
+                alert.setTitle("Incorrect password and/or username ");
+                alert.setHeaderText("Please correct invalid fields");
+                alert.setContentText(errorMessage);
 
-                    alert.showAndWait();
-                } else {
-                    _loginAuthenticated = true;
-                    app.showMainPage();
-                }
+                alert.showAndWait();
+            } else {
+                _loginAuthenticated = true;
+                app.showMainPage();
             }
-        } catch (IOException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.initOwner(_dialogStage);
-            alert.setTitle("FATAL ERROR");
-            alert.setHeaderText("Error Code: 0x0003");
-            alert.setContentText("Cannot Load CSV");
-            alert.showAndWait();
         }
     }
 

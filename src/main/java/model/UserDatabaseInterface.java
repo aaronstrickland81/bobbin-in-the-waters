@@ -44,16 +44,16 @@ public class UserDatabaseInterface {
      *
      * @param uname the username to check
      * @param pword password to check
-     * @return true if user is in database, false otherwise.
+     * @return the user being verified.
      */
-    public static boolean verifyUser(String uname, String pword) {
+    public static User verifyUser(String uname, String pword) {
         for (User _user : userData) {
             if (_user.getUname().equals(uname)
                     && _user.getPassword().equals(pword)) {
-                return true;
+                return _user;
             }
         }
-        return false;
+        return null;
     }
 
     /**

@@ -89,7 +89,6 @@ public class LoginController {
                     alert.showAndWait();
                 } else {
                     _loginAuthenticated = true;
-                    //_dialogStage.show();
                     app.showMainPage();
                 }
             }

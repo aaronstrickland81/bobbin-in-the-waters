@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class UserDatabaseInterface {
     private static UserDatabaseInterface instance = null;
-    private ArrayList<String[]> userData;
+    private ArrayList<User> userData;
 
     /**
      * Private constructor of this class that initializes an array
@@ -43,8 +43,9 @@ public class UserDatabaseInterface {
      * @return true if user is in database, false otherwise.
      */
     public boolean verifyUser(String uname, String pword) {
-        for (String[] row : userData) {
-            if (row[0].equals(uname) && row[1].equals(pword)) {
+        for (User currentUser : userData) {
+            if (currentUser.getUname().equals(uname)
+                    && currentUser.getPassword().equals(pword)) {
                 return true;
             }
         }
@@ -53,8 +54,8 @@ public class UserDatabaseInterface {
 
     /**
      * Populates an ArrayList with data in csv.
-     * Each entry of the ArrayList is a String
-     * array corresponding to the user data.
+     * Each entry of the ArrayList is a user
+     * loaded from csv file.
      *
      * @param fname the path to file
      * @throws IOException if csv is not at specified fname path.
@@ -70,7 +71,9 @@ public class UserDatabaseInterface {
             for (String el : entries) {
                 el.trim();
             }
-            userData.add(entries);
+
+            User loadedUser = new User(entries[0], entries[1]);
+            userData.add(loadedUser);
         }
     }
 }

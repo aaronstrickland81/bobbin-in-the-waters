@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class UserDatabaseInterface {
     private static UserDatabaseInterface instance = null;
-    public ArrayList<User> userData;
+    private ArrayList<User> userData;
 
     /**
      * Private constructor of this class that initializes an array

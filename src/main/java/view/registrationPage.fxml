@@ -41,16 +41,17 @@
        <Label layoutX="69.0" layoutY="276.0" prefHeight="31.0" prefWidth="106.0"
               text="Account Type:"/>
       <Label layoutX="69.0" layoutY="226.0" prefHeight="46.0" prefWidth="76.0" text="Confirm Password:" wrapText="true" />
-       <Button layoutX="338.0" layoutY="328.0" mnemonicParsing="false"
-               onAction="#handleRegistrationAttempt" prefHeight="31.0"
-               prefWidth="123.0" text="Sign Up"/>
-      <Label layoutX="221.0" layoutY="25.0" prefHeight="21.0" prefWidth="316.0" text="Registration">
-         <font>
-            <Font size="28.0" />
-         </font>
-      </Label>
        <Button fx:id="cancel" layoutX="189.0" layoutY="328.0"
                mnemonicParsing="false" onAction="#handleCancel"
                prefHeight="31.0" prefWidth="123.0" text="Cancel"/>
+       <Button layoutX="338.0" layoutY="328.0" mnemonicParsing="false"
+               onAction="#handleRegistrationAttempt" prefHeight="31.0"
+               prefWidth="123.0" text="Sign Up"/>
+       <Label layoutX="221.0" layoutY="25.0" prefHeight="21.0" prefWidth="316.0"
+              text="Registration">
+           <font>
+               <Font size="28.0"/>
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -100,7 +100,7 @@ public class UserDatabaseInterface {
     public static User editUser(User newUser) {
         for (User u : userData) {
             if (newUser.getUname().equals(u.getUname())) {
-                u = newUser;
+                u = new User(newUser);
                 return u;
             }
         }

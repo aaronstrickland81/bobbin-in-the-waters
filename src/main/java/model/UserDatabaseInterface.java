@@ -97,6 +97,16 @@ public class UserDatabaseInterface {
         userData.add(newUser);
     }
 
+    public static User editUser(User newUser) {
+        for (User u : userData) {
+            if (newUser.getUname().equals(u.getUname())) {
+                u = newUser;
+                return u;
+            }
+        }
+        return null;
+    }
+
     /**
      * Updates database with changes.
      */

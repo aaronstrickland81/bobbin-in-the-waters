@@ -46,10 +46,10 @@ public class UserDatabaseInterface {
      * @param pword password to check
      * @return true if user is in database, false otherwise.
      */
-    public boolean verifyUser(String uname, String pword) {
-        for (User currentUser : userData) {
-            if (currentUser.getUname().equals(uname)
-                    && currentUser.getPassword().equals(pword)) {
+    public static boolean verifyUser(String uname, String pword) {
+        for (User _user : userData) {
+            if (_user.getUname().equals(uname)
+                    && _user.getPassword().equals(pword)) {
                 return true;
             }
         }
@@ -64,7 +64,7 @@ public class UserDatabaseInterface {
      * @param fname the path to file
      * @throws IOException if csv is not at specified fname path.
      */
-    private void populateArray(String fname) throws IOException {
+    private static void populateArray(String fname) throws IOException {
         if (userData == null) {
             userData = new ArrayList<>();
         }
@@ -100,8 +100,8 @@ public class UserDatabaseInterface {
     /**
      * Updates database with changes.
      */
-    public void close() throws IOException {
-        FileWriter in = new FileWriter(new File(".src/main/resources/users.csv"), true);
+    public static void close() throws IOException {
+        FileWriter in = new FileWriter(new File(".src/main/resources/users.csv"), false);
         for (User _user : userData) {
             String userInfo = _user.getUname() + ";"
                                 + _user.getPassword() + ";"

@@ -9,6 +9,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.AccountType;
+import model.User;
+import model.UserDatabaseInterface;
 
 import javax.lang.model.type.PrimitiveType;
 import java.io.*;
@@ -85,14 +87,7 @@ public class RegistrationController {
     private void handleRegistrationAttempt() throws IOException {
         if (this.isInputValid()) {
             //output user info to CSV
-            String userInfo = userField.getText() + ";" + passField.getText()
-                    + ";" + accountTypeComboBox.getValue().toString() + ";"
-                    + emailField.getText() + ";" + firstNameField.getText()
-                    + ";" + lastNameField.getText() + "\n";
-            File users = new File("./src/main/resources/users.csv");
-            FileWriter in = new FileWriter(users, true);
-            in.append(userInfo);
-            in.close();
+            UserDatabaseInterface.addUser(new User(userField.getText(), passField.getText(), (AccountType) accountTypeComboBox.getValue(), emailField.getText(), firstNameField.getText(), lastNameField.getText()));
 
             _registrationCompleted = true;
             app.backToLoginPage();

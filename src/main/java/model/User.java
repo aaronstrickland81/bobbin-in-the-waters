@@ -147,4 +147,11 @@ public class User {
         }
         return false;
     }
+
+    //TODO: Make this method better for future use
+    @Override
+    public String toString() {
+        return this.uname.get() + " " + this.password.get() + " "
+                + this.fname.get() + " " + this.lname.get();
+    }
 }

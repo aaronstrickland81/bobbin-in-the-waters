@@ -79,7 +79,7 @@ public class FXApplication extends Application {
             mainScreen.setTitle("Main Page");
 
             // Show the scene containing the root layout.
-            UserDatabaseInterface uDB = UserDatabaseInterface.getInstance(".src/main/resources/users.csv");
+            UserDatabaseInterface uDB = UserDatabaseInterface.getInstance("./src/main/resources/users.csv");
             Scene scene = new Scene(rootLayout);
             mainScreen.setScene(scene);
             mainScreen.show();

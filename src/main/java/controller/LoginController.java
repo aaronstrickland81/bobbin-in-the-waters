@@ -72,7 +72,7 @@ public class LoginController {
             FXApplication.setUser(UserDatabaseInterface.verifyUser(userField.getText(), pwField.getText()));
             String errorMessage = "";
 
-            if (_user != null) {
+            if (FXApplication.getUser() == null) {
                 _loginAuthenticated = false;
                 // Show the error message if bad data
                 Alert alert = new Alert(Alert.AlertType.ERROR);

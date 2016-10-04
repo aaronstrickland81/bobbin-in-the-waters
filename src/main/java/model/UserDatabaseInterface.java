@@ -66,7 +66,7 @@ public class UserDatabaseInterface {
         String line;
 
         while ((line = dataBR.readLine()) != null) {
-            String[] entries = line.split(",");
+            String[] entries = line.split(";");
 
             User loadedUser = new User(entries[0].trim(), entries[1].trim());
             userData.add(loadedUser);

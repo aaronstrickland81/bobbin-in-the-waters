@@ -32,9 +32,6 @@ public class LoginController {
     /** The window for this dialog*/
     private Stage _dialogStage;
 
-    /** The user trying to log in*/
-    private User _user;
-
     // REf to FX APP
     private FXApplication app;
 
@@ -72,7 +69,7 @@ public class LoginController {
     private void handleLoginAttempt() {
 
         if (isInputValid()) {
-            _user = UserDatabaseInterface.verifyUser(userField.getText(), pwField.getText());
+            FXApplication.setUser(UserDatabaseInterface.verifyUser(userField.getText(), pwField.getText()));
             String errorMessage = "";
 
             if (_user != null) {

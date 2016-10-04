@@ -16,6 +16,7 @@ package fxapp;
 
         import model.User;
         import controller.LoginController;
+        import model.UserDatabaseInterface;
 
         import java.io.IOException;
         import java.util.logging.Level;
@@ -36,6 +37,17 @@ public class FXApplication extends Application {
 
     /** the main layout for the main window */
     private BorderPane rootLayout;
+
+    private static User _user;
+
+
+    public static void setUser(User aUser) {
+        _user = new User(aUser);
+    }
+
+    public static User getUser() {
+        return _user;
+    }
 
     @Override
     public void start(Stage primaryStage) {
@@ -67,6 +79,7 @@ public class FXApplication extends Application {
             mainScreen.setTitle("Main Page");
 
             // Show the scene containing the root layout.
+            UserDatabaseInterface uDB = UserDatabaseInterface.getInstance(".src/main/resources/users.csv");
             Scene scene = new Scene(rootLayout);
             mainScreen.setScene(scene);
             mainScreen.show();

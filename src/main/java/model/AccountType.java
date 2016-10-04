@@ -18,4 +18,14 @@ public enum AccountType {
     public String toString() {
         return name;
     }
+
+    public static AccountType getType(String tString) {
+        boolean contains = false;
+        for(AccountType t: AccountType.values()) {
+            if (t.toString().equals(tString)) {
+                return t;
+            }
+        }
+        return null;
+    }
 }

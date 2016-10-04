@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class UserDatabaseInterface {
     private static UserDatabaseInterface instance = null;
-    private ArrayList<User> userData;
+    public ArrayList<User> userData;
 
     /**
      * Private constructor of this class that initializes an array
@@ -68,11 +68,7 @@ public class UserDatabaseInterface {
         while ((line = dataBR.readLine()) != null) {
             String[] entries = line.split(",");
 
-            for (String el : entries) {
-                el.trim();
-            }
-
-            User loadedUser = new User(entries[0], entries[1]);
+            User loadedUser = new User(entries[0].trim(), entries[1].trim());
             userData.add(loadedUser);
         }
     }

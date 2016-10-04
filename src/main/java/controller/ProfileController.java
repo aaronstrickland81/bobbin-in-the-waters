@@ -39,7 +39,7 @@ public class ProfileController {
     private TextField email;
 
     @FXML
-    private PasswordField password;
+    private PasswordField confPassword;
 
     @FXML
     private PasswordField newPassword;
@@ -74,10 +74,12 @@ public class ProfileController {
         aUser.setFname(firstName.getText());
         aUser.setLname(lastName.getText());
         aUser.setEmail(email.getText());
-        if (password != null || password.getText().length() != 0) {
-            aUser.setPassword(password.getText());
+        if (newPassword != null || newPassword.getText().length() != 0) {
+            aUser.setPassword(newPassword.getText());
         }
         return aUser;
     }
+
+    
 
 }

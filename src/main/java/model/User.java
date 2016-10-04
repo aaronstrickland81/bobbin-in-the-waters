@@ -122,6 +122,14 @@ public class User {
         this(user,pass, AccountType.USER, "", "", "");
     }
 
+    public User(User aUser) {
+        this(aUser.getUname()
+                , aUser.getPassword()
+                , aUser.getType()
+                , aUser.getEmail()
+                , aUser.getFname()
+                , aUser.getLname());
+    }
 
     @Override
     public boolean equals(Object obj) {

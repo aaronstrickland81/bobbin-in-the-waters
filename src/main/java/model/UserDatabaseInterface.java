@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class UserDatabaseInterface {
     private static UserDatabaseInterface instance = null;
     private ArrayList<User> userData;
+    private String filename;
 
     /**
      * Private constructor of this class that initializes an array
@@ -34,6 +35,7 @@ public class UserDatabaseInterface {
      * @throws IOException if csv is not at specified fname path
      */
     public static UserDatabaseInterface getInstance(String fname) throws IOException{
+        filename = fname;
         if (instance == null) {
             instance = new UserDatabaseInterface(fname);
         }
@@ -81,5 +83,22 @@ public class UserDatabaseInterface {
                                         entries[5].trim());
             userData.add(loadedUser);
         }
+    }
+
+    /**
+     * Adds a user to the database
+     *
+     * @param newUser user to add.
+     * @return  true if successfully added, false otherwise
+     */
+    public boolean addUser(User newUser) {
+        userData.add(newUser);
+    }
+
+    /**
+     * Updates database with changes.
+     */
+    public void close() {
+        // Parse array list and remake csv file here.
     }
 }

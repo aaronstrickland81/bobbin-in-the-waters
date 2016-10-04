@@ -20,8 +20,6 @@
                    prefHeight="31.0" prefWidth="143.0"/>
         <TextField fx:id="lastName" layoutX="377.0" layoutY="65.0"
                    prefHeight="31.0" prefWidth="143.0"/>
-        <TextField fx:id="username" layoutX="145.0" layoutY="108.0"
-                   prefHeight="31.0" prefWidth="375.0"/>
         <TextField fx:id="email" layoutX="145.0" layoutY="150.0"
                    prefHeight="31.0" prefWidth="375.0"/>
         <TextField fx:id="password" layoutX="145.0" layoutY="191.0"
@@ -34,8 +32,6 @@
                text="First Name:"/>
         <Label layoutX="300.0" layoutY="65.0" prefHeight="31.0" prefWidth="76.0"
                text="Last Name:"/>
-        <Label layoutX="69.0" layoutY="108.0" prefHeight="31.0" prefWidth="76.0"
-               text="Username:"/>
         <Label layoutX="69.0" layoutY="150.0" prefHeight="31.0" prefWidth="76.0"
                text="Email:"/>
         <Label layoutX="69.0" layoutY="191.0" prefHeight="31.0" prefWidth="76.0"

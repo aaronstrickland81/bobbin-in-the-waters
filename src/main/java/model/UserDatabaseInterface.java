@@ -1,9 +1,6 @@
 package model;
 
-import java.io.FileReader;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -13,8 +10,8 @@ import java.util.ArrayList;
  */
 public class UserDatabaseInterface {
     private static UserDatabaseInterface instance = null;
-    private ArrayList<User> userData;
-    private String filename;
+    private static ArrayList<User> userData;
+    private static String filename;
 
     /**
      * Private constructor of this class that initializes an array
@@ -68,7 +65,10 @@ public class UserDatabaseInterface {
      * @throws IOException if csv is not at specified fname path.
      */
     private void populateArray(String fname) throws IOException {
-        userData = new ArrayList<>();
+        if (userData == null) {
+            userData = new ArrayList<>();
+        }
+
         BufferedReader dataBR = new BufferedReader(new FileReader(new File(fname)));
         String line;
 
@@ -89,16 +89,28 @@ public class UserDatabaseInterface {
      * Adds a user to the database
      *
      * @param newUser user to add.
-     * @return  true if successfully added, false otherwise
      */
-    public boolean addUser(User newUser) {
+    public static void addUser(User newUser) {
+        if (userData == null) {
+            userData = new ArrayList<>();
+        }
         userData.add(newUser);
     }
 
     /**
      * Updates database with changes.
      */
-    public void close() {
-        // Parse array list and remake csv file here.
+    public void close() throws IOException {
+        FileWriter in = new FileWriter(new File(".src/main/resources/users.csv"), true);
+        for (User _user : userData) {
+            String userInfo = _user.getUname() + ";"
+                                + _user.getPassword() + ";"
+                                + _user.getType().toString() + ";"
+                                + _user.getEmail() + ";"
+                                + _user.getFname() + ";"
+                                + _user.getLname() + "\n";
+            in.append(userInfo);
+        }
+        in.close();
     }
 }

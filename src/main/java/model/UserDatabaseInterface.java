@@ -6,6 +6,11 @@ import java.io.IOException;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * A class which handles accessing the user database.
+ *
+ * @author Karthik Praturu
+ */
 public class UserDatabaseInterface {
     private static UserDatabaseInterface instance = null;
     private ArrayList<User> userData;

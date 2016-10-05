@@ -5,7 +5,10 @@ package fxapp;
 //        import controller.StudentEditController;
 
         import controller.MainScreenController;
+        import controller.ProfileController;
+        import controller.RegistrationController;
         import javafx.application.Application;
+        import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
         import javafx.scene.layout.AnchorPane;
@@ -14,6 +17,7 @@ package fxapp;
 
         import model.User;
         import controller.LoginController;
+        import model.UserDatabaseInterface;
 
         import java.io.IOException;
         import java.util.logging.Level;
@@ -22,9 +26,8 @@ package fxapp;
 
 /**
  * Main application class.
- *
+ * <p>
  * This class handles all the scene switching to reuse the main stage.
- *
  */
 public class FXApplication extends Application {
     /**  the java logger for this class */
@@ -36,7 +39,16 @@ public class FXApplication extends Application {
     /** the main layout for the main window */
     private BorderPane rootLayout;
 
-    private User user;
+    private static User _user;
+
+
+    public static void setUser(User aUser) {
+        _user = new User(aUser);
+    }
+
+    public static User getUser() {
+        return _user;
+    }
 
     @Override
     public void start(Stage primaryStage) {
@@ -68,6 +80,7 @@ public class FXApplication extends Application {
             mainScreen.setTitle("Main Page");
 
             // Show the scene containing the root layout.
+            UserDatabaseInterface uDB = UserDatabaseInterface.getInstance("./src/main/resources/users.csv");
             Scene scene = new Scene(rootLayout);
             mainScreen.setScene(scene);
             mainScreen.show();
@@ -119,7 +132,7 @@ public class FXApplication extends Application {
     }
 
     /**
-     * Shows main page when login is valid and checks when logout is pressed
+     * Displays main screen
      *
      *
      */
@@ -135,9 +148,31 @@ public class FXApplication extends Application {
 
             MainScreenController controller = loader.getController();
             controller.setMainApp(this);
-//            if (controller.verifyLogout()) {
-//                showLoginPage(mainScreen);
-//            }
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
+            e.printStackTrace();
+        }
+    }
+
+
+    /**
+     * shows registration page when button is clicked
+     */
+    public void showRegistrationPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource
+                    ("../view/registrationPage.fxml"));
+            AnchorPane mainPage = loader.load();
+
+            Scene scene = new Scene(mainPage);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+            RegistrationController controller = loader.getController();
+            controller.setMainApp(this);
 
         } catch (IOException e) {
             //error on load, so log it
@@ -163,9 +198,6 @@ public class FXApplication extends Application {
 
             LoginController controller = loader.getController();
             controller.setMainApp(this);
-//            if (controller.verifyLogout()) {
-//                showLoginPage(mainScreen);
-//            }
 
         } catch (IOException e) {
             //error on load, so log it
@@ -174,7 +206,35 @@ public class FXApplication extends Application {
         }
     }
 
+    /**
+     * Displays edit profile page
+     */
+    public void showEditPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource
+                    ("../view/profile.fxml"));
+            AnchorPane mainPage = loader.load();
 
+            Scene scene = new Scene(mainPage);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+            ProfileController controller = loader.getController();
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for Profile");
+            e.printStackTrace();
+        }
+    }
+
+    /** Automamtically called upon app close */
+    @Override
+    public void stop() throws Exception {
+        UserDatabaseInterface.close();
+    }
 
 
 

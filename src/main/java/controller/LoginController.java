@@ -9,6 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import model.User;
+import model.UserDatabaseInterface;
+
+import java.io.IOException;
 
 
 /**
@@ -28,9 +31,6 @@ public class LoginController {
 
     /** The window for this dialog*/
     private Stage _dialogStage;
-
-    /** The user trying to log in*/
-    private User _user;
 
     // REf to FX APP
     private FXApplication app;
@@ -67,12 +67,12 @@ public class LoginController {
      */
     @FXML
     private void handleLoginAttempt() {
+
         if (isInputValid()) {
-            _user = new User(userField.getText(), pwField.getText());
+            FXApplication.setUser(UserDatabaseInterface.verifyUser(userField.getText(), pwField.getText()));
             String errorMessage = "";
 
-            if (!verifyPassword(_user.getPassword())
-                    || !verifyUsername(_user.getUname())) {
+            if (FXApplication.getUser() == null) {
                 _loginAuthenticated = false;
                 // Show the error message if bad data
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -84,18 +84,9 @@ public class LoginController {
                 alert.showAndWait();
             } else {
                 _loginAuthenticated = true;
-                //_dialogStage.show();
                 app.showMainPage();
             }
         }
-    }
-
-    private boolean verifyUsername(String uname) {
-        return uname.toString().equals("user");
-    }
-
-    private boolean verifyPassword(String pword) {
-        return pword.toString().equals("pass");
     }
 
     /**
@@ -108,10 +99,10 @@ public class LoginController {
 
         //for now just check they actually typed something
         if (userField.getText() == null || userField.getText().length() == 0) {
-            errorMessage += "No valid student name!\n";
+            errorMessage += "No username entered\n";
         }
         if (pwField.getText() == null || pwField.getText().length() == 0) {
-            errorMessage += "No valid major entered!\n";
+            errorMessage += "No password entered\n";
         }
 
         //no error message means success / good input
@@ -130,4 +121,10 @@ public class LoginController {
             return false;
         }
     }
+
+    @FXML
+    private void handleRegistration() {
+        app.showRegistrationPage();
+    }
+
 }

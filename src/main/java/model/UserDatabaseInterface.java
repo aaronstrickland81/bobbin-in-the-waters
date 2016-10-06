@@ -73,7 +73,7 @@ public class UserDatabaseInterface {
         String line;
 
         while ((line = dataBR.readLine()) != null) {
-            String[] entries = line.split(";");
+            String[] entries = line.split(",");
 
             User loadedUser = new User(entries[0].trim(),
                                         entries[1].trim(),
@@ -98,9 +98,15 @@ public class UserDatabaseInterface {
     }
 
     public static User editUser(User newUser) {
+        int index = 0;
         for (User u : userData) {
             if (newUser.getUname().equals(u.getUname())) {
+                // This changes a local variable, not the actual arrayList, so
                 u = new User(newUser);
+
+                // I'm adding this for now
+                userData.set(index, u);
+
                 return u;
             }
         }
@@ -113,12 +119,7 @@ public class UserDatabaseInterface {
     public static void close() throws IOException {
         FileWriter in = new FileWriter(new File("./src/main/resources/users.csv"), false);
         for (User _user : userData) {
-            String userInfo = _user.getUname() + ";"
-                                + _user.getPassword() + ";"
-                                + _user.getType().toString() + ";"
-                                + _user.getEmail() + ";"
-                                + _user.getFname() + ";"
-                                + _user.getLname() + "\n";
+            String userInfo = _user.toString() + "\n";
             in.append(userInfo);
         }
         in.close();

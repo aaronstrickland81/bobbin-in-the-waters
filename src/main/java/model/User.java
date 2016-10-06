@@ -21,13 +21,30 @@ public class User {
 
     public final StringProperty email = new SimpleStringProperty();
 
+    public final StringProperty homeAddress = new SimpleStringProperty();
 
+    public final StringProperty title = new SimpleStringProperty();
 
     public final StringProperty password = new SimpleStringProperty();
     public final StringProperty fname = new SimpleStringProperty();
     public final StringProperty lname = new SimpleStringProperty();
     public final ObjectProperty<AccountType> type = new SimpleObjectProperty<>();
 
+    public String getHomeAddress() {
+        return homeAddress.get();
+    }
+
+    public void setHomeAddress(String newhAddress) {
+        homeAddress.set(newhAddress);
+    }
+
+    public String getTitle() {
+        return title.get();
+    }
+
+    public void setTitle(String newTitle) {
+        title.set(newTitle);
+    }
 
     public String getUname() {
         return uname.get();

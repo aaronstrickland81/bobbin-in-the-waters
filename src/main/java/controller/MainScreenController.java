@@ -42,6 +42,7 @@ public class MainScreenController {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             _logoutPressed = true;
+            FXApplication.setUser(null);
             app.backToLoginPage();
         } else {
             _logoutPressed = false;

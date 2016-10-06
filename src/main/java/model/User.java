@@ -151,7 +151,8 @@ public class User {
     //TODO: Make this method better for future use
     @Override
     public String toString() {
-        return this.uname.get() + " " + this.password.get() + " "
-                + this.fname.get() + " " + this.lname.get();
+        return this.uname.get() + "," + this.password.get() + ","
+                + this.type.get().toString() + "," + this.email.get() + ","
+                + this.fname.get() + "," + this.lname.get();
     }
 }

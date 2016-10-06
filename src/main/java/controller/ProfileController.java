@@ -65,21 +65,51 @@ public class ProfileController {
 
     @FXML
     private void handleSave() {
-        aUser = (updateUser(aUser));
-        UserDatabaseInterface.editUser(aUser);
-        app.showMainPage();
-    }
-
-    private User updateUser(User aUser) {
-        aUser.setFname(firstName.getText());
-        aUser.setLname(lastName.getText());
-        aUser.setEmail(email.getText());
-        if (newPassword != null || newPassword.getText().length() != 0) {
-            aUser.setPassword(newPassword.getText());
+        if (this.isInputValid()) {
+            aUser = (updateUser(aUser));
+            UserDatabaseInterface.editUser(aUser);
+            app.showMainPage();
         }
-        return aUser;
     }
 
-    
+    private User updateUser(User user) {
+        user.setFname(firstName.getText());
+        user.setLname(lastName.getText());
+        user.setEmail(email.getText());
+        if (newPassword != null && newPassword.getText().length() != 0) {
+            user.setPassword(newPassword.getText());
+        }
+        return user;
+    }
+
+    /**
+     * Validates the user input in the text fields.
+     *
+     * @return true if input is valid
+     */
+    private boolean isInputValid() {
+        String errorMessage = "";
+
+        //check if password and confirm password match
+        if (!newPassword.getText().equals(confPassword.getText())) {
+            errorMessage += "Passwords do not match\n";
+        }
+
+        //no error message means success / good input
+        if (errorMessage.length() == 0) {
+            return true;
+        } else {
+            // Show the error message if bad data
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(_dialogStage);
+            alert.setTitle("Invalid Fields");
+            alert.setHeaderText("Please correct invalid fields");
+            alert.setContentText(errorMessage);
+
+            alert.showAndWait();
+
+            return false;
+        }
+    }
 
 }

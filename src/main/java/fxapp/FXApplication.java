@@ -43,7 +43,11 @@ public class FXApplication extends Application {
 
 
     public static void setUser(User aUser) {
-        _user = new User(aUser);
+        if (aUser == null) {
+            _user = null;
+        } else {
+            _user = new User(aUser);
+        }
     }
 
     public static User getUser() {

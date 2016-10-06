@@ -83,6 +83,7 @@ public class UserDatabaseInterface {
                                         entries[5].trim());
             userData.add(loadedUser);
         }
+        dataBR.close();
     }
 
     /**
@@ -97,16 +98,19 @@ public class UserDatabaseInterface {
         userData.add(newUser);
     }
 
+    /**
+     * Edit an existing user
+     *
+     * @param newUser the configurations of the new
+     *                 user will replace the old ones
+     * @return The new user if the user has been edited, null otherwise
+     */
     public static User editUser(User newUser) {
-        int index = 0;
-        for (User u : userData) {
+        for (int i  = 0; i  < userData.size(); i++) {
+            User u = userData.get(i);
             if (newUser.getUname().equals(u.getUname())) {
-                // This changes a local variable, not the actual arrayList, so
                 u = new User(newUser);
-
-                // I'm adding this for now
-                userData.set(index, u);
-
+                userData.set(i, u);
                 return u;
             }
         }

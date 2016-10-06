@@ -39,9 +39,14 @@ public class FXApplication extends Application {
     /** the main layout for the main window */
     private BorderPane rootLayout;
 
+    /** the current, logged in user */
     private static User _user;
 
-
+    /**
+     * Sets the logged in user to the input user
+     *
+     * @param aUser The user that is currently logged in
+     */
     public static void setUser(User aUser) {
         if (aUser == null) {
             _user = null;
@@ -50,6 +55,11 @@ public class FXApplication extends Application {
         }
     }
 
+    /**
+     * Gets the current, logged in user
+     *
+     * @return the logged in user
+     */
     public static User getUser() {
         return _user;
     }

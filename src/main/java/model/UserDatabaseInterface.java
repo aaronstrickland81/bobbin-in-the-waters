@@ -74,14 +74,15 @@ public class UserDatabaseInterface {
 
         while ((line = dataBR.readLine()) != null) {
             String[] entries = line.split(",");
-
-            User loadedUser = new User(entries[0].trim(),
-                                        entries[1].trim(),
-                                        AccountType.getType(entries[2].trim()),
-                                        entries[3].trim(),
-                                        entries[4].trim(),
-                                        entries[5].trim());
-            userData.add(loadedUser);
+            if (entries.length > 5) {
+                User loadedUser = new User(entries[0].trim(),
+                        entries[1].trim(),
+                        AccountType.getType(entries[2].trim()),
+                        entries[3].trim(),
+                        entries[4].trim(),
+                        entries[5].trim());
+                userData.add(loadedUser);
+            }
         }
         dataBR.close();
     }

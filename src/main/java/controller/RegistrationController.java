@@ -1,5 +1,6 @@
 package controller;
 
+import database.MySQLdb;
 import fxapp.FXApplication;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -87,8 +88,11 @@ public class RegistrationController {
     private void handleRegistrationAttempt() throws IOException {
         if (this.isInputValid()) {
             //output user info to CSV
-            UserDatabaseInterface.addUser(new User(userField.getText(), passField.getText(), (AccountType) accountTypeComboBox.getValue(), emailField.getText(), firstNameField.getText(), lastNameField.getText()));
-
+            User user = new User(userField.getText(), passField.getText(),
+                    (AccountType) accountTypeComboBox.getValue(), emailField
+                    .getText(), firstNameField.getText(), lastNameField.getText());
+            UserDatabaseInterface.addUser(user);
+            MySQLdb.addUser(user);
             _registrationCompleted = true;
             app.backToLoginPage();
         }

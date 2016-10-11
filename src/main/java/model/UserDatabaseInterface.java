@@ -122,11 +122,21 @@ public class UserDatabaseInterface {
      * Updates database with changes.
      */
     public static void close() throws IOException {
+
+        for(User u: userData) {
+            System.out.println(u.getFname());
+        }
+
         FileWriter in = new FileWriter(new File("./src/main/resources/users.csv"), false);
+//        FileOutputStream fw = new FileOutputStream(new File("./src/main/resources/users.csv"));
+//        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fw));
+//        String userInfo = "";
         for (User _user : userData) {
             String userInfo = _user.toString() + "\n";
             in.append(userInfo);
         }
+//        bw.write(userInfo);
+//        bw.close();
         in.close();
     }
 }

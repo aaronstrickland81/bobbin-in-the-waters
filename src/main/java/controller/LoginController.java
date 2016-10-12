@@ -1,5 +1,6 @@
 package controller;
 
+import database.MySQLdb;
 import fxapp.FXApplication;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -69,7 +70,10 @@ public class LoginController {
     private void handleLoginAttempt() {
 
         if (isInputValid()) {
-            FXApplication.setUser(UserDatabaseInterface.verifyUser(userField.getText(), pwField.getText()));
+            //FXApplication.setUser(UserDatabaseInterface.verifyUser(userField
+            //   .getText(), pwField.getText()));
+            FXApplication.setUser(MySQLdb.verifyUser(userField
+                    .getText(), pwField.getText()));
             String errorMessage = "";
 
             if (FXApplication.getUser() == null) {

@@ -1,5 +1,6 @@
 package database;
 
+import model.AccountType;
 import model.User;
 
 import java.sql.Connection;
@@ -7,6 +8,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
+
+import static model.AccountType.getType;
 
 
 /**
@@ -61,10 +64,41 @@ public class MySQLdb {
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getPassword());
             ps.setString(5, user.getUname());
+            con.close();
 
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    public static User verifyUser(String uname, String pass) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/bobbin", "root", "password");
+
+            Statement stmt = con.createStatement();
+            PreparedStatement ps = con.prepareStatement("select * from userInfo where " +
+                    "username = ?");
+            ps.setString(1, uname);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                AccountType a = getType(rs.getString(6));
+                String userName = rs.getString(3);
+                String password = rs.getString(5);
+                if (userName.equals(uname) && password.equals(pass)) {
+                    User u = new User(rs.getString(3), rs.getString(5), a, rs
+                            .getString(4), rs.getString(1), rs
+                            .getString(2));
+                    return u;
+                }
+                con.close();
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
     }
 
 }

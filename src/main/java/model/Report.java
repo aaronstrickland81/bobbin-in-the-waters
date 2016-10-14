@@ -1,39 +1,27 @@
 package model;
 
-
 import javafx.beans.property.*;
-import jdk.nashorn.internal.runtime.OptimisticReturnFilters;
 
 import java.sql.Time;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
- * Created by Neil on 10/11/2016.
+ * Created by Neil on 10/13/2016.
  */
-public class Report {
-
+public abstract class Report {
     public final ObjectProperty<Date> _date = new SimpleObjectProperty<>();
     public final ObjectProperty<Time> _time = new SimpleObjectProperty<>();
     public final IntegerProperty _reportNumber = new SimpleIntegerProperty();
     public final StringProperty _workername = new SimpleStringProperty();
     public final StringProperty _location = new SimpleStringProperty();
-    public final ObjectProperty<Condition> _condition = new SimpleObjectProperty<>();
-    public final IntegerProperty _virusPPM = new SimpleIntegerProperty();
-    public final IntegerProperty _chemPPM = new SimpleIntegerProperty();
 
-
-    public Report(Date date, Time time, Integer reportnum, String name, String location, Condition cond, Integer virus, Integer chem) {
+    public Report(Date date, Time time, Integer reportnum, String name, String location) {
         set_date(date);
         set_time(time);
         set_reportNumber(reportnum);
         set_workername(name);
         set_location(location);
-        set_condition(cond);
-        set_virusPPM(virus);
-        set_chemPPM(chem);
     }
-
 
     public Date get_date() {
         return _date.get();
@@ -95,39 +83,4 @@ public class Report {
         this._location.set(_location);
     }
 
-    public Condition get_condition() {
-        return _condition.get();
-    }
-
-    public ObjectProperty<Condition> _conditionProperty() {
-        return _condition;
-    }
-
-    public void set_condition(Condition _condition) {
-        this._condition.set(_condition);
-    }
-
-    public int get_virusPPM() {
-        return _virusPPM.get();
-    }
-
-    public IntegerProperty _virusPPMProperty() {
-        return _virusPPM;
-    }
-
-    public void set_virusPPM(int _virusPPM) {
-        this._virusPPM.set(_virusPPM);
-    }
-
-    public int get_chemPPM() {
-        return _chemPPM.get();
-    }
-
-    public IntegerProperty _chemPPMProperty() {
-        return _chemPPM;
-    }
-
-    public void set_chemPPM(int _chemPPM) {
-        this._chemPPM.set(_chemPPM);
-    }
 }

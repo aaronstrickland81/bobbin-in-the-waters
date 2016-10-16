@@ -4,11 +4,7 @@ import model.Report;
 import model.User;
 import model.enums.AccountType;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 import static model.enums.AccountType.getType;
 
@@ -19,6 +15,11 @@ import static model.enums.AccountType.getType;
 public class MySQLdb {
 
 
+    /**
+     * Adds new user to database
+     *
+     * @param user The user to add
+     */
     public static void addUser(User user) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -46,6 +47,11 @@ public class MySQLdb {
         }
     }
 
+    /**
+     * Update user in database
+     *
+     * @param user The user to edit
+     */
     public static void updateUser(User user) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -67,6 +73,13 @@ public class MySQLdb {
         }
     }
 
+    /**
+     * Check if the username/password combo is valid
+     *
+     * @param uname the username to check
+     * @param pass  the password to check
+     * @return the user object
+     */
     public static User verifyUser(String uname, String pass) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -98,13 +111,26 @@ public class MySQLdb {
         return null;
     }
 
+    /**
+     * Add a new report to the database
+     *
+     * @param report
+     */
     public static void addReport(Report report) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
                             ".amazonaws.com:3306/bobbin", "root", "password");
-
+            String query = " insert into userInfo (date, reportNumber, " +
+                    "username, location) "
+                    + "    values (?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setDate(1, (Date) report.get_date());
+            ps.setInt(2, report.get_reportNumber());
+            ps.setString(3, report.get_workername());
+            ps.setString(4, report.get_location());
+            con.close();
 
         } catch (Exception e) {
             System.out.println(e);

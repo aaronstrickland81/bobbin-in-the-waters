@@ -1,5 +1,6 @@
 package database;
 
+import model.Report;
 import model.User;
 import model.enums.AccountType;
 
@@ -93,6 +94,18 @@ public class MySQLdb {
             System.out.println(e);
         }
         return null;
+    }
+
+    public static void addReport(Report report) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/bobbin", "root", "password");
+
+            PreparedStatement ps =
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
 }

@@ -1,5 +1,7 @@
 package model;
 
+import model.enums.AccountType;
+
 import java.io.*;
 import java.util.ArrayList;
 

@@ -2,6 +2,7 @@ package model;
 
 
 import javafx.beans.property.*;
+import model.enums.OverallCondition;
 
 import java.sql.Time;
 import java.util.Date;

@@ -2,6 +2,8 @@ package model;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import model.enums.Condition;
+import model.enums.WaterType;
 
 import java.sql.Time;
 import java.util.Date;

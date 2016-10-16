@@ -4,9 +4,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.scene.SnapshotResult;
-
-import java.util.HashMap;
+import model.enums.AccountType;
 
 /**
  * Created by Neil on 9/20/2016.

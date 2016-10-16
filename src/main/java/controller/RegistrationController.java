@@ -8,11 +8,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.AccountType;
+import model.enums.AccountType;
 import model.User;
 import model.UserDatabaseInterface;
 
-import javax.lang.model.type.PrimitiveType;
 import java.io.*;
 
 /**

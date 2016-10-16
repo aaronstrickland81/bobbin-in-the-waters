@@ -20,7 +20,7 @@ public class ProfileController {
 
     private FXApplication app;
 
-    private Model model = new Model();
+    private Model model = Model.getInstance();
 
     public void setDialogStage(Stage dialogStage) {
         _dialogStage = dialogStage;
@@ -66,7 +66,8 @@ public class ProfileController {
     private void handleSave() {
         if (this.isInputValid()) {
             aUser = updateUser(aUser);
-            MySQLdb.updateUser(aUser);
+            //MySQLdb.updateUser(aUser);
+            UserDatabaseInterface.editUser(aUser);
             app.showMainPage();
         }
     }

@@ -91,7 +91,7 @@ public class RegistrationController {
                     (AccountType) accountTypeComboBox.getValue(), emailField
                     .getText(), firstNameField.getText(), lastNameField.getText());
             UserDatabaseInterface.addUser(user);
-            MySQLdb.addUser(user);
+            //MySQLdb.addUser(user);
             _registrationCompleted = true;
             app.backToLoginPage();
         }

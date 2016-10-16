@@ -32,7 +32,7 @@ public class LoginController {
     // REf to FX APP
     private FXApplication app;
 
-    private Model model = new Model();
+    private Model model = Model.getInstance();
 
 
     /** flag to signal whether dialog was closed normally */
@@ -69,7 +69,7 @@ public class LoginController {
 
         if (isInputValid()) {
 
-            Model.setUser(MySQLdb.verifyUser(userField
+            Model.setUser(UserDatabaseInterface.verifyUser(userField
                     .getText(), pwField.getText()));
             String errorMessage = "";
 

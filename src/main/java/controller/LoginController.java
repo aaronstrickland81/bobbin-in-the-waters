@@ -7,6 +7,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
+import model.Model;
 import services.UserDatabaseInterface;
 
 
@@ -30,6 +31,8 @@ public class LoginController {
 
     // REf to FX APP
     private FXApplication app;
+
+    private Model model = new Model();
 
 
     /** flag to signal whether dialog was closed normally */
@@ -66,11 +69,11 @@ public class LoginController {
 
         if (isInputValid()) {
 
-            FXApplication.setUser(MySQLdb.verifyUser(userField
+            Model.setUser(MySQLdb.verifyUser(userField
                     .getText(), pwField.getText()));
             String errorMessage = "";
 
-            if (FXApplication.getUser() == null) {
+            if (Model.getUser() == null) {
                 _loginAuthenticated = false;
                 // Show the error message if bad data
                 Alert alert = new Alert(Alert.AlertType.ERROR);

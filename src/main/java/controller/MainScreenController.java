@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import javafx.scene.control.ButtonType;
+import model.Model;
 
 import java.util.Optional;
 
@@ -17,6 +18,8 @@ public class MainScreenController {
     private Boolean _logoutPressed;
 
     private FXApplication app;
+
+    private Model model = new Model();
 
     public void setDialogStage(Stage dialogStage) {
         _dialogStage = dialogStage;
@@ -42,7 +45,7 @@ public class MainScreenController {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             _logoutPressed = true;
-            FXApplication.setUser(null);
+            Model.setUser(null);
             app.backToLoginPage();
         } else {
             _logoutPressed = false;

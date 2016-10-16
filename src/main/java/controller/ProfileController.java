@@ -1,5 +1,6 @@
 package controller;
 
+import database.MySQLdb;
 import fxapp.FXApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -61,7 +62,8 @@ public class ProfileController {
     @FXML
     private void handleSave() {
         if (this.isInputValid()) {
-            aUser = (updateUser(aUser));
+            aUser = updateUser(aUser);
+            MySQLdb.updateUser(aUser);
             UserDatabaseInterface.editUser(aUser);
             app.showMainPage();
         }

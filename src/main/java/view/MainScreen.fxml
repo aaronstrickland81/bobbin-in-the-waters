@@ -8,14 +8,19 @@
    <children>
       <Button fx:id="logout" layoutX="236.0" layoutY="345.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="26.0" prefWidth="101.0" text="Logout" />
       <Button fx:id="editProfile" layoutX="497.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit Profile" />
-      <Button layoutX="101.0" layoutY="101.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="135.0" text="Submit Water Availibilty Report" wrapText="true">
+      <Button fx:id="submitReports" layoutX="66.0" layoutY="101.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="135.0" text="Submit Reports" wrapText="true">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="337.0" layoutY="101.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="135.0" text="View     Water Availibilty " wrapText="true">
+      <Button fx:id="viewReports" layoutX="219.0" layoutY="101.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="135.0" text="View Reports" wrapText="true">
          <font>
             <Font size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="viewMap" layoutX="373.0" layoutY="101.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="135.0" text="View Water Availibility Map" wrapText="true">
+         <font>
+            <Font size="20.0" />
          </font>
       </Button>
    </children>

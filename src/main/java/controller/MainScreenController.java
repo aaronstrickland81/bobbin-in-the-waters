@@ -3,6 +3,7 @@ package controller;
 import fxapp.FXApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.control.ButtonType;
 import model.Model;
@@ -13,6 +14,17 @@ import java.util.Optional;
  * Created by Kavish on 9/27/2016.
  */
 public class MainScreenController {
+
+    /** references to FXML Widgets */
+    @FXML
+    private Button submitReports;
+
+    @FXML
+    private Button viewReports;
+
+    @FXML
+    private Button viewMap;
+
 
     private Stage _dialogStage;
     private Boolean _logoutPressed;

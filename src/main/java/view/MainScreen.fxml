@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.web.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/8"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.MainScreenController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
    <children>
-      <Button fx:id="logout" layoutX="236.0" layoutY="345.0"
-              mnemonicParsing="false" onAction="#handleLogout" prefHeight="26.0"
-              prefWidth="101.0" text="Logout"/>
-      <Button fx:id="editProfile" layoutX="497.0" layoutY="14.0"
-              mnemonicParsing="false" onAction="#handleEdit"
-              text="Edit Profile"/>
+      <Button fx:id="logout" layoutX="236.0" layoutY="345.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="26.0" prefWidth="101.0" text="Logout" />
+      <Button fx:id="editProfile" layoutX="497.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit Profile" />
+      <Button layoutX="101.0" layoutY="101.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="135.0" text="Submit Water Availibilty Report" wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="337.0" layoutY="101.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="135.0" text="View     Water Availibilty " wrapText="true">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

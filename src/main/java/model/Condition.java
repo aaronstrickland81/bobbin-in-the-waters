@@ -1,10 +1,8 @@
 package model;
 
 /**
- * Created by Neil on 10/11/2016.
+ * Created by Neil on 10/16/2016.
  */
 public enum Condition {
-    Safe,
-    Treatable,
-    Unsafe;
+    Waste, Treatable_Clear, Treatable_Muddy, Potable;
 }

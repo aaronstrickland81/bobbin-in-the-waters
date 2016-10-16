@@ -2,10 +2,8 @@ package model;
 
 
 import javafx.beans.property.*;
-import jdk.nashorn.internal.runtime.OptimisticReturnFilters;
 
 import java.sql.Time;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -13,12 +11,12 @@ import java.util.Date;
  */
 public class WaterPurityReport extends Report {
 
-    public final ObjectProperty<Condition> _condition = new SimpleObjectProperty<>();
+    public final ObjectProperty<OverallCondition> _condition = new SimpleObjectProperty<>();
     public final IntegerProperty _virusPPM = new SimpleIntegerProperty();
     public final IntegerProperty _chemPPM = new SimpleIntegerProperty();
 
 
-    public WaterPurityReport(Date date, Time time, Integer reportnum, String name, String location, Condition cond, Integer virus, Integer chem) {
+    public WaterPurityReport(Date date, Time time, Integer reportnum, String name, String location, OverallCondition cond, Integer virus, Integer chem) {
         super(date, time, reportnum, name, location);
         set_condition(cond);
         set_virusPPM(virus);
@@ -27,16 +25,16 @@ public class WaterPurityReport extends Report {
 
 
 
-    public Condition get_condition() {
+    public OverallCondition get_condition() {
         return _condition.get();
     }
 
-    public ObjectProperty<Condition> _conditionProperty() {
+    public ObjectProperty<OverallCondition> _conditionProperty() {
         return _condition;
     }
 
-    public void set_condition(Condition _condition) {
-        this._condition.set(_condition);
+    public void set_condition(OverallCondition _Overall_condition) {
+        this._condition.set(_Overall_condition);
     }
 
     public int get_virusPPM() {

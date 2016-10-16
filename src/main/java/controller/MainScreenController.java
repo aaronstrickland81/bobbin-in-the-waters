@@ -19,7 +19,7 @@ public class MainScreenController {
 
     private FXApplication app;
 
-    private Model model = new Model();
+    private Model model = Model.getInstance();
 
     public void setDialogStage(Stage dialogStage) {
         _dialogStage = dialogStage;

@@ -40,6 +40,7 @@ public class MySQLdb {
             preparedStmt.setString(6, user.getType().toString());
 
             preparedStmt.execute();
+            System.out.print("Success");
             con.close();
 
         } catch (Exception e) {
@@ -111,6 +112,29 @@ public class MySQLdb {
         return null;
     }
 
+    public static boolean checkUserExists(User user) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
+                            ".amazonaws.com:3306/bobbin", "root", "password");
+
+            Statement stmt = con.createStatement();
+            PreparedStatement ps = con.prepareStatement("select * from userInfo where " +
+                    "username = ?");
+            ps.setString(1, user.getUname());
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
+    }
+
     /**
      * Add a new report to the database
      *
@@ -136,5 +160,6 @@ public class MySQLdb {
             System.out.println(e);
         }
     }
+
 
 }

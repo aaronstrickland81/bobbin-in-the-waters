@@ -220,13 +220,13 @@ public class FXApplication extends Application {
         }
     }
 
-    /** Automamtically called upon app close */
+    /** Automatically called upon app close */
     @Override
     public void stop() throws Exception {
         UserDatabaseInterface.close();
     }
 
-
+    //public void
 
 
 

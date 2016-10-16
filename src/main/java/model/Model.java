@@ -10,12 +10,18 @@ public class Model {
      */
     private static final Model instance = new Model();
 
+    /** the current, logged in user */
+    private static User _user;
+
+
+    /**ArrayList of all reports **/
+    private static ArrayList<Report> _reports = new ArrayList<>();
+
     public static Model getInstance() {
         return instance;
     }
 
-    /** the current, logged in user */
-    private static User _user;
+
 
     /**
      * Sets the logged in user to the input user
@@ -39,7 +45,7 @@ public class Model {
         return _user;
     }
 
-    private static ArrayList<Report> _reports = new ArrayList<>();
+
 
     public static void addReport(Report report) {
         _reports.add(report);

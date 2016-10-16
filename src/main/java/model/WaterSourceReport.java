@@ -2,7 +2,7 @@ package model;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import model.enums.Condition;
+import model.enums.SourceCondition;
 import model.enums.WaterType;
 
 import java.sql.Time;
@@ -14,7 +14,7 @@ import java.util.Date;
 public class WaterSourceReport extends Report {
 
     public final ObjectProperty<WaterType> _type = new SimpleObjectProperty<>();
-    public final ObjectProperty<Condition> _condition = new SimpleObjectProperty<>();
+    public final ObjectProperty<SourceCondition> _condition = new SimpleObjectProperty<>();
 
     public WaterType get_type() {
         return _type.get();
@@ -28,19 +28,19 @@ public class WaterSourceReport extends Report {
         this._type.set(_type);
     }
 
-    public Condition get_condition() {
+    public SourceCondition get_condition() {
         return _condition.get();
     }
 
-    public ObjectProperty<Condition> _conditionProperty() {
+    public ObjectProperty<SourceCondition> _conditionProperty() {
         return _condition;
     }
 
-    public void set_condition(Condition _condition) {
+    public void set_condition(SourceCondition _condition) {
         this._condition.set(_condition);
     }
 
-    public WaterSourceReport(Date date, Time time, Integer reportnum, String name, String location, WaterType type, Condition cond) {
+    public WaterSourceReport(Date date, Time time, Integer reportnum, String name, String location, WaterType type, SourceCondition cond) {
         super(date, time, reportnum, name, location);
         set_type(type);
         set_condition(cond);

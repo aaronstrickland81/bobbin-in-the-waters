@@ -2,7 +2,7 @@ package model;
 
 
 import javafx.beans.property.*;
-import model.enums.OverallCondition;
+import model.enums.PurityCondition;
 
 import java.sql.Time;
 import java.util.Date;
@@ -12,12 +12,12 @@ import java.util.Date;
  */
 public class WaterPurityReport extends Report {
 
-    public final ObjectProperty<OverallCondition> _condition = new SimpleObjectProperty<>();
+    public final ObjectProperty<PurityCondition> _condition = new SimpleObjectProperty<>();
     public final IntegerProperty _virusPPM = new SimpleIntegerProperty();
     public final IntegerProperty _chemPPM = new SimpleIntegerProperty();
 
 
-    public WaterPurityReport(Date date, Time time, Integer reportnum, String name, String location, OverallCondition cond, Integer virus, Integer chem) {
+    public WaterPurityReport(Date date, Time time, Integer reportnum, String name, String location, PurityCondition cond, Integer virus, Integer chem) {
         super(date, time, reportnum, name, location);
         set_condition(cond);
         set_virusPPM(virus);
@@ -26,15 +26,15 @@ public class WaterPurityReport extends Report {
 
 
 
-    public OverallCondition get_condition() {
+    public PurityCondition get_condition() {
         return _condition.get();
     }
 
-    public ObjectProperty<OverallCondition> _conditionProperty() {
+    public ObjectProperty<PurityCondition> _conditionProperty() {
         return _condition;
     }
 
-    public void set_condition(OverallCondition _Overall_condition) {
+    public void set_condition(PurityCondition _Overall_condition) {
         this._condition.set(_Overall_condition);
     }
 

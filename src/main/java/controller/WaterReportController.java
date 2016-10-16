@@ -4,6 +4,7 @@ import fxapp.FXApplication;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -35,6 +36,12 @@ public class WaterReportController {
 
     @FXML
     private TextField coordinates;
+
+    @FXML
+    private Button cancel;
+
+    @FXML
+    private Button submit;
 
     /**
      * Helper Function that converts LocalDateTime to Date

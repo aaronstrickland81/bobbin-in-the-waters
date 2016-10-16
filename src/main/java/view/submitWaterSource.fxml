@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WaterReportController">
    <children>
       <Label layoutX="76.0" layoutY="43.0" text="Water Source Report Submission">
          <font>
@@ -17,11 +17,15 @@
       <Label layoutX="50.0" layoutY="150.0" text="Coordinates of Water:" />
       <Label layoutX="50.0" layoutY="211.0" text="Type of Water:" />
       <Label layoutX="50.0" layoutY="267.0" text="Condition of Water:" />
-      <ComboBox fx:id="waterCondition" layoutX="261.0" layoutY="262.0"
-                prefWidth="150.0"/>
+      <ComboBox fx:id="waterCondition" layoutX="261.0" layoutY="262.0" prefWidth="150.0" />
       <ComboBox fx:id="waterType" layoutX="262.0" layoutY="206.0" prefWidth="150.0" />
       <TextField fx:id="coordinates" layoutX="262.0" layoutY="145.0" prefHeight="31.0" prefWidth="260.0" />
-      <Button layoutX="262.0" layoutY="334.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="97.0" text="Submit">
+      <Button fx:id="submit" layoutX="262.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleWaterSourceSubmissionAttempt" prefHeight="31.0" prefWidth="97.0" text="Submit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="cancel" layoutX="377.0" layoutY="334.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="31.0" prefWidth="97.0" text="Cancel">
          <font>
             <Font size="18.0" />
          </font>

@@ -86,7 +86,7 @@ public class WaterReportController {
     private void handleWaterSourceSubmissionAttempt() throws IOException {
         if (this.isInputValid()) {
             //output user info to CSV
-            Model.addReport(new WaterSourceReport(out, 2, Model.getUser().getUname(), coordinates.getText(), (WaterType) waterType.getValue(), (SourceCondition) waterCondition.getValue()));
+            Model.addReport(new WaterSourceReport(out, Model.reportNumGenerator(), Model.getUser().getUname(), coordinates.getText(), (WaterType) waterType.getValue(), (SourceCondition) waterCondition.getValue()));
 
             _waterSourceReportCompleted = true;
             app.backToLoginPage();

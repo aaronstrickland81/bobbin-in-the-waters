@@ -38,13 +38,6 @@ public class MySQLdb {
             preparedStmt.setString(6, user.getType().toString());
 
             preparedStmt.execute();
-
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from userInfo");
-            while (rs.next())
-                System.out.println(rs.getString(1) + "  " + rs.getString(2) +
-                        "  " + rs.getString(3) + "  " + rs.getString(4) +
-                        "  " + rs.getString(5) + " " + rs.getString(6));
             con.close();
 
         } catch (Exception e) {

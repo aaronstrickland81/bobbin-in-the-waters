@@ -102,7 +102,7 @@ public class MySQLdb {
             Connection con = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/bobbin", "root", "password");
 
-            PreparedStatement ps =
+            
         } catch (Exception e) {
             System.out.println(e);
         }

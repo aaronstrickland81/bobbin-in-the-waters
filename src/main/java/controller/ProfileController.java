@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Model;
 import model.User;
 import services.UserDatabaseInterface;
 
@@ -18,6 +19,8 @@ public class ProfileController {
     private Stage _dialogStage;
 
     private FXApplication app;
+
+    private Model model = new Model();
 
     public void setDialogStage(Stage dialogStage) {
         _dialogStage = dialogStage;
@@ -43,7 +46,7 @@ public class ProfileController {
     /** Called automatically upon load */
     @FXML
     private void initialize() {
-        aUser = FXApplication.getUser();
+        aUser = Model.getUser();
         firstName.setText(aUser.getFname());
         lastName.setText(aUser.getLname());
         email.setText(aUser.getEmail());

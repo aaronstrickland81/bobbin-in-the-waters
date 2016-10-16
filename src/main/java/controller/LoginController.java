@@ -1,5 +1,6 @@
 package controller;
 
+import database.MySQLdb;
 import fxapp.FXApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -64,7 +65,9 @@ public class LoginController {
     private void handleLoginAttempt() {
 
         if (isInputValid()) {
-            FXApplication.setUser(UserDatabaseInterface.verifyUser(userField.getText(), pwField.getText()));
+
+            FXApplication.setUser(MySQLdb.verifyUser(userField
+                    .getText(), pwField.getText()));
             String errorMessage = "";
 
             if (FXApplication.getUser() == null) {
@@ -72,8 +75,8 @@ public class LoginController {
                 // Show the error message if bad data
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.initOwner(_dialogStage);
-                alert.setTitle("Incorrect password and/or username ");
-                alert.setHeaderText("Please correct invalid fields");
+                alert.setTitle("Please Correct Invalid Fields ");
+                alert.setHeaderText("Incorrect password and/or username");
                 alert.setContentText(errorMessage);
 
                 alert.showAndWait();

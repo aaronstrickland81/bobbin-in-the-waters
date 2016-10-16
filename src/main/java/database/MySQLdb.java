@@ -22,7 +22,8 @@ public class MySQLdb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/bobbin", "root", "password");
+                    "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
+                            ".amazonaws.com:3306/bobbin", "root", "password");
 
             String query = " insert into userInfo (firstName, lastName, " +
                     "username, email, password, accountType)"

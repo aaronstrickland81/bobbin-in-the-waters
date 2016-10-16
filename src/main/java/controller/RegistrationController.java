@@ -91,7 +91,18 @@ public class RegistrationController {
                     (AccountType) accountTypeComboBox.getValue(), emailField
                     .getText(), firstNameField.getText(), lastNameField.getText());
             UserDatabaseInterface.addUser(user);
-            MySQLdb.addUser(user);
+            /*if (!MySQLdb.checkUserExists(user)) {
+                MySQLdb.addUser(user);
+                _registrationCompleted = true;
+                app.backToLoginPage();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.initOwner(_dialogStage);
+                alert.setTitle("Please Choose Another Username ");
+                alert.setHeaderText("Username already exists");
+                alert.setContentText("Choose another username");
+                alert.showAndWait();
+            }*/
             _registrationCompleted = true;
             app.backToLoginPage();
         }

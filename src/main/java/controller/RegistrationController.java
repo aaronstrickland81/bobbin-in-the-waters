@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.enums.AccountType;
 import model.User;
-import model.UserDatabaseInterface;
+import services.UserDatabaseInterface;
 
 import java.io.*;
 

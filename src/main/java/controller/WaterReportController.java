@@ -1,18 +1,11 @@
 package controller;
 
 import fxapp.FXApplication;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.enums.AccountType;
-import model.User;
-import model.UserDatabaseInterface;
-
-import javax.lang.model.type.PrimitiveType;
-import java.io.*;
 
 /**
  * Created by Jason Lin on 10/15/2016.

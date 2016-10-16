@@ -8,7 +8,6 @@ package fxapp;
         import controller.ProfileController;
         import controller.RegistrationController;
         import javafx.application.Application;
-        import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
         import javafx.scene.layout.AnchorPane;
@@ -17,7 +16,7 @@ package fxapp;
 
         import model.User;
         import controller.LoginController;
-        import model.UserDatabaseInterface;
+        import services.UserDatabaseInterface;
 
         import java.io.IOException;
         import java.util.logging.Level;

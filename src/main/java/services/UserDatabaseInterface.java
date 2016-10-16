@@ -1,5 +1,6 @@
-package model;
+package services;
 
+import model.User;
 import model.enums.AccountType;
 
 import java.io.*;

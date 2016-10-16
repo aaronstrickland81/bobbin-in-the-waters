@@ -1,17 +1,12 @@
 package controller;
 
 import fxapp.FXApplication;
-import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import model.User;
-import model.UserDatabaseInterface;
-
-import java.io.IOException;
+import services.UserDatabaseInterface;
 
 
 /**

@@ -36,11 +36,16 @@ public class WaterReportController {
     @FXML
     private TextField coordinates;
 
-    /** Converts the localDateTime to Date */
-    Date in = new Date();
-    LocalDateTime ldt = LocalDateTime.ofInstant(in.toInstant(), ZoneId.systemDefault());
-    Date out = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
-
+    /**
+     * Helper Function that converts LocalDateTime to Date
+     * @return out
+     */
+    private Date dateConverter() {
+        Date in = new Date();
+        LocalDateTime ldt = LocalDateTime.ofInstant(in.toInstant(), ZoneId.systemDefault());
+        Date out = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
+        return out;
+    }
 
     /** The window for this dialog */
     private Stage _dialogStage;
@@ -50,6 +55,9 @@ public class WaterReportController {
 
     /** flag to signal whether dialog was closed normally */
     private boolean _waterSourceReportCompleted = false;
+
+    public WaterReportController() {
+    }
 
     @FXML
     private void initialize() {
@@ -86,7 +94,7 @@ public class WaterReportController {
     private void handleWaterSourceSubmissionAttempt() throws IOException {
         if (this.isInputValid()) {
             //output user info to CSV
-            Model.addReport(new WaterSourceReport(out, Model.reportNumGenerator(), Model.getUser().getUname(), coordinates.getText(), (WaterType) waterType.getValue(), (SourceCondition) waterCondition.getValue()));
+            Model.addReport(new WaterSourceReport(dateConverter(), Model.reportNumGenerator(), Model.getUser().getUname(), coordinates.getText(), (WaterType) waterType.getValue(), (SourceCondition) waterCondition.getValue()));
 
             _waterSourceReportCompleted = true;
             app.backToLoginPage();

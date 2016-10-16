@@ -1,5 +1,6 @@
 package database;
 
+import model.Report;
 import model.User;
 import model.enums.AccountType;
 
@@ -49,7 +50,8 @@ public class MySQLdb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/bobbin", "root", "password");
+                    "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
+                            ".amazonaws.com:3306/bobbin", "root", "password");
 
             PreparedStatement ps = con.prepareStatement("UPDATE userInfo SET firstName = " +
                     "?, lastName = ?, email = ?, password = ? WHERE username = ?");
@@ -69,7 +71,8 @@ public class MySQLdb {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/bobbin", "root", "password");
+                    "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
+                            ".amazonaws.com:3306/bobbin", "root", "password");
 
             Statement stmt = con.createStatement();
             PreparedStatement ps = con.prepareStatement("select * from userInfo where " +
@@ -93,6 +96,19 @@ public class MySQLdb {
             System.out.println(e);
         }
         return null;
+    }
+
+    public static void addReport(Report report) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
+                            ".amazonaws.com:3306/bobbin", "root", "password");
+
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
 }

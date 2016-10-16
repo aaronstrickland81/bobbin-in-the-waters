@@ -64,7 +64,6 @@ public class ProfileController {
         if (this.isInputValid()) {
             aUser = updateUser(aUser);
             MySQLdb.updateUser(aUser);
-            UserDatabaseInterface.editUser(aUser);
             app.showMainPage();
         }
     }

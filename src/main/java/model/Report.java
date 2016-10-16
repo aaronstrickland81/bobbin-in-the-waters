@@ -10,14 +10,12 @@ import java.util.Date;
  */
 public abstract class Report {
     public final ObjectProperty<Date> _date = new SimpleObjectProperty<>();
-    public final ObjectProperty<Time> _time = new SimpleObjectProperty<>();
     public final IntegerProperty _reportNumber = new SimpleIntegerProperty();
     public final StringProperty _workername = new SimpleStringProperty();
     public final StringProperty _location = new SimpleStringProperty();
 
-    public Report(Date date, Time time, Integer reportnum, String name, String location) {
+    public Report(Date date, Integer reportnum, String name, String location) {
         set_date(date);
-        set_time(time);
         set_reportNumber(reportnum);
         set_workername(name);
         set_location(location);
@@ -35,17 +33,6 @@ public abstract class Report {
         this._date.set(_date);
     }
 
-    public Time get_time() {
-        return _time.get();
-    }
-
-    public ObjectProperty<Time> _timeProperty() {
-        return _time;
-    }
-
-    public void set_time(Time _time) {
-        this._time.set(_time);
-    }
 
     public int get_reportNumber() {
         return _reportNumber.get();

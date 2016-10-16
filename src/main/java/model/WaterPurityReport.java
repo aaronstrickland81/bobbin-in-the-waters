@@ -17,8 +17,8 @@ public class WaterPurityReport extends Report {
     public final IntegerProperty _chemPPM = new SimpleIntegerProperty();
 
 
-    public WaterPurityReport(Date date, Time time, Integer reportnum, String name, String location, PurityCondition cond, Integer virus, Integer chem) {
-        super(date, time, reportnum, name, location);
+    public WaterPurityReport(Date date, Integer reportnum, String name, String location, PurityCondition cond, Integer virus, Integer chem) {
+        super(date, reportnum, name, location);
         set_condition(cond);
         set_virusPPM(virus);
         set_chemPPM(chem);

@@ -40,8 +40,8 @@ public class WaterSourceReport extends Report {
         this._condition.set(_condition);
     }
 
-    public WaterSourceReport(Date date, Time time, Integer reportnum, String name, String location, WaterType type, SourceCondition cond) {
-        super(date, time, reportnum, name, location);
+    public WaterSourceReport(Date date, Integer reportnum, String name, String location, WaterType type, SourceCondition cond) {
+        super(date, reportnum, name, location);
         set_type(type);
         set_condition(cond);
     }

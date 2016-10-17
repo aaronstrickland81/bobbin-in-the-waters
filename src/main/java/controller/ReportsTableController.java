@@ -20,16 +20,16 @@ import java.util.Date;
 public class ReportsTableController {
 
     @FXML
-    private TableView reportTable;
+    private TableView<Report> reportTable;
 
     @FXML
-    private TableColumn reportNumCol;
+    private TableColumn<Report, Integer> reportNumCol;
 
     @FXML
-    private TableColumn dateOf;
+    private TableColumn<Report, Date> dateOf;
 
     @FXML
-    private TableColumn locationCol;
+    private TableColumn<Report, String> locationCol;
 
 
     /**
@@ -61,15 +61,15 @@ public class ReportsTableController {
     @FXML
     private void initialize() {
         //reportNumCol = new TableColumn("Report#");
-        reportNumCol.setCellFactory(
-                new PropertyValueFactory<Report, Integer>("reportNumber")
+        reportNumCol.setCellValueFactory(
+                new PropertyValueFactory<Report, Integer>("_reportNumber")
         );
         //dateOf = new TableColumn("DateOf");
-        dateOf.setCellFactory(
+        dateOf.setCellValueFactory(
                 new PropertyValueFactory<Report, Date>("_date")
         );
        // locationCol = new TableColumn("Location");
-        locationCol.setCellFactory(
+        locationCol.setCellValueFactory(
                 new PropertyValueFactory<Report, String>("_location")
         );
         reportTable.setItems(list);

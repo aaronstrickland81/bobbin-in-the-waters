@@ -70,4 +70,9 @@ public abstract class Report {
         this._location.set(_location);
     }
 
+    @Override
+    public String toString() {
+        return _reportNumber.get() + " " + _date.get() + " " + _location.get();
+    }
+
 }

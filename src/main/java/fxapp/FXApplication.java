@@ -274,6 +274,26 @@ public class FXApplication extends Application {
         }
     }
 
+    public void showWaterSourceReport() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource("../view/submitWaterSource.fxml"));
+            AnchorPane mainPage = loader.load();
+
+            Scene scene = new Scene(mainPage);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+            MainScreenController controller = loader.getController();
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
+            e.printStackTrace();
+        }
+    }
+
 
 
     public static void main(String[] args) {

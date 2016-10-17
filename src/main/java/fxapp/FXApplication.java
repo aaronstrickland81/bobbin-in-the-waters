@@ -7,6 +7,8 @@ package fxapp;
         import controller.MainScreenController;
         import controller.ProfileController;
         import controller.RegistrationController;
+        import controller.SubmitReportsController;
+        import controller.WaterReportController;
         import javafx.application.Application;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
@@ -240,7 +242,7 @@ public class FXApplication extends Application {
             mainScreen.setScene(scene);
             mainScreen.show();
 
-            RegistrationController controller = loader.getController();
+            MainScreenController controller = loader.getController();
             controller.setMainApp(this);
 
         } catch (IOException e) {
@@ -264,7 +266,7 @@ public class FXApplication extends Application {
             mainScreen.setScene(scene);
             mainScreen.show();
 
-            RegistrationController controller = loader.getController();
+            SubmitReportsController controller = loader.getController();
             controller.setMainApp(this);
 
         } catch (IOException e) {
@@ -284,7 +286,7 @@ public class FXApplication extends Application {
             mainScreen.setScene(scene);
             mainScreen.show();
 
-            MainScreenController controller = loader.getController();
+            WaterReportController controller = loader.getController();
             controller.setMainApp(this);
 
         } catch (IOException e) {

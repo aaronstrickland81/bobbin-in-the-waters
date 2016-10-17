@@ -7,6 +7,7 @@ package fxapp;
         import controller.MainScreenController;
         import controller.ProfileController;
         import controller.RegistrationController;
+        import controller.ReportsTableController;
         import controller.SubmitReportsController;
         import controller.WaterReportController;
         import javafx.application.Application;
@@ -242,7 +243,7 @@ public class FXApplication extends Application {
             mainScreen.setScene(scene);
             mainScreen.show();
 
-            MainScreenController controller = loader.getController();
+            ReportsTableController controller = loader.getController();
             controller.setMainApp(this);
 
         } catch (IOException e) {

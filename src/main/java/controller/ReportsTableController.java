@@ -76,6 +76,10 @@ public class ReportsTableController {
         //reportTable.getColumns().addAll(reportNumCol, dateOf, locationCol);
     }
 
+    @FXML
+    private void handleBack() {
+        app.showMainPage();
+    }
 
 
 }

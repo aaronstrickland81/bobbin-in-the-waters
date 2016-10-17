@@ -28,5 +28,5 @@ public class ReportsTableController {
 
     private Model model = Model.getInstance();
 
-    
+
 }

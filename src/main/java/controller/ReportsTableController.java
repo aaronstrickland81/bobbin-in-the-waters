@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 import model.Model;
 import model.Report;
 import model.enums.AccountType;
+import model.enums.SourceCondition;
+import model.enums.WaterType;
 
 import java.util.Date;
 
@@ -31,6 +33,11 @@ public class ReportsTableController {
     @FXML
     private TableColumn<Report, String> locationCol;
 
+    @FXML
+    private TableColumn<Report, WaterType> typeCol;
+
+    @FXML
+    private TableColumn<Report, SourceCondition> conditionCol;
 
     /**
      * The window for this dialog
@@ -72,6 +79,15 @@ public class ReportsTableController {
         locationCol.setCellValueFactory(
                 new PropertyValueFactory<Report, String>("_location")
         );
+
+        typeCol.setCellValueFactory(
+                new PropertyValueFactory<Report, WaterType>("_type")
+        );
+
+        conditionCol.setCellValueFactory(
+                new PropertyValueFactory<Report, SourceCondition>("_condition")
+        );
+
         reportTable.setItems(list);
         //reportTable.getColumns().addAll(reportNumCol, dateOf, locationCol);
     }

@@ -10,8 +10,12 @@
       <TableView fx:id="reportTable" layoutX="83.0" layoutY="28.0" prefHeight="345.0" prefWidth="435.0">
         <columns>
             <TableColumn fx:id="reportNumCol" prefWidth="50.0" text="Report#" />
-            <TableColumn fx:id="dateOf" prefWidth="100.0" text="Date" />
-            <TableColumn fx:id="locationCol" prefWidth="284.0" text="Location" />
+            <TableColumn fx:id="dateOf" prefWidth="84.0" text="Date"/>
+            <TableColumn fx:id="locationCol" prefWidth="100.0"
+                         text="Location"/>
+            <TableColumn fx:id="typeCol" prefWidth="100" text="Type"/>
+            <TableColumn fx:id="conditionCol" prefWidth="100.0"
+                         text="Condition"/>
         </columns>
       </TableView>
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />

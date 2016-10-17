@@ -58,7 +58,7 @@ public class Model {
     }
 
     public static int reportNumGenerator() {
-        return _reports.size();
+        return _reports.size() + 1;
     }
 
 }

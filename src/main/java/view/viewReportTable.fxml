@@ -4,16 +4,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/8.0.60"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.ReportsTableController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportsTableController">
    <children>
       <TableView fx:id="reportTable" layoutX="83.0" layoutY="28.0" prefHeight="345.0" prefWidth="435.0">
         <columns>
-          <TableColumn fx:id="reportName" prefWidth="434.0" text="Reports" />
+          <TableColumn fx:id="reportNumCol" prefWidth="434.0" text="Reports" />
+            <TableColumn fx:id="dateOf" prefWidth="434.0" text="Reports" />
+            <TableColumn fx:id="locationCol" prefWidth="434.0" text="Reports" />
         </columns>
       </TableView>
    </children>

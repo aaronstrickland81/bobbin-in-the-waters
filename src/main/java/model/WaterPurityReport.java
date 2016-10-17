@@ -13,11 +13,11 @@ import java.util.Date;
 public class WaterPurityReport extends Report {
 
     public final ObjectProperty<PurityCondition> _condition = new SimpleObjectProperty<>();
-    public final IntegerProperty _virusPPM = new SimpleIntegerProperty();
-    public final IntegerProperty _chemPPM = new SimpleIntegerProperty();
+    public final DoubleProperty _virusPPM = new SimpleDoubleProperty();
+    public final DoubleProperty _chemPPM = new SimpleDoubleProperty();
 
 
-    public WaterPurityReport(Date date, Integer reportnum, String name, String location, PurityCondition cond, Integer virus, Integer chem) {
+    public WaterPurityReport(Date date, Integer reportnum, String name, String location, PurityCondition cond, Double virus, Double chem) {
         super(date, reportnum, name, location);
         set_condition(cond);
         set_virusPPM(virus);
@@ -38,27 +38,27 @@ public class WaterPurityReport extends Report {
         this._condition.set(_Overall_condition);
     }
 
-    public int get_virusPPM() {
+    public double get_virusPPM() {
         return _virusPPM.get();
     }
 
-    public IntegerProperty _virusPPMProperty() {
+    public DoubleProperty _virusPPMProperty() {
         return _virusPPM;
     }
 
-    public void set_virusPPM(int _virusPPM) {
+    public void set_virusPPM(double _virusPPM) {
         this._virusPPM.set(_virusPPM);
     }
 
-    public int get_chemPPM() {
+    public double get_chemPPM() {
         return _chemPPM.get();
     }
 
-    public IntegerProperty _chemPPMProperty() {
+    public DoubleProperty _chemPPMProperty() {
         return _chemPPM;
     }
 
-    public void set_chemPPM(int _chemPPM) {
+    public void set_chemPPM(double _chemPPM) {
         this._chemPPM.set(_chemPPM);
     }
 }

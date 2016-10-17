@@ -108,6 +108,10 @@ public class WaterReportController {
         }
     }
 
+    @FXML
+    private void handleBack() {
+        app.showMainPage();
+    }
 
     @FXML
     private void handleCancel() {

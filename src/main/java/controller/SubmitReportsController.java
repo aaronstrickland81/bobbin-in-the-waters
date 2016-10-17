@@ -33,6 +33,11 @@ public class SubmitReportsController {
     }
 
     @FXML
+    private void handleBack() {
+        app.showMainPage();
+    }
+
+    @FXML
     private void handleSubmitWaterSourceReport() {
         app.showWaterSourceReport();
     }

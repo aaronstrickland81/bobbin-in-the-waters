@@ -13,7 +13,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="viewReports" layoutX="219.0" layoutY="101.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="135.0" text="View Reports" wrapText="true">
+      <Button fx:id="viewReports" layoutX="219.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleViewReports" prefHeight="139.0" prefWidth="135.0" text="View Reports" wrapText="true">
          <font>
             <Font size="21.0" />
          </font>

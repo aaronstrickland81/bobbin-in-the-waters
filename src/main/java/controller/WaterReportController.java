@@ -104,7 +104,7 @@ public class WaterReportController {
             Model.addReport(new WaterSourceReport(dateConverter(), Model.reportNumGenerator(), Model.getUser().getUname(), coordinates.getText(), (WaterType) waterType.getValue(), (SourceCondition) waterCondition.getValue()));
 
             _waterSourceReportCompleted = true;
-            app.backToLoginPage();
+            app.showMainPage();
         }
     }
 

@@ -8,7 +8,7 @@
    <children>
       <Button fx:id="logout" layoutX="236.0" layoutY="345.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="26.0" prefWidth="101.0" text="Logout" />
       <Button fx:id="editProfile" layoutX="497.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit Profile" />
-      <Button fx:id="submitReports" layoutX="66.0" layoutY="101.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="135.0" text="Submit Reports" wrapText="true">
+      <Button fx:id="submitReports" layoutX="66.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleSubmitReports" prefHeight="139.0" prefWidth="135.0" text="Submit Reports" wrapText="true">
          <font>
             <Font size="20.0" />
          </font>

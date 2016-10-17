@@ -43,6 +43,12 @@ public class ProfileController {
     @FXML
     private PasswordField newPassword;
 
+    @FXML
+    private TextField homeAddress;
+
+    @FXML
+    private TextField title;
+
     /** Called automatically upon load */
     @FXML
     private void initialize() {
@@ -50,6 +56,8 @@ public class ProfileController {
         firstName.setText(aUser.getFname());
         lastName.setText(aUser.getLname());
         email.setText(aUser.getEmail());
+        homeAddress.setText(aUser.getHomeAddress());
+        title.setText(aUser.getTitle());
     }
 
 
@@ -76,6 +84,8 @@ public class ProfileController {
         user.setFname(firstName.getText());
         user.setLname(lastName.getText());
         user.setEmail(email.getText());
+        user.setHomeAddress(homeAddress.getText());
+        user.setTitle(title.getText());
         if (newPassword != null && newPassword.getText().length() != 0) {
             user.setPassword(newPassword.getText());
         }

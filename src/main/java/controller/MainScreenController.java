@@ -65,6 +65,16 @@ public class MainScreenController {
     }
 
     @FXML
+    private void handleSubmitReports() {
+        app.showSubmitReports();
+    }
+
+    @FXML
+    private void handleViewReports() {
+        app.showViewReports();
+    }
+
+    @FXML
     private void handleEdit() {
         app.showEditPage();
     }

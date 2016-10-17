@@ -1,6 +1,5 @@
 package controller;
 
-import database.MySQLdb;
 import fxapp.FXApplication;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -91,8 +90,8 @@ public class RegistrationController {
                     (AccountType) accountTypeComboBox.getValue(), emailField
                     .getText(), firstNameField.getText(), lastNameField.getText());
             UserDatabaseInterface.addUser(user);
-            /*if (!MySQLdb.checkUserExists(user)) {
-                MySQLdb.addUser(user);
+            /*if (!UserInfoTable.checkUserExists(user)) {
+                UserInfoTable.addUser(user);
                 _registrationCompleted = true;
                 app.backToLoginPage();
             } else {

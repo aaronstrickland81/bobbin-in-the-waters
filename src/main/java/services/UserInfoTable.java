@@ -1,6 +1,5 @@
-package database;
+package services;
 
-import model.Report;
 import model.User;
 import model.enums.AccountType;
 
@@ -8,12 +7,10 @@ import java.sql.*;
 
 import static model.enums.AccountType.getType;
 
-
 /**
- * Created by kavish on 10/8/16.
+ * Created by kavish on 10/16/16.
  */
-public class MySQLdb {
-
+public class UserInfoTable {
 
     /**
      * Adds new user to database
@@ -61,12 +58,17 @@ public class MySQLdb {
                             ".amazonaws.com:3306/bobbin", "root", "password");
 
             PreparedStatement ps = con.prepareStatement("UPDATE userInfo SET firstName = " +
-                    "?, lastName = ?, email = ?, password = ? WHERE username = ?");
+                    "?, lastName = ?, email = ?, password = ?, address = ?, " +
+                    "title = ?" +
+                    " WHERE " +
+                    "username = ?");
             ps.setString(1, user.getFname());
             ps.setString(2, user.getLname());
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getPassword());
             ps.setString(5, user.getUname());
+            ps.setString(6, user.getHomeAddress());
+            ps.setString(7, user.getTitle());
             con.close();
 
         } catch (Exception e) {
@@ -112,6 +114,12 @@ public class MySQLdb {
         return null;
     }
 
+    /**
+     * Checks to see if the username is already in the table
+     *
+     * @param user The user attempting to register
+     * @return A boolean if user exists or not
+     */
     public static boolean checkUserExists(User user) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -134,32 +142,4 @@ public class MySQLdb {
         }
         return false;
     }
-
-    /**
-     * Add a new report to the database
-     *
-     * @param report
-     */
-    public static void addReport(Report report) {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
-                            ".amazonaws.com:3306/bobbin", "root", "password");
-            String query = " insert into userInfo (date, reportNumber, " +
-                    "username, location) "
-                    + "    values (?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setDate(1, (Date) report.get_date());
-            ps.setInt(2, report.get_reportNumber());
-            ps.setString(3, report.get_workername());
-            ps.setString(4, report.get_location());
-            con.close();
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
-
-
 }

@@ -1,8 +1,31 @@
 package model.enums;
 
+
 /**
  * Created by Neil on 10/16/2016.
  */
 public enum SourceCondition {
-    Waste, Treatable_Clear, Treatable_Muddy, Potable;
+    WASTE("Waste"),
+    TREATABLE_CLEAR("Treatable_Clear"),
+    TREATABLE_MUDDY("Treatable_Muddy"),
+    POTABLE("Potable");
+
+    String cond;
+
+    SourceCondition(String str) {
+        this.cond = str;
+    }
+
+    public String toString() {
+        return cond;
+    }
+
+    public static SourceCondition getCondition(String tString) {
+        for (SourceCondition t : SourceCondition.values()) {
+            if (t.toString().equals(tString)) {
+                return t;
+            }
+        }
+        return null;
+    }
 }

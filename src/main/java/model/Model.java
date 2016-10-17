@@ -1,6 +1,5 @@
 package model;
 
-import database.MySQLdb;
 
 import java.util.ArrayList;
 
@@ -50,7 +49,7 @@ public class Model {
     public static void addReport(Report report) {
         _reports.add(report);
         if (report instanceof WaterSourceReport) {
-            //MySQLdb.addSourceReport(report);
+            //UserInfoTable.addSourceReport(report);
         }
     }
 

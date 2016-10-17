@@ -1,6 +1,5 @@
 package controller;
 
-import database.MySQLdb;
 import fxapp.FXApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;

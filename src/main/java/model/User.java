@@ -148,7 +148,9 @@ public class User {
                 , aUser.getType()
                 , aUser.getEmail()
                 , aUser.getFname()
-                , aUser.getLname());
+                , aUser.getLname()
+                , aUser.getHomeAddress()
+                , aUser.getTitle());
     }
 
     @Override
@@ -173,7 +175,7 @@ public class User {
     public String toString() {
         return this.uname.get() + "," + this.password.get() + ","
                 + this.type.get().toString() + "," + this.email.get() + ","
-                + this.fname.get() + "," + this.lname.get() + "," + this
-                .homeAddress.get() + "," + this.title.get();
+                + this.fname.get() + "," + this.lname.get() + ","
+                + this.homeAddress.get() + "," + this.title.get();
     }
 }

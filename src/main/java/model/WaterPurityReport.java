@@ -17,8 +17,11 @@ public class WaterPurityReport extends Report {
     public final DoubleProperty _chemPPM = new SimpleDoubleProperty();
 
 
-    public WaterPurityReport(Date date, Integer reportnum, String name, String location, PurityCondition cond, Double virus, Double chem) {
-        super(date, reportnum, name, location);
+    public WaterPurityReport(Date date, Integer reportnum, String name,
+                             Double longitude, Double latitude,
+                             PurityCondition cond,
+                             Double virus, Double chem) {
+        super(date, reportnum, name, longitude, latitude);
         set_condition(cond);
         set_virusPPM(virus);
         set_chemPPM(chem);

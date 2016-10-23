@@ -43,7 +43,7 @@ public class SourceReportInfo {
     /**
      * @return
      */
-    public static ArrayList<WaterSourceReport> getReports() {
+    /*public static ArrayList<WaterSourceReport> getReports() {
         ArrayList<WaterSourceReport> aList = new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -66,6 +66,6 @@ public class SourceReportInfo {
             System.out.println(e);
         }
         return aList;
-    }
+    }*/
 
 }

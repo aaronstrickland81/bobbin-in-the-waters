@@ -18,6 +18,7 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 
 /**
@@ -35,7 +36,10 @@ public class WaterReportController {
     private ComboBox waterCondition;
 
     @FXML
-    private TextField coordinates;
+    private TextField longitude;
+
+    @FXML
+    private TextField latitude;
 
     @FXML
     private Button cancel;
@@ -101,7 +105,11 @@ public class WaterReportController {
     private void handleWaterSourceSubmissionAttempt() throws IOException {
         if (this.isInputValid()) {
             //output user info to CSV
-            Model.addReport(new WaterSourceReport(dateConverter(), Model.reportNumGenerator(), Model.getUser().getUname(), coordinates.getText(), (WaterType) waterType.getValue(), (SourceCondition) waterCondition.getValue()));
+            Model.addReport(new WaterSourceReport(dateConverter(), Model
+                    .reportNumGenerator(), Model.getUser().getUname(),
+                    Double.parseDouble(longitude.getText()), Double.parseDouble(latitude.getText()),
+                    (WaterType) waterType.getValue(),
+                    (SourceCondition) waterCondition.getValue()));
 
             _waterSourceReportCompleted = true;
             app.showMainPage();
@@ -126,8 +134,17 @@ public class WaterReportController {
         String errorMessage = "";
 
         //for now just check they actually typed something
-        if (coordinates.getText() == null || coordinates.getText().length() == 0) {
-            errorMessage += "No coordinates entered\n";
+        if (longitude.getText() == null || longitude.getText().length() == 0) {
+            errorMessage += "No longitude entered\n";
+        } else if (!validDouble(longitude.getText())) {
+            errorMessage += "That is not a valid longitude. Please give a " +
+                    "number\n";
+        }
+        if (latitude.getText() == null || latitude.getText().length() == 0) {
+            errorMessage += "No latitude entered\n";
+        } else if (!validDouble(latitude.getText())) {
+            errorMessage += "That is not a valid latitude. Please give a " +
+                    "number\n";
         }
         if (waterType.getValue() == null) {
             errorMessage += "No water type selected\n";
@@ -148,6 +165,31 @@ public class WaterReportController {
 
             alert.showAndWait();
 
+            return false;
+        }
+    }
+
+    /**
+     * Validates if the lat and long inputs are valid doubles
+     *
+     * @param str
+     * @return
+     */
+    private boolean validDouble(String str) {
+        final String Digits = "(\\p{Digit}+)";
+        final String HexDigits = "(\\p{XDigit}+)";
+        final String Exp = "[eE][+-]?" + Digits;
+        final String fpRegex =
+                ("[\\x00-\\x20]*[+-]?(NaN|Infinity|(((" + Digits + "(\\.)?" +
+                        "(" + Digits + "?)(" + Exp + ")?)|(\\.(" + Digits + ")(" +
+                        Exp + ")?)|"
+                        + "(((0[xX]" + HexDigits + "(\\.)?)|(0[xX]" + HexDigits + "?(\\.)" + HexDigits + ")"
+                        + ")[pP][+-]?" + Digits + "))" +
+                        "[fFdD]?))" +
+                        "[\\x00-\\x20]*");
+        if (Pattern.matches(fpRegex, str)) {
+            return true;
+        } else {
             return false;
         }
     }

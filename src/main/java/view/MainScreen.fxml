@@ -18,7 +18,7 @@
             <Font size="21.0" />
          </font>
       </Button>
-      <Button fx:id="viewMap" layoutX="373.0" layoutY="101.0" mnemonicParsing="false" prefHeight="139.0" prefWidth="135.0" text="View Water Availibility Map" wrapText="true">
+      <Button fx:id="viewMap" layoutX="373.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleViewMap" prefHeight="139.0" prefWidth="135.0" text="View Water Availibility Map" wrapText="true">
          <font>
             <Font size="20.0" />
          </font>

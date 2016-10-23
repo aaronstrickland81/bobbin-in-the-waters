@@ -75,6 +75,11 @@ public class MainScreenController {
     }
 
     @FXML
+    private void handleViewMap() {
+        app.showMapPage();
+    }
+
+    @FXML
     private void handleEdit() {
         app.showEditPage();
     }

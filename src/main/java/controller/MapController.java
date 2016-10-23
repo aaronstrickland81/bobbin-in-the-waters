@@ -9,6 +9,7 @@ import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import fxapp.FXApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.BorderPane;
 import model.Model;
 import model.Report;
 
@@ -24,6 +25,9 @@ public class MapController implements Initializable, MapComponentInitializedList
 
     @FXML
     GoogleMapView mapView;
+
+    @FXML
+    BorderPane border;
 
     GoogleMap map;
 
@@ -48,6 +52,8 @@ public class MapController implements Initializable, MapComponentInitializedList
 
     @Override
     public void mapInitialized() {
+        mapView.setPrefHeight(border.getHeight());
+        mapView.setPrefWidth(border.getWidth());
         MapOptions options = new MapOptions();
 
         //set up the center location for the map

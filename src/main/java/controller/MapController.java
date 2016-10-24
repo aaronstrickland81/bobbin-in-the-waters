@@ -7,6 +7,7 @@ import com.lynden.gmapsfx.javascript.object.*;
 import fxapp.FXApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import model.Model;
 import model.Report;
@@ -105,7 +106,10 @@ public class MapController implements Initializable, MapComponentInitializedList
             map.addMarker(marker);
 
         }
+    }
 
-
+    @FXML
+    private void handleBack() {
+        app.showMainPage();
     }
 }

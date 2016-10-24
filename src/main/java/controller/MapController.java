@@ -2,16 +2,17 @@ package controller;
 
 import com.lynden.gmapsfx.GoogleMapView;
 import com.lynden.gmapsfx.MapComponentInitializedListener;
-import com.lynden.gmapsfx.javascript.object.GoogleMap;
-import com.lynden.gmapsfx.javascript.object.LatLong;
-import com.lynden.gmapsfx.javascript.object.MapOptions;
-import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
+import com.lynden.gmapsfx.javascript.event.UIEventType;
+import com.lynden.gmapsfx.javascript.object.*;
 import fxapp.FXApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import model.Model;
 import model.Report;
+import model.WaterPurityReport;
+import model.WaterSourceReport;
+import netscape.javascript.JSObject;
 
 import java.net.URL;
 import java.util.List;
@@ -77,7 +78,33 @@ public class MapController implements Initializable, MapComponentInitializedList
         Model model = Model.getInstance();
 
         List<Report> reports = Model.getReports();
+        for (Report r: reports) {
+            MarkerOptions markerOptions = new MarkerOptions();
+            LatLong loc = new LatLong(r.get_latitude(), r.get_longitude());
+            String titleString = "";
+            if (r instanceof WaterPurityReport) {
+                titleString = "Water Purity Report";
+            } else if (r instanceof WaterSourceReport) {
+                titleString = "Water Source Report";
+            }
+            markerOptions.position(loc)
+                    .visible(Boolean.TRUE)
+                    .title(titleString);
 
+            Marker marker = new Marker(markerOptions);
+
+            map.addUIEventHandler(marker,
+                    UIEventType.click,
+                    (JSObject obj) -> {
+                        InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
+                        infoWindowOptions.content(r.toString());
+
+                        InfoWindow window = new InfoWindow(infoWindowOptions);
+                        window.open(map, marker);});
+
+            map.addMarker(marker);
+
+        }
 
 
     }

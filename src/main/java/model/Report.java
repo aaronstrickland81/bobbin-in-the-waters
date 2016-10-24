@@ -106,7 +106,9 @@ public abstract class Report {
 
     @Override
     public String toString() {
-        return _reportNumber.get() + " " + _date.get() + " " + _location.get();
+        return _reportNumber.get() + " submitted on "
+                + _date.get() + " at location "
+                + _location.get();
     }
 
 }

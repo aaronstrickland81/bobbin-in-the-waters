@@ -64,4 +64,8 @@ public class WaterPurityReport extends Report {
     public void set_chemPPM(double _chemPPM) {
         this._chemPPM.set(_chemPPM);
     }
+
+    public String toString() {
+        return super.toString() + " of condition " + get_condition();
+    }
 }

@@ -50,6 +50,7 @@ public class WaterSourceReport extends Report {
     }
 
     public String toString() {
-        return super.toString() + " of type " + get_type();
+        return super.toString() + " of type " + get_type() + " and condition "
+                + get_condition();
     }
 }

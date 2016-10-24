@@ -100,13 +100,13 @@ public abstract class Report {
     }
 
     public void set_latitude(Double _latitude) {
-        this._longitude.set(_latitude);
+        this._latitude.set(_latitude);
     }
 
 
     @Override
     public String toString() {
-        return _reportNumber.get() + " submitted on "
+        return "Report #" + _reportNumber.get() + " submitted on "
                 + _date.get() + " at location "
                 + _location.get();
     }

@@ -8,3 +8,12 @@
 .loginText {
     -fx-text-fill: white;
 }
+
+.loginButton {
+    -fx-background-color: rgba(255,255,255, .80);
+}
+
+.loginTBox {
+    -fx-background-color: rgba(63,63,63, .80);
+    -fx-text-fill: white;
+}

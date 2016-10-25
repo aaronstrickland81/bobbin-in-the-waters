@@ -10,17 +10,17 @@ import java.util.Date;
 /**
  * Created by Neil on 10/11/2016.
  */
-public class WaterPurityReport extends Report {
+public class WaterQualityReport extends Report {
 
     public final ObjectProperty<PurityCondition> _condition = new SimpleObjectProperty<>();
     public final DoubleProperty _virusPPM = new SimpleDoubleProperty();
     public final DoubleProperty _chemPPM = new SimpleDoubleProperty();
 
 
-    public WaterPurityReport(Date date, Integer reportnum, String name,
-                             Double longitude, Double latitude,
-                             PurityCondition cond,
-                             Double virus, Double chem) {
+    public WaterQualityReport(Date date, Integer reportnum, String name,
+                              Double longitude, Double latitude,
+                              PurityCondition cond,
+                              Double virus, Double chem) {
         super(date, reportnum, name, longitude, latitude);
         set_condition(cond);
         set_virusPPM(virus);

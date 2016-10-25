@@ -65,7 +65,13 @@ public class WaterPurityReport extends Report {
         this._chemPPM.set(_chemPPM);
     }
 
+    @Override
+    public String getTitle() {
+        return "Water Purity Report";
+    }
+
+    @Override
     public String toString() {
-        return super.toString() + " of condition " + get_condition();
+        return super.toString() + "<p>Condition: " + get_condition() + "</p>";
     }
 }

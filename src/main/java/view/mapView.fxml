@@ -16,7 +16,7 @@
             <GoogleMapView fx:id="mapView" prefHeight="400.0" prefWidth="600.0"
                            BorderPane.alignment="CENTER">
                 <children>
-                    <Button mnemonicParsing="false" onAction="#handleBack"
+                    <Button layoutX="540" layoutY="340" mnemonicParsing="false" onAction="#handleBack"
                             text="Back"/>
                 </children>
             </GoogleMapView>

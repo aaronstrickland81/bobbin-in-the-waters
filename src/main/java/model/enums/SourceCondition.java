@@ -6,8 +6,8 @@ package model.enums;
  */
 public enum SourceCondition {
     WASTE("Waste"),
-    TREATABLE_CLEAR("Treatable_Clear"),
-    TREATABLE_MUDDY("Treatable_Muddy"),
+    TREATABLE_CLEAR("Treatable Clear"),
+    TREATABLE_MUDDY("Treatable Muddy"),
     POTABLE("Potable");
 
     String cond;

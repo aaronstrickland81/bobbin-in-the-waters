@@ -82,15 +82,10 @@ public class MapController implements Initializable, MapComponentInitializedList
         for (Report r: reports) {
             MarkerOptions markerOptions = new MarkerOptions();
             LatLong loc = new LatLong(r.get_latitude(), r.get_longitude());
-            String titleString = "";
-            if (r instanceof WaterPurityReport) {
-                titleString = "Water Purity Report";
-            } else if (r instanceof WaterSourceReport) {
-                titleString = "Water Source Report";
-            }
+
             markerOptions.position(loc)
                     .visible(Boolean.TRUE)
-                    .title(titleString);
+                    .title(r.getTitle());
 
             Marker marker = new Marker(markerOptions);
 

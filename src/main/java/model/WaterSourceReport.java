@@ -49,8 +49,12 @@ public class WaterSourceReport extends Report {
         set_condition(cond);
     }
 
+    @Override
+    public String getTitle() {
+        return "Water Source Report";
+    }
     public String toString() {
-        return super.toString() + " of type " + get_type() + " and condition "
-                + get_condition();
+        return super.toString() + "<p>Type: " + get_type() + "</p>"
+                                + "<p>Condition: " + get_condition() + "</p>";
     }
 }

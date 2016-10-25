@@ -21,7 +21,7 @@ public abstract class Report {
         set_date(date);
         set_reportNumber(reportnum);
         set_workername(name);
-        set_location(longitude + "," + latitude);
+        set_location(longitude + " Long, " + latitude + " Lat");
         set_longitude(longitude);
         set_latitude(latitude);
     }
@@ -103,12 +103,20 @@ public abstract class Report {
         this._latitude.set(_latitude);
     }
 
+    /**
+     * Returns a string representation of the
+     * type of water report
+     *
+     * @return the title of water report.
+     */
+    public abstract String getTitle();
 
     @Override
     public String toString() {
-        return "Report #" + _reportNumber.get() + " submitted on "
-                + _date.get() + " at location "
-                + _location.get();
+        return "<h2>" + this.getTitle() + "</h2>"
+                + "<p>Report #" + _reportNumber.get()
+                + " submitted on " + _date.get() + "</p>"
+                + "<p>Location: " + _location.get() + "</p></br>";
     }
 
 }

@@ -14,7 +14,9 @@ public class Model {
 
 
     /**ArrayList of all reports **/
-    private static ArrayList<Report> _reports = new ArrayList<>();
+    private static ArrayList<WaterSourceReport> _sourceReports = new ArrayList<>();
+
+    private static ArrayList<WaterPurityReport> _qualityReports = new ArrayList<>();
 
     public static Model getInstance() {
         return instance;
@@ -45,20 +47,29 @@ public class Model {
     }
 
 
-
-    public static void addReport(Report report) {
-        _reports.add(report);
-        if (report instanceof WaterSourceReport) {
-            //UserInfoTable.addSourceReport(report);
-        }
+    public static void addSourceReport(WaterSourceReport report) {
+        _sourceReports.add(report);
     }
 
-    public static ArrayList<Report> getReports() {
-        return _reports;
+    public static ArrayList<WaterSourceReport> getSourceReports() {
+        return _sourceReports;
     }
 
-    public static int reportNumGenerator() {
-        return _reports.size() + 1;
+    public static int sourceNumGenerator() {
+        return _sourceReports.size() + 1;
+    }
+
+
+    public static void addQualityReport(WaterPurityReport report) {
+        _qualityReports.add(report);
+    }
+
+    public static ArrayList<WaterPurityReport> getQualityReports() {
+        return _qualityReports;
+    }
+
+    public static int qualityNumGenerator() {
+        return _qualityReports.size() + 1;
     }
 
 }

@@ -7,12 +7,9 @@ import com.lynden.gmapsfx.javascript.object.*;
 import fxapp.FXApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import model.Model;
 import model.Report;
-import model.WaterPurityReport;
-import model.WaterSourceReport;
 import netscape.javascript.JSObject;
 
 import java.net.URL;
@@ -78,7 +75,7 @@ public class MapController implements Initializable, MapComponentInitializedList
 
         Model model = Model.getInstance();
 
-        List<Report> reports = Model.getReports();
+        List<Report> reports = Model.getSourceReports();
         for (Report r: reports) {
             MarkerOptions markerOptions = new MarkerOptions();
             LatLong loc = new LatLong(r.get_latitude(), r.get_longitude());

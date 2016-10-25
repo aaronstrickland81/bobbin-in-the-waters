@@ -10,7 +10,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Model;
 import model.Report;
-import model.enums.AccountType;
 import model.enums.SourceCondition;
 import model.enums.WaterType;
 
@@ -49,7 +48,7 @@ public class ReportsTableController {
 
     private Model model = Model.getInstance();
 
-    private ObservableList<Report> list = FXCollections.observableList(Model.getReports());
+    private ObservableList<Report> list = FXCollections.observableList(Model.getSourceReports());
 
     public void setMainApp(FXApplication fxapp) {
         app = fxapp;

@@ -14,9 +14,9 @@ public class Model {
 
 
     /**ArrayList of all reports **/
-    private static ArrayList<WaterSourceReport> _sourceReports = new ArrayList<>();
+    private static ArrayList<Report> _sourceReports = new ArrayList<>();
 
-    private static ArrayList<WaterQualityReport> _qualityReports = new ArrayList<>();
+    private static ArrayList<Report> _qualityReports = new ArrayList<>();
 
     public static Model getInstance() {
         return instance;
@@ -51,7 +51,7 @@ public class Model {
         _sourceReports.add(report);
     }
 
-    public static ArrayList<WaterSourceReport> getSourceReports() {
+    public static ArrayList<Report> getSourceReports() {
         return _sourceReports;
     }
 
@@ -64,7 +64,7 @@ public class Model {
         _qualityReports.add(report);
     }
 
-    public static ArrayList<WaterQualityReport> getQualityReports() {
+    public static ArrayList<Report> getQualityReports() {
         return _qualityReports;
     }
 

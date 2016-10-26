@@ -1,18 +1,14 @@
 package controller;
 
 import fxapp.FXApplication;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.AccountType;
+import model.Model;
 import model.User;
-import model.UserDatabaseInterface;
-
-import java.io.IOException;
+import services.UserDatabaseInterface;
 
 
 /**
@@ -22,6 +18,8 @@ public class ProfileController {
     private Stage _dialogStage;
 
     private FXApplication app;
+
+    private Model model = Model.getInstance();
 
     public void setDialogStage(Stage dialogStage) {
         _dialogStage = dialogStage;
@@ -53,7 +51,7 @@ public class ProfileController {
     /** Called automatically upon load */
     @FXML
     private void initialize() {
-        aUser = FXApplication.getUser();
+        aUser = Model.getUser();
         firstName.setText(aUser.getFname());
         lastName.setText(aUser.getLname());
         email.setText(aUser.getEmail());
@@ -74,7 +72,8 @@ public class ProfileController {
     @FXML
     private void handleSave() {
         if (this.isInputValid()) {
-            aUser = (updateUser(aUser));
+            aUser = updateUser(aUser);
+            //UserInfoTable.updateUser(aUser);
             UserDatabaseInterface.editUser(aUser);
             app.showMainPage();
         }

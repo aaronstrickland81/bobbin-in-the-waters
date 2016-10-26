@@ -8,11 +8,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.AccountType;
+import model.enums.AccountType;
 import model.User;
-import model.UserDatabaseInterface;
+import services.UserDatabaseInterface;
 
-import javax.lang.model.type.PrimitiveType;
 import java.io.*;
 
 /**
@@ -87,8 +86,22 @@ public class RegistrationController {
     private void handleRegistrationAttempt() throws IOException {
         if (this.isInputValid()) {
             //output user info to CSV
-            UserDatabaseInterface.addUser(new User(userField.getText(), passField.getText(), (AccountType) accountTypeComboBox.getValue(), emailField.getText(), firstNameField.getText(), lastNameField.getText()));
-
+            User user = new User(userField.getText(), passField.getText(),
+                    (AccountType) accountTypeComboBox.getValue(), emailField
+                    .getText(), firstNameField.getText(), lastNameField.getText());
+            UserDatabaseInterface.addUser(user);
+            /*if (!UserInfoTable.checkUserExists(user)) {
+                UserInfoTable.addUser(user);
+                _registrationCompleted = true;
+                app.backToLoginPage();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.initOwner(_dialogStage);
+                alert.setTitle("Please Choose Another Username ");
+                alert.setHeaderText("Username already exists");
+                alert.setContentText("Choose another username");
+                alert.showAndWait();
+            }*/
             _registrationCompleted = true;
             app.backToLoginPage();
         }

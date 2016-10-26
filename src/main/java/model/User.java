@@ -4,9 +4,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.scene.SnapshotResult;
-
-import java.util.HashMap;
+import model.enums.AccountType;
 
 /**
  * Created by Neil on 9/20/2016.
@@ -18,17 +16,37 @@ public class User {
      * Private fields for username, password, firstname, lastname
      */
     public final StringProperty uname = new SimpleStringProperty();
-
     public final StringProperty email = new SimpleStringProperty();
+<<<<<<< HEAD
 
     public final StringProperty homeAddress = new SimpleStringProperty();
 
     public final StringProperty title = new SimpleStringProperty();
 
+=======
+    public final StringProperty homeAddress = new SimpleStringProperty();
+    public final StringProperty title = new SimpleStringProperty();
+>>>>>>> development
     public final StringProperty password = new SimpleStringProperty();
     public final StringProperty fname = new SimpleStringProperty();
     public final StringProperty lname = new SimpleStringProperty();
     public final ObjectProperty<AccountType> type = new SimpleObjectProperty<>();
+
+    public String getHomeAddress() {
+        return homeAddress.get();
+    }
+
+    public void setHomeAddress(String newhAddress) {
+        homeAddress.set(newhAddress);
+    }
+
+    public String getTitle() {
+        return title.get();
+    }
+
+    public void setTitle(String newTitle) {
+        title.set(newTitle);
+    }
 
     public String getHomeAddress() {
         return homeAddress.get();
@@ -126,14 +144,22 @@ public class User {
      * @param pass password
      * @param type account type
      */
-    public User(String user, String pass, AccountType type,  String email, String fname, String lname  ) {
+    public User(String user, String pass, AccountType type, String email, String fname, String lname) {
+        this(user, pass, type, email, fname, lname, "", "");
+    }
+
+    public User(String user, String pass, AccountType type, String email,
+                String fname, String lname, String address, String title) {
         setUname(user);
         setFname(fname);
         setLname(lname);
         setEmail(email);
         setPassword(pass);
         setType(type);
+        setHomeAddress(address);
+        setTitle(title);
     }
+
 
     public User(String user, String pass) {
         this(user,pass, AccountType.USER, "", "", "");
@@ -145,7 +171,9 @@ public class User {
                 , aUser.getType()
                 , aUser.getEmail()
                 , aUser.getFname()
-                , aUser.getLname());
+                , aUser.getLname()
+                , aUser.getHomeAddress()
+                , aUser.getTitle());
     }
 
     @Override
@@ -170,6 +198,7 @@ public class User {
     public String toString() {
         return this.uname.get() + "," + this.password.get() + ","
                 + this.type.get().toString() + "," + this.email.get() + ","
-                + this.fname.get() + "," + this.lname.get();
+                + this.fname.get() + "," + this.lname.get() + ","
+                + this.homeAddress.get() + "," + this.title.get();
     }
 }

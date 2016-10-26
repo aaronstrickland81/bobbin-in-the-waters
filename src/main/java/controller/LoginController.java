@@ -1,17 +1,13 @@
 package controller;
 
 import fxapp.FXApplication;
-import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
-import model.User;
-import model.UserDatabaseInterface;
-
-import java.io.IOException;
+import model.Model;
+import services.UserDatabaseInterface;
 
 
 /**
@@ -34,6 +30,8 @@ public class LoginController {
 
     // REf to FX APP
     private FXApplication app;
+
+    private Model model = Model.getInstance();
 
 
     /** flag to signal whether dialog was closed normally */
@@ -69,16 +67,18 @@ public class LoginController {
     private void handleLoginAttempt() {
 
         if (isInputValid()) {
-            FXApplication.setUser(UserDatabaseInterface.verifyUser(userField.getText(), pwField.getText()));
+
+            Model.setUser(UserDatabaseInterface.verifyUser(userField
+                    .getText(), pwField.getText()));
             String errorMessage = "";
 
-            if (FXApplication.getUser() == null) {
+            if (Model.getUser() == null) {
                 _loginAuthenticated = false;
                 // Show the error message if bad data
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.initOwner(_dialogStage);
-                alert.setTitle("Incorrect password and/or username ");
-                alert.setHeaderText("Please correct invalid fields");
+                alert.setTitle("Please Correct Invalid Fields ");
+                alert.setHeaderText("Incorrect password and/or username");
                 alert.setContentText(errorMessage);
 
                 alert.showAndWait();

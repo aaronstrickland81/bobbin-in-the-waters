@@ -1,4 +1,7 @@
-package model;
+package services;
+
+import model.User;
+import model.enums.AccountType;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -122,11 +125,17 @@ public class UserDatabaseInterface {
      * Updates database with changes.
      */
     public static void close() throws IOException {
+
         FileWriter in = new FileWriter(new File("./src/main/resources/users.csv"), false);
+//        FileOutputStream fw = new FileOutputStream(new File("./src/main/resources/users.csv"));
+//        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fw));
+//        String userInfo = "";
         for (User _user : userData) {
             String userInfo = _user.toString() + "\n";
             in.append(userInfo);
         }
+//        bw.write(userInfo);
+//        bw.close();
         in.close();
     }
 }

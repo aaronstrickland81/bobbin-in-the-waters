@@ -3,8 +3,10 @@ package controller;
 import fxapp.FXApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.control.ButtonType;
+import model.Model;
 
 import java.util.Optional;
 
@@ -13,10 +15,23 @@ import java.util.Optional;
  */
 public class MainScreenController {
 
+    /** references to FXML Widgets */
+    @FXML
+    private Button submitReports;
+
+    @FXML
+    private Button viewReports;
+
+    @FXML
+    private Button viewMap;
+
+
     private Stage _dialogStage;
     private Boolean _logoutPressed;
 
     private FXApplication app;
+
+    private Model model = Model.getInstance();
 
     public void setDialogStage(Stage dialogStage) {
         _dialogStage = dialogStage;
@@ -42,11 +57,26 @@ public class MainScreenController {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             _logoutPressed = true;
-            FXApplication.setUser(null);
+            Model.setUser(null);
             app.backToLoginPage();
         } else {
             _logoutPressed = false;
         }
+    }
+
+    @FXML
+    private void handleSubmitReports() {
+        app.showSubmitReports();
+    }
+
+    @FXML
+    private void handleViewReports() {
+        app.showViewReports();
+    }
+
+    @FXML
+    private void handleViewMap() {
+        app.showMapPage();
     }
 
     @FXML

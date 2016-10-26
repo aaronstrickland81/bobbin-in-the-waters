@@ -4,11 +4,8 @@ package fxapp;
 //        import controller.MainScreenController;
 //        import controller.StudentEditController;
 
-        import controller.MainScreenController;
-        import controller.ProfileController;
-        import controller.RegistrationController;
+        import controller.*;
         import javafx.application.Application;
-        import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Scene;
         import javafx.scene.layout.AnchorPane;
@@ -16,8 +13,7 @@ package fxapp;
         import javafx.stage.Stage;
 
         import model.User;
-        import controller.LoginController;
-        import model.UserDatabaseInterface;
+        import services.UserDatabaseInterface;
 
         import java.io.IOException;
         import java.util.logging.Level;
@@ -31,7 +27,7 @@ package fxapp;
  */
 public class FXApplication extends Application {
     /**  the java logger for this class */
-    private static final Logger LOGGER =Logger.getLogger("FXApplication");
+    private static final Logger LOGGER = Logger.getLogger("FXApplication");
 
     /** the main container for the application window */
     private Stage mainScreen;
@@ -39,30 +35,7 @@ public class FXApplication extends Application {
     /** the main layout for the main window */
     private BorderPane rootLayout;
 
-    /** the current, logged in user */
-    private static User _user;
 
-    /**
-     * Sets the logged in user to the input user
-     *
-     * @param aUser The user that is currently logged in
-     */
-    public static void setUser(User aUser) {
-        if (aUser == null) {
-            _user = null;
-        } else {
-            _user = new User(aUser);
-        }
-    }
-
-    /**
-     * Gets the current, logged in user
-     *
-     * @return the logged in user
-     */
-    public static User getUser() {
-        return _user;
-    }
 
     @Override
     public void start(Stage primaryStage) {
@@ -244,12 +217,99 @@ public class FXApplication extends Application {
         }
     }
 
-    /** Automamtically called upon app close */
+    /** Automatically called upon app close */
     @Override
     public void stop() throws Exception {
         UserDatabaseInterface.close();
     }
 
+    /**
+     * Shows the viewReportTable page when View Reports button is pressed.
+     */
+    public void showViewReports() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource
+                    ("../view/viewReportTable.fxml"));
+            AnchorPane mainPage = loader.load();
+
+            Scene scene = new Scene(mainPage);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+            ReportsTableController controller = loader.getController();
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Shows the Submit Reports page when Submit Reports button is pressed.
+     */
+    public void showSubmitReports() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource
+                    ("../view/submitReports.fxml"));
+            AnchorPane mainPage = loader.load();
+
+            Scene scene = new Scene(mainPage);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+            SubmitReportsController controller = loader.getController();
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
+            e.printStackTrace();
+        }
+    }
+
+    public void showMapPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource("../view/mapView.fxml"));
+            AnchorPane mainPage = loader.load();
+
+            Scene scene = new Scene(mainPage);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+            MapController controller = loader.getController();
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
+            e.printStackTrace();
+        }
+    }
+
+    public void showWaterSourceReport() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource("../view/submitWaterSource.fxml"));
+            AnchorPane mainPage = loader.load();
+
+            Scene scene = new Scene(mainPage);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+            WaterReportController controller = loader.getController();
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
+            e.printStackTrace();
+        }
+    }
 
 
 

@@ -12,5 +12,18 @@ jar {
     }
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs =["src/main/"]
+            // exclude '**/test/*'
+        }
+        resources {
+            srcDirs = ["src/main/java/view"]
+        }
+    }
+
+}
+
 dependencies {
 }

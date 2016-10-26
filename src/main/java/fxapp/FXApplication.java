@@ -10,8 +10,10 @@ package fxapp;
         import javafx.scene.Scene;
         import javafx.scene.layout.AnchorPane;
         import javafx.scene.layout.BorderPane;
+        import javafx.scene.paint.Color;
         import javafx.stage.Stage;
 
+        import javafx.stage.StageStyle;
         import model.User;
         import services.UserDatabaseInterface;
 
@@ -39,6 +41,8 @@ public class FXApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+
         mainScreen = primaryStage;
         initRootLayout(mainScreen);
         showLoginPage();
@@ -129,7 +133,12 @@ public class FXApplication extends Application {
             loader.setLocation(FXApplication.class.getResource("../view/MainScreen.fxml"));
             AnchorPane mainPage = loader.load();
 
+            mainPage.setStyle(
+                    "-fx-background-color: rgba(63, 63, 63, 0.8);"
+            );
+
             Scene scene = new Scene(mainPage);
+            scene.setFill(Color.TRANSPARENT);
             mainScreen.setScene(scene);
             mainScreen.show();
 

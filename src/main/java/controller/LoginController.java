@@ -123,6 +123,10 @@ public class LoginController {
     }
 
     @FXML
+    private void handleExit(){
+        _dialogStage.close();
+    }
+    @FXML
     private void handleRegistration() {
         app.showRegistrationPage();
     }

@@ -26,7 +26,7 @@ import java.util.Optional;
 /**
  * Created by Kavish on 9/27/2016.
  *
- * UPDATE: Combined with MapController
+ * UPDATE: Combined with MapController (Neil)
  * and revamped by Karthik on 10/25/2016
  */
 public class MainScreenController implements Initializable, MapComponentInitializedListener{
@@ -158,11 +158,6 @@ public class MainScreenController implements Initializable, MapComponentInitiali
     @FXML
     private void handleViewReports() {
         app.showViewReports();
-    }
-
-    @FXML
-    private void handleViewMap() {
-        app.showMapPage();
     }
 
     @FXML

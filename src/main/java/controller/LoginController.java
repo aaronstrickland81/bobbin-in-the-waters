@@ -2,6 +2,7 @@ package controller;
 
 import fxapp.FXApplication;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
@@ -24,6 +25,9 @@ public class LoginController {
 
     @FXML
     private PasswordField pwField;
+
+    @FXML
+    private Button exitButton;
 
     /** The window for this dialog*/
     private Stage _dialogStage;
@@ -124,7 +128,8 @@ public class LoginController {
 
     @FXML
     private void handleExit(){
-        _dialogStage.close();
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        stage.close();
     }
     @FXML
     private void handleRegistration() {

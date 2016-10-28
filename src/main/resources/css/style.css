@@ -1,12 +1,12 @@
 .gifBackground {
-    -fx-background-image: url('../img/bobbinwater.gif');
+    -fx-background-image: url('../img/boat.gif');
     -fx-background-repeat: stretch;
     -fx-background-size: cover, auto;
     -fx-background-position: center center;
 }
 
 .loginText {
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 
 .loginButton {
@@ -15,7 +15,7 @@
 
 .registerButton {
     -fx-background-color: none;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 
 .registerButton:hover {
@@ -24,7 +24,7 @@
 
 .exitButton {
     -fx-background-color: none;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 
 .exitButton:hover {

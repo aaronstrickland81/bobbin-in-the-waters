@@ -23,9 +23,9 @@
              text="Longitude:"/>
       <Label layoutX="50.0" layoutY="211.0" text="Type of Water:" />
       <Label layoutX="50.0" layoutY="267.0" text="Condition of Water:" />
-      <TextField fx:id="longitude" layoutX="339.0" layoutY="144.0"
-                 prefHeight="31.0" prefWidth="111.0"/>
       <TextField fx:id="latitude" layoutX="122.0" layoutY="144.0"
+                 prefHeight="31.0" prefWidth="111.0"/>
+      <TextField fx:id="longitude" layoutX="339.0" layoutY="144.0"
                  prefHeight="31.0" prefWidth="111.0"/>
       <ComboBox fx:id="waterType" layoutX="262.0" layoutY="206.0"
                 prefWidth="150.0"/>

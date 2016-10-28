@@ -119,10 +119,10 @@ public class UserInfoTable {
     /**
      * Checks to see if the username is already in the table
      *
-     * @param user The user attempting to register
+     * @param username The user attempting to register
      * @return A boolean if user exists or not
      */
-    public static boolean checkUserExists(User user) {
+    public static boolean checkUserExists(String username) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(
@@ -132,7 +132,7 @@ public class UserInfoTable {
             Statement stmt = con.createStatement();
             PreparedStatement ps = con.prepareStatement("select * from userInfo where " +
                     "username = ?");
-            ps.setString(1, user.getUname());
+            ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return true;

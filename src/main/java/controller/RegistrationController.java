@@ -91,18 +91,8 @@ public class RegistrationController {
                     (AccountType) accountTypeComboBox.getValue(), emailField
                     .getText(), firstNameField.getText(), lastNameField.getText());
             UserDatabaseInterface.addUser(user);
-            if (!UserInfoTable.checkUserExists(user)) {
-                UserInfoTable.addUser(user);
-                _registrationCompleted = true;
-                app.backToLoginPage();
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.initOwner(_dialogStage);
-                alert.setTitle("Please Choose Another Username ");
-                alert.setHeaderText("Username already exists");
-                alert.setContentText("Choose another username");
-                alert.showAndWait();
-            }
+            UserInfoTable.addUser(user);
+
             _registrationCompleted = true;
             app.backToLoginPage();
         }
@@ -151,6 +141,10 @@ public class RegistrationController {
         //check if password and confirm password match
         if (!passField.getText().equals(confirmPassField.getText())) {
             errorMessage += "Passwords do not match\n";
+        }
+
+        if (UserInfoTable.checkUserExists(userField.getText())) {
+            errorMessage += "Username already exists. Choose another one\n";
         }
 
 

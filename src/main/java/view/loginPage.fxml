@@ -7,23 +7,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="gifBackground" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            styleClass="gifBackground" stylesheets="@../css/style.css"
+            xmlns="http://javafx.com/javafx/8.0.102-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.LoginController">
    <children>
-      <TextField fx:id="userField" layoutX="212.0" layoutY="171.0" prefHeight="31.0" prefWidth="256.0" styleClass="loginTBox" />
-      <PasswordField fx:id="pwField" layoutX="212.0" layoutY="212.0" prefHeight="31.0" prefWidth="256.0" styleClass="loginTBox" />
-      <Button layoutX="237.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleLoginAttempt" prefHeight="31.0" prefWidth="180.0" styleClass="loginButton" text="Login" />
-       <Button layoutX="237.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleRegistration" prefHeight="23.0" prefWidth="180.0" styleClass="loginButton" text="Don't Have an Account?">
+      <TextField fx:id="userField" layoutX="88.0" layoutY="12.0"
+                 prefHeight="31.0" prefWidth="144.0" styleClass="loginTBox"/>
+      <PasswordField fx:id="pwField" layoutX="327.0" layoutY="12.0"
+                     prefHeight="31.0" prefWidth="144.0"
+                     styleClass="loginTBox"/>
+      <Button layoutX="482.0" layoutY="12.0" mnemonicParsing="false"
+              onAction="#handleLoginAttempt" prefHeight="31.0" prefWidth="59.0"
+              styleClass="loginButton" text="Login"/>
+      <Button layoutX="360.0" layoutY="50.0" mnemonicParsing="false"
+              onAction="#handleRegistration" prefHeight="23.0" prefWidth="144.0"
+              styleClass="registerButton" text="Don't Have an Account?">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Label layoutX="133.0" layoutY="212.0" prefHeight="31.0" prefWidth="74.0" styleClass="loginText" text="Password:" />
-      <Label layoutX="133.0" layoutY="171.0" prefHeight="31.0" prefWidth="74.0" styleClass="loginText" text="Username:" />
-      <Label layoutX="212.0" layoutY="84.0" prefHeight="31.0" prefWidth="256.0" styleClass="loginText" text="THIRSTY??">
+      <Label layoutX="245.0" layoutY="10.0" prefHeight="31.0" prefWidth="74.0"
+             styleClass="loginText" text="Password:"/>
+      <Label layoutX="14.0" layoutY="10.0" prefHeight="31.0" prefWidth="74.0"
+             styleClass="loginText" text="Username:"/>
+      <Label layoutX="64.0" layoutY="153.0" prefHeight="56.0" prefWidth="527.0"
+             styleClass="loginText" text="Bobbin In the Waters">
          <font>
             <Font size="46.0" />
          </font>
       </Label>
-      <Button fx:id="exitButton" layoutX="540.0" layoutY="-1.0" mnemonicParsing="false" onAction="#handleExit" styleClass="exitButton" text="Exit" />
+      <Button fx:id="exitButton" layoutX="557.0" layoutY="-1.0"
+              mnemonicParsing="false" onAction="#handleExit"
+              styleClass="exitButton" text="Exit"/>
    </children>
 </AnchorPane>

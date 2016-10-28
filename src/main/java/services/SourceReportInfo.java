@@ -29,13 +29,15 @@ public class SourceReportInfo {
                     "username, longitude, latitude, type, cond) "
                     + "        values  (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setDate(1, (Date) report.get_date());
+            ps.setDate(1, new Date(report.get_date().getTime()));
             ps.setInt(2, report.get_reportNumber());
             ps.setString(3, report.get_workername());
             ps.setDouble(4, report.get_longitude());
             ps.setDouble(5, report.get_latitude());
             ps.setString(6, report.get_type().toString());
             ps.setString(7, report.get_condition().toString());
+
+            ps.execute();
             con.close();
         } catch (Exception e) {
             System.out.println(e);
@@ -68,6 +70,25 @@ public class SourceReportInfo {
             System.out.println(e);
         }
         return aList;
+    }
+
+    public static int getSourceCounter() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
+                            ".amazonaws.com:3306/bobbin", "root", "password");
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery("SELECT COUNT(*) AS rowcount FROM " +
+                    "sourceReportInfo");
+            rs.next();
+            int count = rs.getInt("rowcount");
+            con.close();
+            return count;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return -1;
     }
 
 }

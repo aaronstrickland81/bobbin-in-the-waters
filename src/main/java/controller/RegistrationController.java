@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import model.enums.AccountType;
 import model.User;
 import services.UserDatabaseInterface;
+import services.UserInfoTable;
 
 import java.io.*;
 
@@ -90,7 +91,7 @@ public class RegistrationController {
                     (AccountType) accountTypeComboBox.getValue(), emailField
                     .getText(), firstNameField.getText(), lastNameField.getText());
             UserDatabaseInterface.addUser(user);
-            /*if (!UserInfoTable.checkUserExists(user)) {
+            if (!UserInfoTable.checkUserExists(user)) {
                 UserInfoTable.addUser(user);
                 _registrationCompleted = true;
                 app.backToLoginPage();
@@ -101,7 +102,7 @@ public class RegistrationController {
                 alert.setHeaderText("Username already exists");
                 alert.setContentText("Choose another username");
                 alert.showAndWait();
-            }*/
+            }
             _registrationCompleted = true;
             app.backToLoginPage();
         }
@@ -152,7 +153,6 @@ public class RegistrationController {
             errorMessage += "Passwords do not match\n";
         }
 
-        //TODO: check if username already exists
 
         //TODO: check if email is of valid format (maybe if it exists already as well?)
 

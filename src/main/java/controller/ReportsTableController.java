@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import model.Model;
 import model.Report;
+import model.WaterSourceReport;
 import model.enums.SourceCondition;
 import model.enums.WaterType;
 
@@ -22,22 +23,22 @@ import java.util.Date;
 public class ReportsTableController {
 
     @FXML
-    private TableView<Report> reportTable;
+    private TableView<WaterSourceReport> reportTable;
 
     @FXML
-    private TableColumn<Report, Integer> reportNumCol;
+    private TableColumn<WaterSourceReport, Integer> reportNumCol;
 
     @FXML
-    private TableColumn<Report, Date> dateOf;
+    private TableColumn<WaterSourceReport, Date> dateOf;
 
     @FXML
-    private TableColumn<Report, String> locationCol;
+    private TableColumn<WaterSourceReport, String> locationCol;
 
     @FXML
-    private TableColumn<Report, WaterType> typeCol;
+    private TableColumn<WaterSourceReport, WaterType> typeCol;
 
     @FXML
-    private TableColumn<Report, SourceCondition> conditionCol;
+    private TableColumn<WaterSourceReport, SourceCondition> conditionCol;
 
     /**
      * The window for this dialog
@@ -49,7 +50,8 @@ public class ReportsTableController {
 
     private Model model = Model.getInstance();
 
-    private ObservableList<Report> list = FXCollections.observableList(Model.getSourceReports());
+    private ObservableList<WaterSourceReport> list = FXCollections
+            .observableList(Model.getSourceReports());
 
     public void setMainApp(FXApplication fxapp) {
         app = fxapp;
@@ -69,23 +71,23 @@ public class ReportsTableController {
     private void initialize() {
         //reportNumCol = new TableColumn("Report#");
         reportNumCol.setCellValueFactory(
-                new PropertyValueFactory<Report, Integer>("_reportNumber")
+                new PropertyValueFactory<WaterSourceReport, Integer>("_reportNumber")
         );
         //dateOf = new TableColumn("DateOf");
         dateOf.setCellValueFactory(
-                new PropertyValueFactory<Report, Date>("_date")
+                new PropertyValueFactory<WaterSourceReport, Date>("_date")
         );
        // locationCol = new TableColumn("Location");
         locationCol.setCellValueFactory(
-                new PropertyValueFactory<Report, String>("_location")
+                new PropertyValueFactory<WaterSourceReport, String>("_location")
         );
 
         typeCol.setCellValueFactory(
-                new PropertyValueFactory<Report, WaterType>("_type")
+                new PropertyValueFactory<WaterSourceReport, WaterType>("_type")
         );
 
         conditionCol.setCellValueFactory(
-                new PropertyValueFactory<Report, SourceCondition>("_condition")
+                new PropertyValueFactory<WaterSourceReport, SourceCondition>("_condition")
         );
 
         reportTable.setItems(list);

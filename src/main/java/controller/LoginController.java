@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import model.Model;
 import services.UserDatabaseInterface;
+import services.UserInfoTable;
 
 
 /**
@@ -72,7 +73,7 @@ public class LoginController {
 
         if (isInputValid()) {
 
-            Model.setUser(UserDatabaseInterface.verifyUser(userField
+            Model.setUser(UserInfoTable.verifyUser(userField
                     .getText(), pwField.getText()));
             String errorMessage = "";
 

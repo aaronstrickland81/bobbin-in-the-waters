@@ -1,11 +1,7 @@
 package services;
 
 import model.WaterQualityReport;
-import model.WaterSourceReport;
 import model.enums.PurityCondition;
-import model.enums.SourceCondition;
-import model.enums.WaterType;
-
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -13,7 +9,7 @@ import java.util.ArrayList;
  * Created by kavish on 10/27/16.
  */
 public class QualityReportInfo {
-    
+
     public static void addQualityReport(WaterQualityReport report) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -33,6 +29,8 @@ public class QualityReportInfo {
             ps.setString(6, report.get_condition().toString());
             ps.setDouble(7, report.get_virusPPM());
             ps.setDouble(8, report.get_chemPPM());
+
+            ps.execute();
             con.close();
         } catch (Exception e) {
             System.out.println(e);
@@ -65,6 +63,25 @@ public class QualityReportInfo {
             System.out.println(e);
         }
         return aList;
+    }
+
+    public static int getQualityCounter() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
+                            ".amazonaws.com:3306/bobbin", "root", "password");
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery("SELECT COUNT(*) AS rowcount FROM " +
+                    "qualityReportInfo");
+            rs.next();
+            int count = rs.getInt("rowcount");
+            con.close();
+            return count;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return -1;
     }
 
 }

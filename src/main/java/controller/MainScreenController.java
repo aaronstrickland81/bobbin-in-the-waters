@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.ButtonType;
 import model.Model;
 import model.Report;
+import model.WaterSourceReport;
 import netscape.javascript.JSObject;
 
 import java.net.URL;
@@ -101,8 +102,8 @@ public class MainScreenController implements Initializable, MapComponentInitiali
 
         Model model = Model.getInstance();
 
-        List<Report> reports = Model.getSourceReports();
-        for (Report r: reports) {
+        List<WaterSourceReport> reports = Model.getSourceReports();
+        for (WaterSourceReport r : reports) {
             MarkerOptions markerOptions = new MarkerOptions();
             LatLong loc = new LatLong(r.get_latitude(), r.get_longitude());
 

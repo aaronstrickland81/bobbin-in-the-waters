@@ -1,6 +1,10 @@
 package model;
 
 
+import services.QualityReportInfo;
+import services.SourceReportInfo;
+
+import javax.xml.transform.Source;
 import java.util.ArrayList;
 
 public class Model {
@@ -48,28 +52,34 @@ public class Model {
 
 
     public static void addSourceReport(WaterSourceReport report) {
-        _sourceReports.add(report);
+        //_sourceReports.add(report);
+        SourceReportInfo.addSourceReport(report);
     }
 
-    public static ArrayList<Report> getSourceReports() {
-        return _sourceReports;
+    public static ArrayList<WaterSourceReport> getSourceReports() {
+        //return _sourceReports;
+        return SourceReportInfo.getSourceReports();
     }
 
     public static int sourceNumGenerator() {
-        return _sourceReports.size() + 1;
+        //return _sourceReports.size() + 1;
+        return SourceReportInfo.getSourceCounter() + 1;
     }
 
 
     public static void addQualityReport(WaterQualityReport report) {
-        _qualityReports.add(report);
+        // _qualityReports.add(report);
+        QualityReportInfo.addQualityReport(report);
     }
 
-    public static ArrayList<Report> getQualityReports() {
-        return _qualityReports;
+    public static ArrayList<WaterQualityReport> getQualityReports() {
+        //return _qualityReports;
+        return QualityReportInfo.getQualityReports();
     }
 
     public static int qualityNumGenerator() {
-        return _qualityReports.size() + 1;
+        //return _qualityReports.size() + 1;
+        return QualityReportInfo.getQualityCounter() + 1;
     }
 
 }

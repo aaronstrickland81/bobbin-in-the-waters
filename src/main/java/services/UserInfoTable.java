@@ -37,7 +37,6 @@ public class UserInfoTable {
             preparedStmt.setString(6, user.getType().toString());
 
             preparedStmt.execute();
-            System.out.print("Success");
             con.close();
 
         } catch (Exception e) {
@@ -57,8 +56,8 @@ public class UserInfoTable {
                     "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
                             ".amazonaws.com:3306/bobbin", "root", "password");
 
-            PreparedStatement ps = con.prepareStatement("UPDATE userInfo SET firstName = " +
-                    "?, lastName = ?, email = ?, password = ?, address = ?, " +
+            PreparedStatement ps = con.prepareStatement("UPDATE userInfo SET firstName = ?," +
+                    " lastName = ?, email = ?, password = ?, address = ?, " +
                     "title = ?" +
                     " WHERE " +
                     "username = ?");
@@ -66,9 +65,11 @@ public class UserInfoTable {
             ps.setString(2, user.getLname());
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getPassword());
-            ps.setString(5, user.getUname());
-            ps.setString(6, user.getHomeAddress());
-            ps.setString(7, user.getTitle());
+            ps.setString(5, user.getHomeAddress());
+            ps.setString(6, user.getTitle());
+            ps.setString(7, user.getUname());
+
+            ps.execute();
             con.close();
 
         } catch (Exception e) {
@@ -96,13 +97,14 @@ public class UserInfoTable {
             ps.setString(1, uname);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                AccountType a = getType(rs.getString(6));
+                AccountType account = getType(rs.getString(6));
                 String userName = rs.getString(3);
                 String password = rs.getString(5);
                 if (userName.equals(uname) && password.equals(pass)) {
-                    User u = new User(rs.getString(3), rs.getString(5), a, rs
+                    User u = new User(userName, password,
+                            account, rs
                             .getString(4), rs.getString(1), rs
-                            .getString(2));
+                            .getString(2), rs.getString(7), rs.getString(8));
                     return u;
                 }
                 con.close();

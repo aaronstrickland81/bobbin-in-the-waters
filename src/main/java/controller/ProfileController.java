@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import model.Model;
 import model.User;
 import services.UserDatabaseInterface;
+import services.UserInfoTable;
 
 
 /**
@@ -73,7 +74,7 @@ public class ProfileController {
     private void handleSave() {
         if (this.isInputValid()) {
             aUser = updateUser(aUser);
-            //UserInfoTable.updateUser(aUser);
+            UserInfoTable.updateUser(aUser);
             UserDatabaseInterface.editUser(aUser);
             app.showMainPage();
         }

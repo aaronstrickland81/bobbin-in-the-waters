@@ -21,7 +21,7 @@ public abstract class Report {
         set_date(date);
         set_reportNumber(reportnum);
         set_workername(name);
-        set_location(longitude + " Long, " + latitude + " Lat");
+        set_location(latitude + " Lat, " + longitude + " Long ");
         set_longitude(longitude);
         set_latitude(latitude);
     }

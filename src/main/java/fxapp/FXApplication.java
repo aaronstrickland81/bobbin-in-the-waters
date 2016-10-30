@@ -235,7 +235,7 @@ public class FXApplication extends Application {
     /**
      * Shows the viewReportTable page when View Reports button is pressed.
      */
-    public void showViewReports() {
+    public void showViewReportsTable() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource
@@ -247,6 +247,30 @@ public class FXApplication extends Application {
             mainScreen.show();
 
             ReportsTableController controller = loader.getController();
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Shows the viewReport page when View Reports button is pressed.
+     */
+    public void showViewReports() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource
+                    ("../view/viewReports.fxml"));
+            AnchorPane mainPage = loader.load();
+
+            Scene scene = new Scene(mainPage);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+            ViewReportController controller = loader.getController();
             controller.setMainApp(this);
 
         } catch (IOException e) {

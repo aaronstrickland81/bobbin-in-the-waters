@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewReportController">
    <children>
-      <Button fx:id="waterSourceButton" layoutX="117.0" layoutY="163.0" mnemonicParsing="false" prefHeight="145.0" prefWidth="107.0" text="Water Source Report" wrapText="true" />
+      <Button fx:id="waterSourceButton" layoutX="117.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleViewWaterSourceReport" prefHeight="145.0" prefWidth="107.0" text="Water Source Report" wrapText="true" />
       <Button fx:id="waterQualityButton" layoutX="247.0" layoutY="163.0" mnemonicParsing="false" prefHeight="145.0" prefWidth="107.0" text="Water  Quality Report" wrapText="true" />
       <Button layoutX="376.0" layoutY="163.0" mnemonicParsing="false" prefHeight="145.0" prefWidth="107.0" text="Historical Report" wrapText="true" />
       <Label layoutX="131.0" layoutY="56.0" text="Pick a Report to View">
@@ -15,5 +15,6 @@
             <Font size="36.0" />
          </font>
       </Label>
+      <Button fx:id="back" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
    </children>
 </AnchorPane>

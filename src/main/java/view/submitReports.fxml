@@ -14,6 +14,6 @@
          </font>
       </Label>
       <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
-      <Button fx:id="waterQualityReportButton" layoutX="321.0" layoutY="164.0" mnemonicParsing="false" prefHeight="145.0" prefWidth="107.0" text="Water Quality Report" wrapText="true" />
+      <Button fx:id="waterQualityReportButton" layoutX="321.0" layoutY="164.0" mnemonicParsing="false" onAction="#handleSubmitWaterQualityReport" prefHeight="145.0" prefWidth="107.0" text="Water Quality Report" wrapText="true" />
    </children>
 </AnchorPane>

@@ -42,4 +42,8 @@ public class SubmitReportsController {
         app.showWaterSourceReport();
     }
 
+    @FXML
+    private void handleSubmitWaterQualityReport() {
+        app.showWaterQualityReport();
+    }
 }

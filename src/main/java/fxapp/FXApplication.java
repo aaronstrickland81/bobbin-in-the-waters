@@ -235,7 +235,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource
-                    ("../view/viewReportTable.fxml"));
+                    ("../view/viewReports/viewSourceReportTable.fxml"));
             AnchorPane mainPage = loader.load();
 
             Scene scene = new Scene(mainPage);
@@ -259,7 +259,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource
-                    ("../view/viewReports.fxml"));
+                    ("../view/viewReports/viewReports.fxml"));
             AnchorPane mainPage = loader.load();
 
             Scene scene = new Scene(mainPage);
@@ -283,7 +283,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource
-                    ("../view/submitReports.fxml"));
+                    ("../view/submitReports/submitReports.fxml"));
             AnchorPane mainPage = loader.load();
 
             Scene scene = new Scene(mainPage);
@@ -303,7 +303,8 @@ public class FXApplication extends Application {
     public void showWaterSourceReport() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(FXApplication.class.getResource("../view/submitWaterSource.fxml"));
+            loader.setLocation(FXApplication.class.getResource
+                    ("../view/submitReports/submitWaterSource.fxml"));
             AnchorPane mainPage = loader.load();
 
             Scene scene = new Scene(mainPage);
@@ -323,7 +324,8 @@ public class FXApplication extends Application {
     public void showWaterQualityReport() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(FXApplication.class.getResource("../view/submitWaterQuality.fxml"));
+            loader.setLocation(FXApplication.class.getResource
+                    ("../view/submitReports/submitWaterQuality.fxml"));
             AnchorPane mainPage = loader.load();
 
             Scene scene = new Scene(mainPage);

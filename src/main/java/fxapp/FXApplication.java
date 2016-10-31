@@ -14,7 +14,9 @@ package fxapp;
         import javafx.stage.Stage;
 
         import javafx.stage.StageStyle;
+        import model.Model;
         import model.User;
+        import model.enums.AccountType;
         import services.UserDatabaseInterface;
 
         import java.io.IOException;
@@ -126,7 +128,8 @@ public class FXApplication extends Application {
     public void showMainPage() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(FXApplication.class.getResource("../view/MainScreen.fxml"));
+            loader.setLocation(FXApplication.class.getResource
+                    ("../view/MainScreen.fxml"));
             AnchorPane mainPage = loader.load();
 
             mainPage.setStyle(
@@ -258,8 +261,13 @@ public class FXApplication extends Application {
     public void showViewReports() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(FXApplication.class.getResource
-                    ("../view/viewReports/viewReports.fxml"));
+            if (Model.getUser().getType().equals(AccountType.MANAGER)) {
+                loader.setLocation(FXApplication.class.getResource
+                        ("../view/viewReports/viewReportsManager.fxml"));
+            } else {
+                loader.setLocation(FXApplication.class.getResource
+                        ("../view/viewReports/viewReports.fxml"));
+            }
             AnchorPane mainPage = loader.load();
 
             Scene scene = new Scene(mainPage);

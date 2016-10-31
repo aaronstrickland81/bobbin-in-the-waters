@@ -105,7 +105,7 @@ public class WaterQualityReportController {
         if (this.isInputValid()) {
             //output user info to CSV
             Model.addQualityReport(new WaterQualityReport(dateConverter(), Model
-                    .sourceNumGenerator(), Model.getUser().getUname(),
+                    .qualityNumGenerator(), Model.getUser().getUname(),
                     Double.parseDouble(longitude.getText()), Double.parseDouble(latitude.getText()),
                     (PurityCondition) waterCondition.getValue(), Double.parseDouble(virusPPM.getText()),
                     Double.parseDouble(contaminantPPM.getText())));
@@ -113,7 +113,7 @@ public class WaterQualityReportController {
             _waterQualityReportCompleted = true;
             app.showMainPage();
         } else {
-
+            System.out.println("Error");
             // handle case if not valid
         }
     }

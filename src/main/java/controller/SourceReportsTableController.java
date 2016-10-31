@@ -20,7 +20,7 @@ import java.util.Date;
 /**
  * Created by kavish on 10/16/16.
  */
-public class ReportsTableController {
+public class SourceReportsTableController {
 
     @FXML
     private TableView<WaterSourceReport> reportTable;

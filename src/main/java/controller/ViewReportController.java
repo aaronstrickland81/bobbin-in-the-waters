@@ -5,9 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import model.Model;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import java.util.Optional;
 
 /**
  * Created by Jason Lin on 10/29/2016.
@@ -16,6 +13,9 @@ public class ViewReportController {
 
     @FXML
     private Button waterSourceButton;
+
+    @FXML
+    private Button waterQualityButton;
 
     private Stage _dialogStage;
     private Boolean _logoutPressed;
@@ -38,7 +38,12 @@ public class ViewReportController {
 
     @FXML
     private void handleViewWaterSourceReport() {
-        app.showViewReportsTable();
+        app.showViewSourceReportsTable();
+    }
+
+    @FXML
+    private void handleViewWaterQualityReport() {
+        app.showViewQualityReportsTable();
     }
 
 }

@@ -15,7 +15,6 @@ package fxapp;
 
         import javafx.stage.StageStyle;
         import model.Model;
-        import model.User;
         import model.enums.AccountType;
         import services.UserDatabaseInterface;
 
@@ -234,7 +233,7 @@ public class FXApplication extends Application {
     /**
      * Shows the viewReportTable page when View Reports button is pressed.
      */
-    public void showViewReportsTable() {
+    public void showViewSourceReportsTable() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource
@@ -245,7 +244,31 @@ public class FXApplication extends Application {
             mainScreen.setScene(scene);
             mainScreen.show();
 
-            ReportsTableController controller = loader.getController();
+            SourceReportsTableController controller = loader.getController();
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Shows the viewQualityReportTable page
+     */
+    public void showViewQualityReportsTable() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource
+                    ("../view/viewReports/viewQualityReportTable.fxml"));
+            AnchorPane mainPage = loader.load();
+
+            Scene scene = new Scene(mainPage);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+            QualityReportsTableController controller = loader.getController();
             controller.setMainApp(this);
 
         } catch (IOException e) {

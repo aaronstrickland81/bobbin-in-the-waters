@@ -21,7 +21,7 @@ public class QualityReportInfo {
                     "virus, chem) "
                     + "        values  (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setDate(1, (Date) report.get_date());
+            ps.setDate(1, new Date(report.get_date().getTime()));
             ps.setInt(2, report.get_reportNumber());
             ps.setString(3, report.get_workername());
             ps.setDouble(4, report.get_longitude());

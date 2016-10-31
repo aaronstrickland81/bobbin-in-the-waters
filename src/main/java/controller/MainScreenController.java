@@ -17,6 +17,7 @@ import javafx.scene.control.ButtonType;
 import model.Model;
 import model.Report;
 import model.WaterSourceReport;
+import model.enums.AccountType;
 import netscape.javascript.JSObject;
 
 import java.net.URL;
@@ -153,12 +154,20 @@ public class MainScreenController implements Initializable, MapComponentInitiali
 
     @FXML
     private void handleSubmitReports() {
-        app.showSubmitReports();
+        if (Model.getUser().getType().equals(AccountType.USER)) {
+            app.showWaterSourceReport();
+        } else {
+            app.showSubmitReports();
+        }
     }
 
     @FXML
     private void handleViewReports() {
-        app.showViewReports();
+        if (Model.getUser().getType().equals(AccountType.USER)) {
+            app.showViewReportsTable();
+        } else {
+            app.showViewReports();
+        }
     }
 
     @FXML

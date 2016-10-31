@@ -110,10 +110,6 @@ public class FXApplication extends Application {
             controller.setMainApp(this);
 
 
-           // if (controller.verifyLogin()) {
-              //  showMainPage();
-            //}
-
         } catch (IOException e) {
             //error on load, so log it
             LOGGER.log(Level.SEVERE, "Failed to find the fxml file for loginPage!!");

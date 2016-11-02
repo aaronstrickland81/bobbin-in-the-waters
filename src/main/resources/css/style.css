@@ -1,12 +1,12 @@
 .gifBackground {
-    -fx-background-image: url('../img/boat.gif');
+    -fx-background-image: url('../img/back.gif');
     -fx-background-repeat: stretch;
     -fx-background-size: cover, auto;
     -fx-background-position: center center;
 }
 
 .loginText {
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }
 
 .loginButton {
@@ -15,7 +15,7 @@
 
 .registerButton {
     -fx-background-color: none;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }
 
 .registerButton:hover {
@@ -24,7 +24,7 @@
 
 .exitButton {
     -fx-background-color: none;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }
 
 .exitButton:hover {

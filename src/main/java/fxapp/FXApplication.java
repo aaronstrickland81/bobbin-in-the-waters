@@ -372,6 +372,32 @@ public class FXApplication extends Application {
             e.printStackTrace();
         }
     }
+
+    public void showHistoricalReportsPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource
+                    ("../view/historicalReportsPage.fxml"));
+            AnchorPane mainPage = loader.load();
+
+            mainPage.setStyle(
+                    "-fx-background-color: rgba(63, 63, 63, 0.8);"
+            );
+
+            Scene scene = new Scene(mainPage);
+            scene.setFill(Color.TRANSPARENT);
+            mainScreen.setScene(scene);
+            mainScreen.show();
+
+            HistoricalReportsController controller = loader.getController();
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            //error on load, so log it
+            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
+            e.printStackTrace();
+        }
+    }
     
     public static void main(String[] args) {
         launch(args);

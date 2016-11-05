@@ -46,4 +46,8 @@ public class ViewReportController {
         app.showViewQualityReportsTable();
     }
 
+    @FXML
+    private void handleViewHistoricalReport() {
+        app.showHistoricalReportsPage();
+    }
 }

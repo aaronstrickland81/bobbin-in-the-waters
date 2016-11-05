@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<?import javafx.scene.control.Button?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.60"
+            xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="@../css/style.css"
+            fx:controller="controller.historicalReportsController">
+   <children>
+       <VBox prefHeight="400.0" prefWidth="125.0">
+           <Button fx:id="Back" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleBack" text="Edit Profile" styleClass="mainButton"/>
+           <Button fx:id="submitReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0"  onAction="#handleSubmitReports" text="Submit Reports" styleClass="mainButton"/>
+           <Button fx:id="viewReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleViewReports" text="View Reports" styleClass="mainButton"/>
+           <Button fx:id="logout" alignment="TOP_CENTER"
+                   mnemonicParsing="false" prefHeight="31.0"
+                   prefWidth="123.0" onAction="#handleLogout" text="Logout"
+                   styleClass="mainButton"/>
+       </VBox>
+      <LineChart fx:id="lineChart" layoutX="125.0" prefHeight="400.0" prefWidth="475.0" title="Historical Graph">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+   </children>
+</AnchorPane>

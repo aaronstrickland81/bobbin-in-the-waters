@@ -21,7 +21,7 @@
    <children>
       <BorderPane fx:id="border" opacity="0.8">
          <left>
-            <VBox fx:id="menuVBox" prefHeight="400.0" prefWidth="125.0">
+            <VBox prefHeight="400.0" prefWidth="125.0">
                <Button fx:id="editProfile" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleEdit" text="Edit Profile" styleClass="mainButton"/>
                <Button fx:id="submitReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0"  onAction="#handleSubmitReports" text="Submit Report" styleClass="mainButton"/>
                <Button fx:id="submitSourceReport" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleSubmitSourceReport" text="Source Report" styleClass="mainButton" visible="false" managed="false"/>

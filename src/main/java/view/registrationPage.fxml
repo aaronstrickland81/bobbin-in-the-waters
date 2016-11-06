@@ -46,7 +46,7 @@
                prefHeight="31.0" prefWidth="123.0" text="Cancel"/>
        <Button layoutX="338.0" layoutY="328.0" mnemonicParsing="false"
                onAction="#handleRegistrationAttempt" prefHeight="31.0"
-               prefWidth="123.0" text="Sign Up"/>
+               prefWidth="123.0" text="Sign Up" defaultButton="true"/>
        <Label layoutX="221.0" layoutY="25.0" prefHeight="21.0" prefWidth="316.0"
               text="Registration">
            <font>

@@ -124,7 +124,7 @@ public class WaterQualityReportController {
 
     @FXML
     private void handleCancel() {
-        app.showSubmitReports();
+        app.showMainPage();
     }
     /**
      * Validates the user input in the text fields.

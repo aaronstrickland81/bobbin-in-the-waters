@@ -21,10 +21,14 @@
    <children>
       <BorderPane fx:id="border" opacity="0.8">
          <left>
-            <VBox prefHeight="400.0" prefWidth="125.0">
+            <VBox fx:id="menuVBox" prefHeight="400.0" prefWidth="125.0">
                <Button fx:id="editProfile" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleEdit" text="Edit Profile" styleClass="mainButton"/>
-               <Button fx:id="submitReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0"  onAction="#handleSubmitReports" text="Submit Reports" styleClass="mainButton"/>
+               <Button fx:id="submitReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0"  onAction="#handleSubmitReports" text="Submit Report" styleClass="mainButton"/>
+               <Button fx:id="submitSourceReport" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleSubmitSourceReport" text="Source Report" styleClass="mainButton" visible="false" managed="false"/>
+               <Button fx:id="submitQualityReport" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleSubmitQualityReport" text="Quality Report" styleClass="mainButton" visible="false" managed="false"/>
                <Button fx:id="viewReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleViewReports"  text="View Reports" styleClass="mainButton"/>
+               <Button fx:id="viewSourceReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleViewSourceReports" text="Source Reports" styleClass="mainButton" visible="false" managed="false"/>
+               <Button fx:id="viewQualityReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleViewQualityReports" text="Quality Reports" styleClass="mainButton" visible="false" managed="false"/>
                <Button fx:id="logout" alignment="TOP_CENTER"
                        mnemonicParsing="false" prefHeight="31.0"
                        prefWidth="123.0" onAction="#handleLogout" text="Logout"
@@ -56,3 +60,4 @@
       </Button>
    </children>-->
 </AnchorPane>
+

@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.ButtonType;
 import model.Model;
@@ -37,7 +38,19 @@ public class MainScreenController implements Initializable, MapComponentInitiali
     private Button submitReports;
 
     @FXML
+    private Button submitSourceReport;
+
+    @FXML
+    private Button submitQualityReport;
+
+    @FXML
     private Button viewReports;
+
+    @FXML
+    private Button viewSourceReports;
+
+    @FXML
+    private Button viewQualityReports;
 
     @FXML
     private Button viewMap;
@@ -156,8 +169,19 @@ public class MainScreenController implements Initializable, MapComponentInitiali
         if (Model.getUser().getType().equals(AccountType.USER)) {
             app.showWaterSourceReport();
         } else {
-            app.showSubmitReports();
+            toggleButton(submitSourceReport);
+            toggleButton(submitQualityReport);
         }
+    }
+
+    @FXML
+    private void handleSubmitSourceReport() {
+        app.showWaterSourceReport();
+    }
+
+    @FXML
+    private void handleSubmitQualityReport() {
+        app.showWaterQualityReport();
     }
 
     @FXML
@@ -165,13 +189,40 @@ public class MainScreenController implements Initializable, MapComponentInitiali
         if (Model.getUser().getType().equals(AccountType.USER)) {
             app.showViewSourceReportsTable();
         } else {
-            app.showViewReports();
+            toggleButton(viewSourceReports);
+            toggleButton(viewQualityReports);
         }
+    }
+
+    @FXML
+    private void handleViewSourceReports() {
+        app.showViewSourceReportsTable();
+    }
+
+    @FXML
+    private void handleViewQualityReports() {
+        app.showViewQualityReportsTable();
     }
 
     @FXML
     private void handleEdit() {
         app.showEditPage();
+    }
+
+    /**
+     * Private helper function to toggle the display of a button. Toggles the
+     * "Visible" and "Managed" properties of the given button.
+     *
+     * @param button Button to toggle
+     */
+    private void toggleButton(Button button) {
+        if (button.isVisible()) {
+            button.setVisible(false);
+            button.setManaged(false);
+        } else {
+            button.setVisible(true);
+            button.setManaged(true);
+        }
     }
 
     /**

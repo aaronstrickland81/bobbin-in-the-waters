@@ -4,23 +4,23 @@ package fxapp;
 //        import controller.MainScreenController;
 //        import controller.StudentEditController;
 
-        import controller.*;
-        import javafx.application.Application;
-        import javafx.fxml.FXMLLoader;
-        import javafx.scene.Scene;
-        import javafx.scene.layout.AnchorPane;
-        import javafx.scene.layout.BorderPane;
-        import javafx.scene.paint.Color;
-        import javafx.stage.Stage;
+import controller.*;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
-        import javafx.stage.StageStyle;
-        import model.Model;
-        import model.enums.AccountType;
-        import services.UserDatabaseInterface;
+import javafx.stage.StageStyle;
+import model.Model;
+import model.enums.AccountType;
+import services.UserDatabaseInterface;
 
-        import java.io.IOException;
-        import java.util.logging.Level;
-        import java.util.logging.Logger;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**

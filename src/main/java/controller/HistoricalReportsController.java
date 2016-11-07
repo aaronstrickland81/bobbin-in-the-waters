@@ -10,10 +10,7 @@ import javafx.stage.Stage;
 import model.Model;
 import model.WaterQualityReport;
 
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 
 /**
@@ -43,6 +40,9 @@ public class HistoricalReportsController {
     /** map of quality reports by location */
     private Map<String, List<WaterQualityReport>> locationMap;
 
+    /** map of quality reports by year */
+    private Map<Integer, List<WaterQualityReport>> yearMap;
+
     /**
      * Called automatically upon load.
      *
@@ -54,6 +54,10 @@ public class HistoricalReportsController {
     private void initialize() {
         qualityReports = Model.getQualityReports();
         locationMap = new HashMap<>();
+
+        lineChart.setStyle(
+                "-fx-background-color: rgba(255,255,255,1);"
+        );
 
         for (WaterQualityReport report : qualityReports) {
             String locString = report.get_location();
@@ -90,23 +94,44 @@ public class HistoricalReportsController {
     @FXML
     private void handleOnLocAction() {
         List<WaterQualityReport> relevantReports = locationMap.get(locationBox.getValue());
-        /*
-            Propagate year combobox with values
-         */
 
+        yearMap = new HashMap<>();
+        yearBox.getSelectionModel().clearSelection();
         for (WaterQualityReport report : relevantReports) {
-
+            int year = report.get_year();
+            List<WaterQualityReport> yearBin = yearMap.get(year);
+            if (null == yearBin) {
+                yearBin = new ArrayList<>();
+                yearMap.put(year, yearBin);
+            }
+            yearBin.add(report);
         }
 
         yearBox.setVisible(true);
+        yearBox.getItems().clear();
+        yearBox.getItems().addAll(
+                FXCollections.observableArrayList(yearMap.keySet()));
     }
 
     @FXML
     private void handleOnYearAction() {
         lineChart.getData().clear();
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        /*
-            Add data to chart
-         */
+
+        List<WaterQualityReport> relevantReports = yearMap.get(yearBox.getValue());
+
+        if (null != relevantReports) {
+            Collections.sort(relevantReports, (o1, o2) -> o1.get_month() - o2.get_month());
+
+            for (WaterQualityReport report : relevantReports) {
+                series.getData().add(new XYChart.Data<String, Number>(report.get_month_name(), report.get_virusPPM()));
+            }
+        }
+        lineChart.getData().add(series);
+    }
+
+    @FXML
+    private void handleBack() {
+        app.showMainPage();
     }
 }

@@ -200,7 +200,6 @@ public class HistoricalReportsController {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
 
         for (PPMDataHandler ppmData : ppmList) {
-            System.out.println(ppmData.month);
             series.getData().add(new XYChart.Data<String, Number>(ppmData.month, ppmData.contaminantPPM));
         }
         lineChart.getData().add(series);

@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import model.Model;
 import model.WaterQualityReport;
@@ -18,6 +20,27 @@ import java.util.*;
  */
 public class HistoricalReportsController {
 
+    private class PPMDataHandler {
+        public String month = "";
+        public double virusPPM;
+        public double contaminantPPM;
+        private int collisions;
+        public int monthNumber;
+
+        public void addFromReport(WaterQualityReport report) {
+            if (report.get_month_name().equals(this.month)) {
+                virusPPM = (virusPPM * collisions + report.get_virusPPM()) / (collisions + 1);
+                contaminantPPM = (contaminantPPM * collisions + report.get_chemPPM()) / (collisions + 1);
+            } else {
+                month = report.get_month_name();
+                monthNumber = report.get_month();
+                virusPPM = report.get_virusPPM();
+                contaminantPPM = report.get_chemPPM();
+            }
+            collisions++;
+        }
+    }
+
     /** References to FXML widgets */
     @FXML
     private ComboBox locationBox;
@@ -27,6 +50,15 @@ public class HistoricalReportsController {
 
     @FXML
     private LineChart<String, Number> lineChart;
+
+    @FXML
+    private RadioButton virusButton;
+
+    @FXML
+    private RadioButton contaminantButton;
+
+    @FXML
+    private ToggleGroup group;
 
     /** The stage for this dialog */
     private Stage _dialogStage;
@@ -43,6 +75,10 @@ public class HistoricalReportsController {
     /** map of quality reports by year */
     private Map<Integer, List<WaterQualityReport>> yearMap;
 
+    private Map<String, PPMDataHandler> ppmMap;
+
+    private ArrayList<PPMDataHandler> ppmList;
+
     /**
      * Called automatically upon load.
      *
@@ -54,7 +90,7 @@ public class HistoricalReportsController {
     private void initialize() {
         qualityReports = Model.getQualityReports();
         locationMap = new HashMap<>();
-
+        lineChart.setAnimated(false);
         lineChart.setStyle(
                 "-fx-background-color: rgba(255,255,255,1);"
         );
@@ -94,9 +130,9 @@ public class HistoricalReportsController {
     @FXML
     private void handleOnLocAction() {
         List<WaterQualityReport> relevantReports = locationMap.get(locationBox.getValue());
-
         yearMap = new HashMap<>();
         yearBox.getSelectionModel().clearSelection();
+
         for (WaterQualityReport report : relevantReports) {
             int year = report.get_year();
             List<WaterQualityReport> yearBin = yearMap.get(year);
@@ -115,20 +151,61 @@ public class HistoricalReportsController {
 
     @FXML
     private void handleOnYearAction() {
-        lineChart.getData().clear();
-        XYChart.Series<String, Number> series = new XYChart.Series<>();
+
+        ppmMap = new HashMap<>();
+
+        group = new ToggleGroup();
+
+        virusButton.setVisible(true);
+        contaminantButton.setVisible(true);
+
+        virusButton.setSelected(false);
+        contaminantButton.setSelected(false);
+
+        virusButton.setToggleGroup(group);
+        contaminantButton.setToggleGroup(group);
 
         List<WaterQualityReport> relevantReports = yearMap.get(yearBox.getValue());
 
         if (null != relevantReports) {
-            Collections.sort(relevantReports, (o1, o2) -> o1.get_month() - o2.get_month());
-
             for (WaterQualityReport report : relevantReports) {
-                series.getData().add(new XYChart.Data<String, Number>(report.get_month_name(), report.get_virusPPM()));
+                String month = report.get_month_name();
+                PPMDataHandler monthPPM = ppmMap.get(month);
+                if (null == monthPPM) {
+                    monthPPM = new PPMDataHandler();
+                    ppmMap.put(month, monthPPM);
+                }
+                monthPPM.addFromReport(report);
             }
+
+            ppmList = new ArrayList<>(ppmMap.values());
+            Collections.sort(ppmList, (o1, o2) -> o1.monthNumber - o2.monthNumber);
+        }
+    }
+
+    @FXML
+    private void handleVirusPPM() {
+        lineChart.getData().clear();
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+
+        for (PPMDataHandler ppmData : ppmList) {
+            series.getData().add(new XYChart.Data<String, Number>(ppmData.month, ppmData.virusPPM));
         }
         lineChart.getData().add(series);
     }
+
+    @FXML
+    private void handleContaminantPPM() {
+        lineChart.getData().clear();
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+
+        for (PPMDataHandler ppmData : ppmList) {
+            System.out.println(ppmData.month);
+            series.getData().add(new XYChart.Data<String, Number>(ppmData.month, ppmData.contaminantPPM));
+        }
+        lineChart.getData().add(series);
+    }
+
 
     @FXML
     private void handleBack() {

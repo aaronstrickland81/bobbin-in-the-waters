@@ -13,21 +13,35 @@ import services.UserInfoTable;
 
 
 /**
+ * Controller for the edit profile page. On this page, users can edit their
+ * profile information.
+ *
  * Created by kavish on 10/1/16.
  */
 public class ProfileController {
+
+    /** the stage for this dialog */
     private Stage _dialogStage;
 
+    /** reference to the FX App */
     private FXApplication app;
 
+    /** reference to the model instance */
     private Model model = Model.getInstance();
 
+    /**
+     * Sets the stage for this dialog.
+     *
+     * @param dialogStage Stage for the dialog
+     */
     public void setDialogStage(Stage dialogStage) {
         _dialogStage = dialogStage;
     }
 
+    /** reference to currently logged in User */
     private User aUser;
 
+    /** references to FXML widgets */
     @FXML
     private TextField firstName;
 
@@ -60,26 +74,42 @@ public class ProfileController {
         title.setText(aUser.getTitle());
     }
 
-
+    /**
+     * Sets the FX App for the controller.
+     *
+     * @param fxapp the FX App for the controller
+     */
     public void setMainApp(FXApplication fxapp) {
         app = fxapp;
     }
 
+    /**
+     * Called when the user clicks the back button. Displays the main page.
+     */
     @FXML
     private void handleBack() {
         app.showMainPage();
     }
 
+    /**
+     * Called when the user clicks the save button. Validates input, if valid
+     * stores the updated user information and displays main page.
+     */
     @FXML
     private void handleSave() {
         if (this.isInputValid()) {
-            aUser = updateUser(aUser);
+            updateUser(aUser);
             UserInfoTable.updateUser(aUser);
-            UserDatabaseInterface.editUser(aUser);
             app.showMainPage();
         }
     }
 
+    /**
+     * Updates a user based on the information in the entry fields.
+     *
+     * @param user User to be updated
+     * @return Updated user
+     */
     private User updateUser(User user) {
         user.setFname(firstName.getText());
         user.setLname(lastName.getText());
@@ -93,7 +123,8 @@ public class ProfileController {
     }
 
     /**
-     * Validates the user input in the text fields.
+     * Validates the user input in the text fields. If invalid, displays an
+     * alert box informing the user of the invalid data.
      *
      * @return true if input is valid
      */

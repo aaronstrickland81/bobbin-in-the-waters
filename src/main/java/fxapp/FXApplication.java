@@ -29,6 +29,7 @@ import java.util.logging.Logger;
  * This class handles all the scene switching to reuse the main stage.
  */
 public class FXApplication extends Application {
+
     /**  the java logger for this class */
     private static final Logger LOGGER = Logger.getLogger("FXApplication");
 
@@ -37,7 +38,6 @@ public class FXApplication extends Application {
 
     /** the main layout for the main window */
     private BorderPane rootLayout;
-
 
 
     @Override
@@ -52,7 +52,7 @@ public class FXApplication extends Application {
     /**
      * return a reference to the main window stage
      * @return reference to main stage
-     * */
+     */
     public Stage getMainScreen() { return mainScreen;}
 
 
@@ -120,9 +120,7 @@ public class FXApplication extends Application {
     }
 
     /**
-     * Displays main screen
-     *
-     *
+     * Displays main page
      */
     public void showMainPage() {
         try {
@@ -152,7 +150,7 @@ public class FXApplication extends Application {
 
 
     /**
-     * shows registration page when button is clicked
+     * Displays registration page
      */
     public void showRegistrationPage() {
         try {
@@ -176,9 +174,7 @@ public class FXApplication extends Application {
     }
 
     /**
-     * Shows main page when login is valid and checks when logout is pressed
-     *
-     *
+     * Displays login page (from main page to login page)
      */
     public void backToLoginPage() {
         try {
@@ -227,11 +223,10 @@ public class FXApplication extends Application {
     /** Automatically called upon app close */
     @Override
     public void stop() throws Exception {
-        UserDatabaseInterface.close();
     }
 
     /**
-     * Shows the viewReportTable page when View Reports button is pressed.
+     * Displays the view source reports table page.
      */
     public void showViewSourceReportsTable() {
         try {
@@ -255,7 +250,7 @@ public class FXApplication extends Application {
     }
 
     /**
-     * Shows the viewQualityReportTable page
+     * Displays the view quality report table page
      */
     public void showViewQualityReportsTable() {
         try {
@@ -279,58 +274,8 @@ public class FXApplication extends Application {
     }
 
     /**
-     * Shows the viewReport page when View Reports button is pressed.
+     * Displays the submit water source report page.
      */
-    public void showViewReports() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            if (Model.getUser().getType().equals(AccountType.MANAGER)) {
-                loader.setLocation(FXApplication.class.getResource
-                        ("../view/viewReports/viewReportsManager.fxml"));
-            } else {
-                loader.setLocation(FXApplication.class.getResource
-                        ("../view/viewReports/viewReports.fxml"));
-            }
-            AnchorPane mainPage = loader.load();
-
-            Scene scene = new Scene(mainPage);
-            mainScreen.setScene(scene);
-            mainScreen.show();
-
-            ViewReportController controller = loader.getController();
-            controller.setMainApp(this);
-
-        } catch (IOException e) {
-            //error on load, so log it
-            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Shows the Submit Reports page when Submit Reports button is pressed.
-     */
-    public void showSubmitReports() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(FXApplication.class.getResource
-                    ("../view/submitReports/submitReports.fxml"));
-            AnchorPane mainPage = loader.load();
-
-            Scene scene = new Scene(mainPage);
-            mainScreen.setScene(scene);
-            mainScreen.show();
-
-            SubmitReportsController controller = loader.getController();
-            controller.setMainApp(this);
-
-        } catch (IOException e) {
-            //error on load, so log it
-            LOGGER.log(Level.SEVERE, "Failed to find the fxml file for MainScreen");
-            e.printStackTrace();
-        }
-    }
-
     public void showWaterSourceReport() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -342,7 +287,7 @@ public class FXApplication extends Application {
             mainScreen.setScene(scene);
             mainScreen.show();
 
-            WaterReportController controller = loader.getController();
+            WaterSourceReportController controller = loader.getController();
             controller.setMainApp(this);
 
         } catch (IOException e) {
@@ -352,6 +297,9 @@ public class FXApplication extends Application {
         }
     }
 
+    /**
+     * Displays the submit water quality report page.
+     */
     public void showWaterQualityReport() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -373,6 +321,9 @@ public class FXApplication extends Application {
         }
     }
 
+    /**
+     * Displays the view historical reports page.
+     */
     public void showHistoricalReportsPage() {
         try {
             FXMLLoader loader = new FXMLLoader();

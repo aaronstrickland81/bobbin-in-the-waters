@@ -18,10 +18,14 @@ import model.enums.WaterType;
 import java.util.Date;
 
 /**
+ * Controller for the Source Reports Table page. This page displays a table of
+ * all the source reports.
+ *
  * Created by kavish on 10/16/16.
  */
 public class SourceReportsTableController {
 
+    /** references to FXML widgets */
     @FXML
     private TableView<WaterSourceReport> reportTable;
 
@@ -40,19 +44,24 @@ public class SourceReportsTableController {
     @FXML
     private TableColumn<WaterSourceReport, SourceCondition> conditionCol;
 
-    /**
-     * The window for this dialog
-     */
+    /** The stage for this dialog */
     private Stage _dialogStage;
 
-    // REf to FX APP
+    /** reference to FX App */
     private FXApplication app;
 
+    /** reference to the instance of Model */
     private Model model = Model.getInstance();
 
+    /** list of water source reports */
     private ObservableList<WaterSourceReport> list = FXCollections
             .observableList(Model.getSourceReports());
 
+    /**
+     * Sets the FX App for the controller.
+     *
+     * @param fxapp FX App for the controller
+     */
     public void setMainApp(FXApplication fxapp) {
         app = fxapp;
     }
@@ -66,7 +75,10 @@ public class SourceReportsTableController {
         _dialogStage = dialogStage;
     }
 
-    /** Called automatically upon load */
+    /**
+     * Called automatically upon load. Populates table with reports from the
+     * list of source reports.
+     */
     @FXML
     private void initialize() {
         //reportNumCol = new TableColumn("Report#");
@@ -94,6 +106,9 @@ public class SourceReportsTableController {
         //reportTable.getColumns().addAll(reportNumCol, dateOf, locationCol);
     }
 
+    /**
+     * Called when the user clicks the back button. Displays the main page.
+     */
     @FXML
     private void handleBack() {
         app.showMainPage();

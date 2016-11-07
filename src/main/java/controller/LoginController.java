@@ -8,17 +8,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import model.Model;
-import services.UserDatabaseInterface;
 import services.UserInfoTable;
 
 
 /**
- * The controller for the login page
+ * The controller for the login page. At the login page the user can login or
+ * navigate to the registration page.
  *
  * @author Karthik Praturu
  */
 public class LoginController {
-    /*
+    /**
      * References to the FXML widgets in the .fxml file
      */
     @FXML
@@ -33,7 +33,7 @@ public class LoginController {
     /** The window for this dialog*/
     private Stage _dialogStage;
 
-    // REf to FX APP
+    /** Reference to FX APP */
     private FXApplication app;
 
     private Model model = Model.getInstance();
@@ -42,7 +42,11 @@ public class LoginController {
     /** flag to signal whether dialog was closed normally */
     private boolean _loginAuthenticated = false;
 
-
+    /**
+     * Sets the main app for the controller.
+     *
+     * @param fxapp App to set as main app
+     */
     public void setMainApp(FXApplication fxapp) {
         app = fxapp;
     }
@@ -66,7 +70,8 @@ public class LoginController {
     }
 
     /**
-     * Called when the user clicks the login button
+     * Called when the user clicks the login button. Validates the login and
+     * displays main page if successful.
      */
     @FXML
     private void handleLoginAttempt() {
@@ -95,7 +100,8 @@ public class LoginController {
     }
 
     /**
-     * Validates the user input in the text fields.
+     * Validates the user input in the text fields. If any are invalid, opens
+     * an alert box describing the invalid fields.
      *
      * @return true if the input is valid
      */
@@ -127,11 +133,19 @@ public class LoginController {
         }
     }
 
+    /**
+     * Called when the user clicks the exit button. Exits the application.
+     */
     @FXML
     private void handleExit(){
         Stage stage = (Stage) exitButton.getScene().getWindow();
         stage.close();
     }
+
+    /**
+     * Called when the user clicks the register button. Displays the
+     * registration page.
+     */
     @FXML
     private void handleRegistration() {
         app.showRegistrationPage();

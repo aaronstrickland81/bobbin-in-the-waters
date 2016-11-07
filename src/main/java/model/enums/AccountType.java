@@ -15,6 +15,7 @@ public enum AccountType {
         this.name = str;
     }
 
+    @Override
     public String toString() {
         return name;
     }

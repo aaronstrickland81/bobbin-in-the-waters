@@ -19,10 +19,14 @@ import model.enums.WaterType;
 import java.util.Date;
 
 /**
+ * Controller for the quality reports table page. This page displays a table of
+ * all water quality reports, and is only accessible by Workers and Mangers.
+ *
  * Created by kavish on 10/32/16.
  */
 public class QualityReportsTableController {
 
+    /** references to FXML widgets */
     @FXML
     private TableView<WaterQualityReport> reportTable;
 
@@ -44,19 +48,24 @@ public class QualityReportsTableController {
     @FXML
     private TableColumn<WaterQualityReport, WaterType> chemCol;
 
-    /**
-     * The window for this dialog
-     */
+    /** the stage for this dialog */
     private Stage _dialogStage;
 
-    // REf to FX APP
+    /** reference to FX App */
     private FXApplication app;
 
+    /** reference to the instance of Model */
     private Model model = Model.getInstance();
 
+    /** list of water quality reports */
     private ObservableList<WaterQualityReport> list = FXCollections
             .observableList(Model.getQualityReports());
 
+    /**
+     * Sets the FX App for the controller.
+     *
+     * @param fxapp FX App for the controller
+     */
     public void setMainApp(FXApplication fxapp) {
         app = fxapp;
     }
@@ -103,6 +112,9 @@ public class QualityReportsTableController {
         reportTable.setItems(list);
     }
 
+    /**
+     * Called when the user clicks the back button. Displays the main page.
+     */
     @FXML
     private void handleBack() {
         app.showMainPage();

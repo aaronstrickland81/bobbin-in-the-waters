@@ -26,6 +26,10 @@ import java.util.ResourceBundle;
 import java.util.Optional;
 
 /**
+ * Controller for the main screen of the application. The main screen contains
+ * a Google Map display of all water sources, as well as a menu to navigate
+ * to the rest of the application's pages.
+ *
  * Created by Kavish on 9/27/2016.
  *
  * UPDATE: Combined with MapController (Neil)
@@ -53,6 +57,9 @@ public class MainScreenController implements Initializable, MapComponentInitiali
     private Button viewQualityReports;
 
     @FXML
+    private Button viewHistoricalReport;
+
+    @FXML
     private Button viewMap;
 
     @FXML
@@ -61,11 +68,16 @@ public class MainScreenController implements Initializable, MapComponentInitiali
     @FXML
     BorderPane border;
 
+    /** reference to map display */
     GoogleMap map;
 
+    /** the stage for this page */
     private Stage _dialogStage;
+
+    /** flag to signal whether dialog was closed normally */
     private Boolean _logoutPressed;
 
+    /** reference to FX App */
     private FXApplication app;
 
     /**
@@ -81,10 +93,20 @@ public class MainScreenController implements Initializable, MapComponentInitiali
         mapView.addMapInializedListener(this);
     }
 
+    /**
+     * Sets the stage of this dialog.
+     *
+     * @param dialogStage the stage for this dialog
+     */
     public void setDialogStage(Stage dialogStage) {
         _dialogStage = dialogStage;
     }
 
+    /**
+     * Sets the FX app for the controller.
+     *
+     * @param fxapp FX App for the controller
+     */
     public void setMainApp(FXApplication fxapp) {
         app = fxapp;
     }
@@ -141,7 +163,10 @@ public class MainScreenController implements Initializable, MapComponentInitiali
     }
 
     /**
-     * Called when the user clicks the logout button
+     * Called when the user clicks the logout button.
+     *
+     * Pops up an alert to confirm that the user wants to log out, and if
+     * confirmed, logs out the user and returns to the login page.
      */
     @FXML
     private void handleLogout() {
@@ -164,6 +189,11 @@ public class MainScreenController implements Initializable, MapComponentInitiali
         }
     }
 
+    /**
+     * Called when the user clicks the submit report button. If the user is of
+     * AccountType User, displays the water source report submission page.
+     * Otherwise, drops down more menu button options.
+     */
     @FXML
     private void handleSubmitReports() {
         if (Model.getUser().getType().equals(AccountType.USER)) {
@@ -174,16 +204,29 @@ public class MainScreenController implements Initializable, MapComponentInitiali
         }
     }
 
+    /**
+     * Called when the user clicks the submit source report button. Displays the
+     * submit source report page.
+     */
     @FXML
     private void handleSubmitSourceReport() {
         app.showWaterSourceReport();
     }
 
+    /**
+     * Called when the user clicks the submit quality report button. Displays
+     * the submit quality report page.
+     */
     @FXML
     private void handleSubmitQualityReport() {
         app.showWaterQualityReport();
     }
 
+    /**
+     * Called when the user clicks the view reports button. If the user is of
+     * AccountType User, displays the view source reports table page. Otherwise,
+     * drops down more menu button options.
+     */
     @FXML
     private void handleViewReports() {
         if (Model.getUser().getType().equals(AccountType.USER)) {
@@ -191,19 +234,39 @@ public class MainScreenController implements Initializable, MapComponentInitiali
         } else {
             toggleButton(viewSourceReports);
             toggleButton(viewQualityReports);
+            if (Model.getUser().getType().equals(AccountType.MANAGER)) {
+                toggleButton(viewHistoricalReport);
+            }
         }
     }
 
+    /**
+     * Called when the user clicks the view source reports button. Displays the
+     * view source reports table page.
+     */
     @FXML
     private void handleViewSourceReports() {
         app.showViewSourceReportsTable();
     }
 
+    /**
+     * Called when the user clicks the view quality reports button. Displays the
+     * view quality reports table page.
+     */
     @FXML
     private void handleViewQualityReports() {
         app.showViewQualityReportsTable();
     }
 
+    @FXML
+    private void handleViewHistoricalReport() {
+        app.showHistoricalReportsPage();
+    }
+
+    /**
+     * Called when the user clicks the edit profile button. Displays the edit
+     * profile page.
+     */
     @FXML
     private void handleEdit() {
         app.showEditPage();

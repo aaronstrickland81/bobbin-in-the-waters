@@ -29,6 +29,7 @@
                <Button fx:id="viewReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleViewReports"  text="View Reports" styleClass="mainButton"/>
                <Button fx:id="viewSourceReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleViewSourceReports" text="Source Reports" styleClass="mainButton" visible="false" managed="false"/>
                <Button fx:id="viewQualityReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleViewQualityReports" text="Quality Reports" styleClass="mainButton" visible="false" managed="false"/>
+               <Button fx:id="viewHistoricalReport" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleViewHistoricalReport" text="Historical Report" styleClass="mainButton" visible="false" managed="false"/>
                <Button fx:id="logout" alignment="TOP_CENTER"
                        mnemonicParsing="false" prefHeight="31.0"
                        prefWidth="123.0" onAction="#handleLogout" text="Logout"

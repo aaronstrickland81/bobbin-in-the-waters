@@ -1,9 +1,5 @@
 package controller;
 
-/**
- * Created by Jason on 10/30/2016.
- */
-
 import fxapp.FXApplication;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -15,10 +11,7 @@ import javafx.stage.Stage;
 
 import model.Model;
 import model.WaterQualityReport;
-import model.WaterSourceReport;
 import model.enums.PurityCondition;
-import model.enums.WaterType;
-import model.enums.SourceCondition;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -26,6 +19,13 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.regex.Pattern;
 
+/**
+ * Controller for the submit quality report page. This page lets the user enter
+ * information for a water quality report and submit it to the database. This
+ * page is only accessible by Workers and Managers.
+ *
+ * Created by Jason on 10/30/2016.
+ */
 public class WaterQualityReportController {
 
     /** references to FXML widgets */
@@ -52,16 +52,16 @@ public class WaterQualityReportController {
 
     /**
      * Helper Function that converts LocalDateTime to Date
-     * @return out
+     *
+     * @return current date
      */
     private Date dateConverter() {
         Date in = new Date();
         LocalDateTime ldt = LocalDateTime.ofInstant(in.toInstant(), ZoneId.systemDefault());
-        Date out = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
-        return out;
+        return Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
     }
 
-    /** The window for this dialog */
+    /** The stage for this dialog */
     private Stage _dialogStage;
 
     /** Reference to FX App */
@@ -73,12 +73,21 @@ public class WaterQualityReportController {
     public WaterQualityReportController() {
     }
 
+    /**
+     * Called automatically upon load. Populates the combobox for water
+     * condition with the appropriate enum values.
+     */
     @FXML
     private void initialize() {
         waterCondition.getItems().addAll(
                 FXCollections.observableArrayList(PurityCondition.values()));
-
     }
+
+    /**
+     * Sets the FX App for the controller.
+     *
+     * @param fxapp FX App for the controller
+     */
     public void setMainApp(FXApplication fxapp) {
         app = fxapp;
     }
@@ -91,6 +100,7 @@ public class WaterQualityReportController {
     public void setDialogStage(Stage dialogStage) {
         _dialogStage = dialogStage;
     }
+
     /**
      * Returns true if the user has registered successfully, false otherwise.
      *
@@ -99,7 +109,12 @@ public class WaterQualityReportController {
     public boolean isWaterQualityReportCompleted() {
         return _waterQualityReportCompleted;
     }
-    /** Called when the user clicks the submit button */
+
+    /**
+     * Called when the user clicks the submit button. Validates user input, if
+     * valid creates a new quality report, adds it to the database, and displays
+     * the main page.
+     */
     @FXML
     private void handleWaterSourceSubmissionAttempt() throws IOException {
         if (this.isInputValid()) {
@@ -112,22 +127,28 @@ public class WaterQualityReportController {
 
             _waterQualityReportCompleted = true;
             app.showMainPage();
-        } else {
-            System.out.println("Error");
-            // handle case if not valid
         }
     }
+
+    /**
+     * Called when the user clicks the back button. Displays the main page.
+     */
     @FXML
     private void handleBack() {
         app.showMainPage();
     }
 
+    /**
+     * Called when the user clicks the cancel button. Displays the main page.
+     */
     @FXML
     private void handleCancel() {
         app.showMainPage();
     }
+
     /**
-     * Validates the user input in the text fields.
+     * Validates the user input in the text fields. If invalid, displays an
+     * alert informing the user of the invalid data.
      *
      * @return true if the input is valid
      */
@@ -178,11 +199,12 @@ public class WaterQualityReportController {
             return false;
         }
     }
+
     /**
-     * Validates if the lat and long inputs are valid doubles
+     * Validates if the lat and long inputs are valid doubles.
      *
-     * @param str
-     * @return
+     * @param str Input to be validated
+     * @return true if valid double, false otherwise
      */
     private boolean validDouble(String str) {
         final String Digits = "(\\p{Digit}+)";

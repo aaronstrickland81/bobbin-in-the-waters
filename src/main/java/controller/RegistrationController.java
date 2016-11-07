@@ -16,9 +16,10 @@ import services.UserInfoTable;
 import java.io.*;
 
 /**
- * Created by Aaron Strickland on 9/18/2016.
+ * Controller for the Registration page. This page allows the user to enter
+ * information to create a new account.
  *
- * Controller for the Registration page.
+ * Created by Aaron Strickland on 9/18/2016.
  */
 public class RegistrationController {
 
@@ -44,7 +45,7 @@ public class RegistrationController {
     @FXML
     private ComboBox accountTypeComboBox;
 
-    /** The window for this dialog */
+    /** The stage for this dialog */
     private Stage _dialogStage;
 
     /** Reference to FX App */
@@ -60,6 +61,11 @@ public class RegistrationController {
                 FXCollections.observableArrayList(AccountType.values()));
     }
 
+    /**
+     * Sets the FX App for the controller.
+     *
+     * @param fxapp FX App for the controller
+     */
     public void setMainApp(FXApplication fxapp) {
         app = fxapp;
     }
@@ -82,15 +88,17 @@ public class RegistrationController {
         return _registrationCompleted;
     }
 
-    /** Called when the user clicks the register button */
+    /**
+     * Called when the user clicks the register button. Validates input, if
+     * valid creates a new user, stores it to the database, and displays the
+     * login page.
+     */
     @FXML
     private void handleRegistrationAttempt() throws IOException {
         if (this.isInputValid()) {
-            //output user info to CSV
             User user = new User(userField.getText(), passField.getText(),
                     (AccountType) accountTypeComboBox.getValue(), emailField
                     .getText(), firstNameField.getText(), lastNameField.getText());
-            UserDatabaseInterface.addUser(user);
             UserInfoTable.addUser(user);
 
             _registrationCompleted = true;
@@ -104,7 +112,8 @@ public class RegistrationController {
     }
 
     /**
-     * Validates the user input in the text fields.
+     * Validates the user input in the text fields. If invalid, displays an
+     * alert informing the user of the invalid data.
      *
      * @return true if input is valid
      */
@@ -143,6 +152,7 @@ public class RegistrationController {
             errorMessage += "Passwords do not match\n";
         }
 
+        //check if user exists
         if (UserInfoTable.checkUserExists(userField.getText())) {
             errorMessage += "Username already exists. Choose another one\n";
         }

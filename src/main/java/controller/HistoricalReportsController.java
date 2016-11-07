@@ -21,6 +21,7 @@ import java.util.HashMap;
  */
 public class HistoricalReportsController {
 
+    /** References to FXML widgets */
     @FXML
     private ComboBox locationBox;
 
@@ -30,14 +31,16 @@ public class HistoricalReportsController {
     @FXML
     private LineChart<String, Number> lineChart;
 
-    /** The window for this dialog */
+    /** The stage for this dialog */
     private Stage _dialogStage;
 
     /** Reference to FX App */
     private FXApplication app;
 
+    /** list of water quality reports */
     private ArrayList<WaterQualityReport> qualityReports;
 
+    /** map of quality reports by location */
     private Map<String, List<WaterQualityReport>> locationMap;
 
     /**
@@ -66,6 +69,11 @@ public class HistoricalReportsController {
                 FXCollections.observableArrayList(locationMap.keySet()));
     }
 
+    /**
+     * Sets the FX App for the controller.
+     *
+     * @param fxapp FX App for the controller
+     */
     public void setMainApp(FXApplication fxapp) {
         app = fxapp;
     }

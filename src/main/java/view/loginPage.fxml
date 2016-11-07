@@ -16,18 +16,28 @@
 
 
    <children>
-      <TextField fx:id="userField" layoutX="212.0" layoutY="171.0" prefHeight="31.0" prefWidth="256.0" styleClass="loginTBox"/>
-      <PasswordField fx:id="pwField" layoutX="212.0" layoutY="212.0" prefHeight="31.0" prefWidth="256.0" styleClass="loginTBox"/>
-      <Button layoutX="237.0" layoutY="261.0" mnemonicParsing="false" onAction="#handleLoginAttempt" prefHeight="31.0" prefWidth="180.0" text="Login" styleClass="loginButton" defaultButton="true"/>
-      <Button layoutX="237.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleRegistration" prefHeight="23.0" prefWidth="180.0" text="Don't Have an Account?" styleClass="loginButton">
+      <TextField fx:id="userField" layoutX="212.0" layoutY="171.0"
+                 prefHeight="31.0" prefWidth="256.0" styleClass="loginTBox"/>
+      <PasswordField fx:id="pwField" layoutX="212.0" layoutY="212.0"
+                     prefHeight="31.0" prefWidth="256.0"
+                     styleClass="loginTBox"/>
+      <Button defaultButton="true" layoutX="237.0" layoutY="261.0"
+              mnemonicParsing="false" onAction="#handleLoginAttempt"
+              prefHeight="31.0" prefWidth="180.0" styleClass="loginButton"
+              text="Login"/>
+      <Button layoutX="237.0" layoutY="303.0" mnemonicParsing="false"
+              onAction="#handleRegistration" prefHeight="23.0" prefWidth="180.0"
+              styleClass="loginButton" text="Don't Have an Account?">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Label layoutX="133.0" layoutY="212.0" prefHeight="31.0" prefWidth="74.0" text="Password:" styleClass="loginText"/>
-      <Label layoutX="133.0" layoutY="171.0" prefHeight="31.0" prefWidth="74.0" text="Username:" styleClass="loginText"/>
-       <Label layoutX="120.0" layoutY="86.0" prefHeight="56.0" prefWidth="527.0"
-                styleClass="loginText" text="Bobbin In the Waters">
+      <Label layoutX="133.0" layoutY="212.0" prefHeight="31.0" prefWidth="74.0"
+             styleClass="loginText" text="Password:"/>
+      <Label layoutX="133.0" layoutY="171.0" prefHeight="31.0" prefWidth="74.0"
+             styleClass="loginText" text="Username:"/>
+      <Label layoutX="55.0" layoutY="89.0" prefHeight="56.0" prefWidth="490.0"
+             styleClass="loginText" text="Bobbin In the Waters">
          <font>
             <Font size="46.0" />
          </font>

@@ -24,12 +24,37 @@
             <VBox prefHeight="400.0" prefWidth="125.0">
                <Button fx:id="editProfile" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleEdit" text="Edit Profile" styleClass="mainButton"/>
                <Button fx:id="submitReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0"  onAction="#handleSubmitReports" text="Submit Report" styleClass="mainButton"/>
-               <Button fx:id="submitSourceReport" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleSubmitSourceReport" text="Source Report" styleClass="mainButton" visible="false" managed="false"/>
-               <Button fx:id="submitQualityReport" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleSubmitQualityReport" text="Quality Report" styleClass="mainButton" visible="false" managed="false"/>
-               <Button fx:id="viewReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleViewReports"  text="View Reports" styleClass="mainButton"/>
-               <Button fx:id="viewSourceReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleViewSourceReports" text="Source Reports" styleClass="mainButton" visible="false" managed="false"/>
-               <Button fx:id="viewQualityReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleViewQualityReports" text="Quality Reports" styleClass="mainButton" visible="false" managed="false"/>
-               <Button fx:id="viewHistoricalReport" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleViewHistoricalReport" text="Historical Report" styleClass="mainButton" visible="false" managed="false"/>
+                <Button fx:id="submitSourceReport" alignment="TOP_CENTER"
+                        mnemonicParsing="false" prefHeight="31.0"
+                        prefWidth="123.0" onAction="#handleSubmitSourceReport"
+                        text="   -Source Report" styleClass="mainButton"
+                        visible="false" managed="false"/>
+                <Button fx:id="submitQualityReport" alignment="TOP_CENTER"
+                        mnemonicParsing="false" prefHeight="31.0"
+                        prefWidth="123.0"
+                        onAction="#handleSubmitQualityReport"
+                        text="   -Quality Report" styleClass="mainButton"
+                        visible="false" managed="false"/>
+                <Button fx:id="viewReports" alignment="TOP_CENTER"
+                        mnemonicParsing="false" prefHeight="31.0"
+                        prefWidth="123.0" onAction="#handleViewReports"
+                        text="View Reports" styleClass="mainButton"/>
+                <Button fx:id="viewSourceReports" alignment="TOP_CENTER"
+                        mnemonicParsing="false" prefHeight="31.0"
+                        prefWidth="123.0" onAction="#handleViewSourceReports"
+                        text="   -Source Reports" styleClass="mainButton"
+                        visible="false" managed="false"/>
+                <Button fx:id="viewQualityReports" alignment="TOP_CENTER"
+                        mnemonicParsing="false" prefHeight="31.0"
+                        prefWidth="123.0" onAction="#handleViewQualityReports"
+                        text="   -Quality Reports" styleClass="mainButton"
+                        visible="false" managed="false"/>
+                <Button fx:id="viewHistoricalReport" alignment="TOP_CENTER"
+                        mnemonicParsing="false" prefHeight="31.0"
+                        prefWidth="123.0"
+                        onAction="#handleViewHistoricalReport"
+                        text="   -Historical Report" styleClass="mainButton"
+                        visible="false" managed="false"/>
                <Button fx:id="logout" alignment="TOP_CENTER"
                        mnemonicParsing="false" prefHeight="31.0"
                        prefWidth="123.0" onAction="#handleLogout" text="Logout"
@@ -41,24 +66,5 @@
          </right>
       </BorderPane>
    </children>
-<!--   <children>
-      <Button fx:id="logout" layoutX="236.0" layoutY="345.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="26.0" prefWidth="101.0" text="Logout" />
-      <Button fx:id="editProfile" layoutX="497.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleEdit" text="Edit Profile" />
-      <Button fx:id="submitReports" layoutX="66.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleSubmitReports" prefHeight="139.0" prefWidth="135.0" text="Submit Reports" wrapText="true">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="viewReports" layoutX="219.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleViewReports" prefHeight="139.0" prefWidth="135.0" text="View Reports" wrapText="true">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Button>
-      <Button fx:id="viewMap" layoutX="373.0" layoutY="101.0" mnemonicParsing="false" onAction="#handleViewMap" prefHeight="139.0" prefWidth="135.0" text="View Water Availibility Map" wrapText="true">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-   </children>-->
 </AnchorPane>
 

@@ -200,6 +200,8 @@ public class HistoricalReportsController {
     @FXML
     private void handleVirusPPM() {
         lineChart.getData().clear();
+        lineChart.setTitle("Graph of Virus PPM");
+
         XYChart.Series<String, Number> series = new XYChart.Series<>();
 
         for (PPMDataHandler ppmData : ppmList) {
@@ -216,6 +218,7 @@ public class HistoricalReportsController {
     @FXML
     private void handleContaminantPPM() {
         lineChart.getData().clear();
+        lineChart.setTitle("Graph of Contaminant PPM");
         XYChart.Series<String, Number> series = new XYChart.Series<>();
 
         for (PPMDataHandler ppmData : ppmList) {

@@ -22,12 +22,12 @@
             </toggleGroup></RadioButton>
          <RadioButton fx:id="contaminantButton" onAction="#handleContaminantPPM" mnemonicParsing="false" text="Cont. PPM" toggleGroup="$group" visible="false" />
        </VBox>
-      <LineChart fx:id="lineChart" layoutX="125.0" prefHeight="400.0" prefWidth="475.0" title="Historical Graph">
+      <LineChart fx:id="lineChart" layoutX="125.0" prefHeight="400.0" prefWidth="475.0" title="Find a Graph!">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis label="Month" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis label="PPM" side="LEFT" />
         </yAxis>
       </LineChart>
    </children>

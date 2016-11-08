@@ -164,7 +164,9 @@ public class User {
                 && this.getEmail().equals(temp.getEmail())
                 && this.getFname().equals(temp.getFname())
                 && this.getLname().equals(temp.getLname())
-                && this.getType().equals(temp.getType())) {
+                && this.getType().equals(temp.getType())
+                && this.getHomeAddress().equals(temp.getHomeAddress())
+                && this.getTitle().equals(temp.getTitle())) {
             return true;
         }
         return false;

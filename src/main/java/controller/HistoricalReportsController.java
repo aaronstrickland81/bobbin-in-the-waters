@@ -127,6 +127,11 @@ public class HistoricalReportsController {
         _dialogStage = dialogStage;
     }
 
+    /**
+     * When manager clicks on a location, a hash map of years related to
+     * reports for that location is populated, and a year box is brought
+     * into view
+     */
     @FXML
     private void handleOnLocAction() {
         List<WaterQualityReport> relevantReports = locationMap.get(locationBox.getValue());
@@ -149,6 +154,11 @@ public class HistoricalReportsController {
                 FXCollections.observableArrayList(yearMap.keySet()));
     }
 
+    /**
+     * When a manager selects a year, two options for choosing which
+     * graph to plot are brought into view, and a list of data
+     * for each type of graph is populated
+     */
     @FXML
     private void handleOnYearAction() {
 
@@ -183,6 +193,10 @@ public class HistoricalReportsController {
         }
     }
 
+    /**
+     * When virusPPM option is clicked, graph the virus data by making use of
+     * inner class, which automatically handles reports created in the same month
+     */
     @FXML
     private void handleVirusPPM() {
         lineChart.getData().clear();
@@ -194,6 +208,11 @@ public class HistoricalReportsController {
         lineChart.getData().add(series);
     }
 
+    /**
+     * When contaminantPPM option is clicked, graph the contaminant data by making use of
+     * the PPMDataHandler inner class, which automatically handles reports created in
+     * the same month
+     */
     @FXML
     private void handleContaminantPPM() {
         lineChart.getData().clear();

@@ -16,11 +16,11 @@
          <Button fx:id="Back" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#handleBack" prefHeight="31.0" prefWidth="123.0" styleClass="mainButton" text="Back" />
          <ComboBox fx:id="locationBox" onAction="#handleOnLocAction" prefWidth="150.0" promptText="Location" />
          <ComboBox fx:id="yearBox" onAction="#handleOnYearAction" prefWidth="150.0" promptText="Year" visible="false" />
-         <RadioButton fx:id="virusButton" onAction="#handleVirusPPM" mnemonicParsing="false" text="Virus PPM" visible="false">
+         <RadioButton fx:id="virusButton" onAction="#handleVirusPPM" mnemonicParsing="false" text="Virus PPM" visible="false" styleClass="historicalRadioButton">
             <toggleGroup>
                <ToggleGroup fx:id="group" />
             </toggleGroup></RadioButton>
-         <RadioButton fx:id="contaminantButton" onAction="#handleContaminantPPM" mnemonicParsing="false" text="Cont. PPM" toggleGroup="$group" visible="false" />
+         <RadioButton fx:id="contaminantButton" onAction="#handleContaminantPPM" mnemonicParsing="false" text="Cont. PPM" toggleGroup="$group" visible="false"  styleClass="historicalRadioButton"/>
        </VBox>
       <LineChart fx:id="lineChart" layoutX="125.0" prefHeight="400.0" prefWidth="475.0" title="Find a Graph!">
         <xAxis>

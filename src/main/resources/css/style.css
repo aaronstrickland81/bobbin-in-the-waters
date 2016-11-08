@@ -53,3 +53,7 @@
 .mainButton:hover {
     -fx-text-fill: #4286f4;
 }
+
+.historicalRadioButton {
+    -fx-text-fill: white;
+}

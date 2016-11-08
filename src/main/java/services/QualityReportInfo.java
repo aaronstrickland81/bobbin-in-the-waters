@@ -65,6 +65,38 @@ public class QualityReportInfo {
         return aList;
     }
 
+    public static ArrayList<WaterQualityReport> getQualityReports(
+            Double longitude, Double latitude, String date) {
+        ArrayList<WaterQualityReport> aList = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
+                            ".amazonaws.com:3306/bobbin", "root", "password");
+            PreparedStatement ps = con.prepareStatement("select from " +
+                    "qualityReportInfo where longitude = ? and latitude = ? ");
+            ps.setDouble(1, longitude);
+            ps.setDouble(2, latitude);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String d = rs.getDate(1).toString();
+                d = d.substring(0, 4);
+                if (d.equals(date)) {
+                    WaterQualityReport w = new WaterQualityReport(rs.getDate(1), rs
+                            .getInt(2), rs.getString(3), rs.getDouble(4), rs
+                            .getDouble(5), PurityCondition.getCondition(rs
+                            .getString(6)), rs.getDouble(7), rs.getDouble(8));
+                    aList.add(w);
+                }
+            }
+            con.close();
+            return aList;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return aList;
+    }
+
     public static int getQualityCounter() {
         try {
             Class.forName("com.mysql.jdbc.Driver");

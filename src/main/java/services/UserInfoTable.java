@@ -151,7 +151,7 @@ public class UserInfoTable {
      */
 
     /**
-     * MAKE PRIVATE IF CAN
+     * MAKE PRIVATE IF CAN (used for JUnits)
      *
      * Check if the username/password combo is valid
      *

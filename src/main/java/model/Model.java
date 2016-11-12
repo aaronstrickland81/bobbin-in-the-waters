@@ -3,6 +3,7 @@ package model;
 
 import services.QualityReportInfo;
 import services.SourceReportInfo;
+import services.UserInfoTable;
 
 import javax.xml.transform.Source;
 import java.util.ArrayList;
@@ -48,6 +49,22 @@ public class Model {
      */
     public static User getUser() {
         return _user;
+    }
+
+    public static void addUser(User aUser) {
+        UserInfoTable.addUser(aUser);
+    }
+
+    public static void editUser(User aUser) {
+        UserInfoTable.updateUser(aUser);
+    }
+
+    public static User verifyLogin(String uname, String pass) {
+        return UserInfoTable.verifyUser(uname, pass);
+    }
+
+    public static boolean doesUsernameExist(String uname) {
+        return UserInfoTable.checkUserExists(uname);
     }
 
 

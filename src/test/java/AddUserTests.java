@@ -17,7 +17,7 @@ import model.User;
 public class AddUserTests {
 
     @Rule
-    public Timeout globalTimeout = new Timeout(2000L, TimeUnit.MILLISECONDS);
+    public Timeout globalTimeout = new Timeout(5000L, TimeUnit.MILLISECONDS);
 
     @Before
     public void init() {

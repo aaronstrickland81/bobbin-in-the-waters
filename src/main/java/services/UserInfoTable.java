@@ -105,11 +105,11 @@ public class UserInfoTable {
                             account, rs
                             .getString(4), rs.getString(1), rs
                             .getString(2), rs.getString(7), rs.getString(8));
+                    con.close();
                     return u;
                 }
-                con.close();
             }
-
+            con.close();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -169,11 +169,19 @@ public class UserInfoTable {
                 AccountType account = getType(rs.getString(6));
                 String userName = rs.getString(3);
                 String password = rs.getString(5);
+                String address = "";
+                String title = "";
+                if (rs.getString(7) != null) {
+                    address = rs.getString(7);
+                }
+                if (rs.getString(8) != null) {
+                    title = rs.getString(8);
+                }
                 if (userName.equals(uname)) {
                     User u = new User(userName, password,
                             account, rs
                             .getString(4), rs.getString(1), rs
-                            .getString(2), rs.getString(7), rs.getString(8));
+                            .getString(2), address, title);
                     return u;
                 }
                 con.close();

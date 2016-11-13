@@ -196,4 +196,22 @@ public class UserInfoTable {
         return null;
     }
 
+    public static void removeUser(String username) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection(
+                    "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
+                            ".amazonaws.com:3306/bobbin", "root", "password");
+
+            Statement stmt = con.createStatement();
+            PreparedStatement ps = con.prepareStatement("delete from userInfo where " +
+                    "username = ?");
+            ps.setString(1, username);
+            ps.executeQuery();
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
 }

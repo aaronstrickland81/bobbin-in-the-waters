@@ -10,7 +10,7 @@ import services.QualityReportInfo;
 import services.UserInfoTable;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -30,19 +30,19 @@ public class AddQualityReportTests {
     @Test
     public void testDBInit() {
         List<WaterQualityReport> reports = QualityReportInfo.getQualityReports();
-        WaterQualityReport test = new WaterQualityReport(new Date(), 1, "nacharya", 2.0, 2.0, PurityCondition.SAFE, 1.00, 1.00);
+        WaterQualityReport test = new WaterQualityReport(new Date(1997,1,14), 1, "nacharya", 1.0, 2.0, PurityCondition.SAFE, 1.00, 1.00);
         boolean reportExists = false;
         if (reports.contains(test)) {
             reportExists = true;
         }
-        Assert.assertFalse(reportExists);
+        //Assert.assertFalse(reportExists);
         Assert.assertFalse("Test report with worker name \"nacharya\"" +
                 " made today should not exist in database", reportExists);
     }
 
     @Test
     public void testAddReport() {
-        WaterQualityReport test = new WaterQualityReport(new Date(), 1, "nacharya", 2.0, 2.0, PurityCondition.SAFE, 1.00, 1.00);
+        WaterQualityReport test = new WaterQualityReport(new Date(2016,1,14), 1, "nacharya", 2.0, 2.0, PurityCondition.SAFE, 1.00, 1.00);
         QualityReportInfo.addQualityReport(test);
         WaterQualityReport comp = QualityReportInfo.getQualityReports().get(QualityReportInfo.getQualityCounter() - 1);
 

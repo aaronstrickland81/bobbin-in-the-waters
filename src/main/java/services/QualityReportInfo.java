@@ -51,7 +51,8 @@ public class QualityReportInfo {
                     "qualityReportInfo");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                WaterQualityReport w = new WaterQualityReport(rs.getDate(1), rs
+                java.util.Date utilDate = new java.util.Date(rs.getDate(1).getTime());
+                WaterQualityReport w = new WaterQualityReport(utilDate, rs
                         .getInt(2), rs.getString(3), rs.getDouble(4), rs
                         .getDouble(5), PurityCondition.getCondition(rs
                         .getString(6)), rs.getDouble(7), rs.getDouble(8));
@@ -82,7 +83,8 @@ public class QualityReportInfo {
                 String d = rs.getDate(1).toString();
                 d = d.substring(0, 4);
                 if (d.equals(date)) {
-                    WaterQualityReport w = new WaterQualityReport(rs.getDate(1), rs
+                    java.util.Date utilDate = new java.util.Date(rs.getDate(1).getTime());
+                    WaterQualityReport w = new WaterQualityReport(utilDate, rs
                             .getInt(2), rs.getString(3), rs.getDouble(4), rs
                             .getDouble(5), PurityCondition.getCondition(rs
                             .getString(6)), rs.getDouble(7), rs.getDouble(8));

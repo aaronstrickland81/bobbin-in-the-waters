@@ -135,8 +135,10 @@ public class UserInfoTable {
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
+                con.close();
                 return true;
             } else {
+                con.close();
                 return false;
             }
         } catch (Exception e) {
@@ -182,10 +184,11 @@ public class UserInfoTable {
                             account, rs
                             .getString(4), rs.getString(1), rs
                             .getString(2), address, title);
+                    con.close();
                     return u;
                 }
-                con.close();
             }
+            con.close();
 
         } catch (Exception e) {
             System.out.println(e);

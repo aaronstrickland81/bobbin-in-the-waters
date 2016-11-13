@@ -12,7 +12,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.ButtonType;
 import model.Model;
@@ -197,7 +196,7 @@ public class MainScreenController implements Initializable, MapComponentInitiali
     @FXML
     private void handleSubmitReports() {
         if (Model.getUser().getType().equals(AccountType.USER)) {
-            app.showWaterSourceReport();
+            app.showSubmitWaterSourceReport();
         } else {
             toggleButton(submitSourceReport);
             toggleButton(submitQualityReport);
@@ -210,7 +209,7 @@ public class MainScreenController implements Initializable, MapComponentInitiali
      */
     @FXML
     private void handleSubmitSourceReport() {
-        app.showWaterSourceReport();
+        app.showSubmitWaterSourceReport();
     }
 
     /**
@@ -219,7 +218,7 @@ public class MainScreenController implements Initializable, MapComponentInitiali
      */
     @FXML
     private void handleSubmitQualityReport() {
-        app.showWaterQualityReport();
+        app.showSubmitWaterQualityReport();
     }
 
     /**

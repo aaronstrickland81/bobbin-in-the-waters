@@ -83,7 +83,6 @@ public class SourceReportInfo {
                     "sourceReportInfo");
             rs.next();
             int count = rs.getInt("rowcount");
-            con.close();
             return count;
         } catch (Exception e) {
             System.out.println(e);

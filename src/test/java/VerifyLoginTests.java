@@ -38,4 +38,5 @@ public class VerifyLoginTests {
         User u = UserInfoTable.verifyUser("user", "wrongpass");
         Assert.assertNull("That is a correct password", u);
     }
+
 }

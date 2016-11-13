@@ -203,11 +203,10 @@ public class UserInfoTable {
                     "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
                             ".amazonaws.com:3306/bobbin", "root", "password");
 
-            Statement stmt = con.createStatement();
-            PreparedStatement ps = con.prepareStatement("delete from userInfo where " +
-                    "username = ?");
+            String query = "delete from userInfo where username = ?";
+            PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, username);
-            ps.executeQuery();
+            ps.execute();
             con.close();
         } catch (Exception e) {
             System.out.println(e);

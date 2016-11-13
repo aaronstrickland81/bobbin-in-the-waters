@@ -27,7 +27,6 @@ public class AddUserTests {
     @Test
     public void testDBInit() {
         boolean userExists = UserInfoTable.checkUserExists("kt456");
-        Assert.assertFalse(userExists);
         Assert.assertFalse("Test user with username \"kt456\"" +
                             " should not exist in database", userExists);
     }

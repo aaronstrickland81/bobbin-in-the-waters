@@ -35,7 +35,6 @@ public class AddQualityReportTests {
         if (reports.contains(test)) {
             reportExists = true;
         }
-        //Assert.assertFalse(reportExists);
         Assert.assertFalse("Test report with worker name \"nacharya\"" +
                 " made today should not exist in database", reportExists);
     }

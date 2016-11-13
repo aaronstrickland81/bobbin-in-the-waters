@@ -78,7 +78,7 @@ public class LoginController {
 
         if (isInputValid()) {
 
-            Model.setUser(UserInfoTable.verifyUser(userField
+            Model.setUser(Model.verifyLogin(userField
                     .getText(), pwField.getText()));
             String errorMessage = "";
 

@@ -99,7 +99,7 @@ public class ProfileController {
     private void handleSave() {
         if (this.isInputValid()) {
             updateUser(aUser);
-            UserInfoTable.updateUser(aUser);
+            Model.editUser(aUser);
             app.showMainPage();
         }
     }

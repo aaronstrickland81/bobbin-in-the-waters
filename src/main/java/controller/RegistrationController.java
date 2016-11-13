@@ -8,6 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Model;
 import model.enums.AccountType;
 import model.User;
 import services.UserDatabaseInterface;
@@ -99,7 +100,7 @@ public class RegistrationController {
             User user = new User(userField.getText(), passField.getText(),
                     (AccountType) accountTypeComboBox.getValue(), emailField
                     .getText(), firstNameField.getText(), lastNameField.getText());
-            UserInfoTable.addUser(user);
+            Model.addUser(user);
 
             _registrationCompleted = true;
             app.backToLoginPage();
@@ -153,7 +154,7 @@ public class RegistrationController {
         }
 
         //check if user exists
-        if (UserInfoTable.checkUserExists(userField.getText())) {
+        if (Model.doesUsernameExist(userField.getText())) {
             errorMessage += "Username already exists. Choose another one\n";
         }
 

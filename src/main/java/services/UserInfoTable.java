@@ -145,13 +145,8 @@ public class UserInfoTable {
         return false;
     }
 
-
     /**
-     *  Probably could be private
-     */
-
-    /**
-     * MAKE PRIVATE IF CAN
+     * MAKE PRIVATE IF CAN (used for JUnits)
      *
      * Check if the username/password combo is valid
      *

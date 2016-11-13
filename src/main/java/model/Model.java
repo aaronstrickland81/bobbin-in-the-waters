@@ -121,7 +121,7 @@ public class Model {
     }
 
     /**
-     * Gives a list of all Quaity Reports in the database
+     * Gives a list of all quality reports in the database
      *
      * @return arraylist of all quality reports
      */

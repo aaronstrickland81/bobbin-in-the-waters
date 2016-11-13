@@ -145,11 +145,6 @@ public class UserInfoTable {
         return false;
     }
 
-
-    /**
-     *  Probably could be private
-     */
-
     /**
      * MAKE PRIVATE IF CAN (used for JUnits)
      *

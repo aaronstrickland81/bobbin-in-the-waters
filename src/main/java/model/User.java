@@ -139,7 +139,7 @@ public class User {
 
 
     public User(String user, String pass) {
-        this(user,pass, AccountType.USER, "", "", "");
+        this(user,pass, AccountType.USER, "", "", "", "", "");
     }
 
     public User(User aUser) {

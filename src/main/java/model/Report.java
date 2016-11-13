@@ -3,6 +3,8 @@ package model;
 import javafx.beans.property.*;
 
 import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -160,9 +162,10 @@ public abstract class Report {
 
     @Override
     public String toString() {
+        DateFormat df = new SimpleDateFormat("dd-MM-yy");
         return "<h2>" + this.getTitle() + "</h2>"
                 + "<p>Report #" + _reportNumber.get()
-                + " submitted on " + _date.get() + "</p>"
+                + " submitted on " + df.format(_date.get()) + "</p>"
                 + "<p>Location: " + _location.get() + "</p></br>";
     }
 

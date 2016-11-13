@@ -17,10 +17,13 @@ public class WaterQualityReport extends Report {
     public final DoubleProperty _chemPPM = new SimpleDoubleProperty();
 
 
-    public WaterQualityReport(Date date, Integer reportnum, String name,
-                              Double longitude, Double latitude,
+    public WaterQualityReport(Date date, Integer reportnum,
+                              String name,
+                              Double longitude,
+                              Double latitude,
                               PurityCondition cond,
-                              Double virus, Double chem) {
+                              Double virus,
+                              Double chem) {
         super(date, reportnum, name, longitude, latitude);
         set_condition(cond);
         set_virusPPM(virus);
@@ -72,6 +75,28 @@ public class WaterQualityReport extends Report {
 
     @Override
     public String toString() {
-        return super.toString() + "<p>Condition: " + get_condition() + "</p>";
+        return super.toString() + "<p>Condition: " + get_condition() + "</p>"
+                + "</br><p>VirusPPM: " + _virusPPM.get() + "</p><br><p>Chemical PPM: "
+                + _chemPPM.get() + "</p>";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof WaterQualityReport)) { return false;}
+        if (null == obj) { return false; }
+        if (this == obj) { return true; }
+        WaterQualityReport temp = (WaterQualityReport) obj;
+        if (this.get_date().equals(temp.get_date())
+                && this.get_reportNumber() == (temp.get_reportNumber())
+                && this.get_location().equals(temp.get_location())
+                && this.get_workername().equals(temp.get_workername())
+                && this.get_latitude().equals(temp.get_latitude())
+                && this.get_longitude().equals(temp.get_longitude())
+                && this.get_condition().equals(temp.get_condition())
+                && this.get_chemPPM() == (temp.get_chemPPM())
+                && this.get_virusPPM() == temp.get_virusPPM()) {
+            return true;
+        }
+        return false;
     }
 }

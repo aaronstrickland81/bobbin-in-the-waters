@@ -1,29 +1,83 @@
 apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'idea'
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+apply plugin: 'findbugs'
 
-defaultTasks 'jar'
+mainClassName = 'fxapp.FXApplication'
 
 version = '1.0'
 
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'bobbin-in-the-waters',
-            'Implementation-Version': version,
-            'Main-Class': 'fxapp.FXApplication'
-    }
-}
-
 sourceSets {
     main {
-        java {
-            srcDirs =["src/main/"]
-            // exclude '**/test/*'
-        }
         resources {
-            srcDirs = ["src/main/java/view"]
+            srcDirs = ["src/main/resources"]
+            includes = ["**/*.fxml", "**/*.css", "**/*.png", "**/*.jpg", "**/*.gif"]
         }
     }
-
 }
+
+repositories {
+    mavenCentral()
+}
+checkstyle {
+    toolVersion = '7.1.2'
+    ignoreFailures = true
+    sourceSets = [project.sourceSets.main]
+}
+
+findbugs {
+    ignoreFailures = true
+}
+
+pmd {
+    ignoreFailures = true
+}
+
+test {
+    ignoreFailures = true
+}
+
+dependencies {
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.lynden:GMapsFX:2.0.9'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+jar {
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+        configurations.runtime.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    manifest {
+        attributes ('Main-Class': 'com.cafebabe.water_project.MainController')
+    }
+}
+
+//jar {
+//    manifest {
+//        attributes 'Implementation-Title': 'bobbin-in-the-waters',
+//            'Implementation-Version': version,
+//            'Main-Class': 'fxapp.FXApplication'
+//    }
+//}
+
+//sourceSets {
+//    main {
+//        java {
+//            srcDirs =["src/main/"]
+//            // exclude '**/test/*'
+//        }
+//        resources {
+//            srcDirs = ["src/main/java/view"]
+//        }
+//    }
+//
+//}
 
 dependencies {
 }

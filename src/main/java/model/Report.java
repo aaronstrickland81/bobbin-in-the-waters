@@ -2,7 +2,6 @@ package model;
 
 import javafx.beans.property.*;
 
-import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

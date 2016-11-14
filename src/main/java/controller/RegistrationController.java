@@ -12,7 +12,8 @@ import model.Model;
 import model.enums.AccountType;
 import model.User;
 
-import java.io.*;
+import java.io.IOException;
+
 
 /**
  * Controller for the Registration page. This page allows the user to enter

@@ -1,6 +1,15 @@
 package fxapp;
 
-import controller.*;
+
+import controller.HistoricalReportsController;
+import controller.LoginController;
+import controller.MainScreenController;
+import controller.ProfileController;
+import controller.QualityReportsTableController;
+import controller.RegistrationController;
+import controller.SourceReportsTableController;
+import controller.WaterQualityReportController;
+import controller.WaterSourceReportController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -327,7 +336,7 @@ public class FXApplication extends Application {
             e.printStackTrace();
         }
     }
-    
+
     public static void main(String[] args) {
         launch(args);
     }

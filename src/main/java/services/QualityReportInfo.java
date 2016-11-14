@@ -10,6 +10,11 @@ import java.util.ArrayList;
  */
 public class QualityReportInfo {
 
+    /**
+     * Adds report to database
+     *
+     * @param report the report to add
+     */
     public static void addQualityReport(WaterQualityReport report) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -38,7 +43,9 @@ public class QualityReportInfo {
     }
 
     /**
-     * @return
+     * Gets all the quality reports
+     *
+     * @return arraylist of quality reports
      */
     public static ArrayList<WaterQualityReport> getQualityReports() {
         ArrayList<WaterQualityReport> aList = new ArrayList<>();
@@ -66,6 +73,14 @@ public class QualityReportInfo {
         return aList;
     }
 
+    /**
+     * Gets quality report based off date
+     *
+     * @param longitude the longitude to search for
+     * @param latitude  the latitude to search for
+     * @param date      the date to search for
+     * @return arraylist of qualityreports matching query
+     */
     public static ArrayList<WaterQualityReport> getQualityReports(
             Double longitude, Double latitude, String date) {
         ArrayList<WaterQualityReport> aList = new ArrayList<>();
@@ -99,6 +114,11 @@ public class QualityReportInfo {
         return aList;
     }
 
+    /**
+     * Gets the number of rows of reports
+     *
+     * @return the number of quality reports
+     */
     public static int getQualityCounter() {
         try {
             Class.forName("com.mysql.jdbc.Driver");

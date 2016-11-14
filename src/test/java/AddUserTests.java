@@ -18,7 +18,7 @@ import model.User;
 public class AddUserTests {
 
     @Rule
-    public Timeout globalTimeout = new Timeout(5000L, TimeUnit.MILLISECONDS);
+    public Timeout globalTimeout = new Timeout(20000L, TimeUnit.MILLISECONDS);
 
     @Before
     public void init() {
@@ -28,12 +28,15 @@ public class AddUserTests {
     @After
     public void removeFromDB() {
         UserInfoTable.removeUser("kp45");
+        boolean userExists = UserInfoTable.checkUserExists("kp45");
+
+        Assert.assertEquals("User should be removed from database", false, userExists);
     }
 
     @Test
     public void testDBInit() {
-        boolean userExists = UserInfoTable.checkUserExists("kt456");
-        Assert.assertFalse("Test user with username \"kt456\"" +
+        boolean userExists = UserInfoTable.checkUserExists("kp45");
+        Assert.assertFalse("Test user with username \"kp45\"" +
                             " should not exist in database", userExists);
     }
 
@@ -46,4 +49,5 @@ public class AddUserTests {
         Assert.assertEquals("Added user should be equal to" +
                             " user stored in database", testUser, userDB);
     }
+
 }

@@ -8,8 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import model.Model;
-import services.UserInfoTable;
-
 
 /**
  * The controller for the login page. At the login page the user can login or

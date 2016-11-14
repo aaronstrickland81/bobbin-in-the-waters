@@ -1,4 +1,3 @@
-import model.User;
 import model.WaterQualityReport;
 import model.enums.PurityCondition;
 import org.junit.Assert;
@@ -7,9 +6,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.Timeout;
 import services.QualityReportInfo;
-import services.UserInfoTable;
-
-import java.time.LocalDate;
 import java.sql.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;

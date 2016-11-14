@@ -1,6 +1,5 @@
 package services;
 
-import model.Report;
 import model.WaterSourceReport;
 import model.enums.SourceCondition;
 import model.enums.WaterType;

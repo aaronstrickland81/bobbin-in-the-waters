@@ -8,8 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Model;
 import model.User;
-import services.UserDatabaseInterface;
-import services.UserInfoTable;
 
 
 /**

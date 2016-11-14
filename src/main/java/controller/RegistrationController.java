@@ -11,8 +11,6 @@ import javafx.stage.Stage;
 import model.Model;
 import model.enums.AccountType;
 import model.User;
-import services.UserDatabaseInterface;
-import services.UserInfoTable;
 
 import java.io.*;
 

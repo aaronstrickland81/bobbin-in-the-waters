@@ -10,7 +10,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import model.Model;
-import model.Report;
 import model.WaterSourceReport;
 import model.enums.SourceCondition;
 import model.enums.WaterType;

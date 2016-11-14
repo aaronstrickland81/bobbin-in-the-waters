@@ -4,7 +4,6 @@ package model;
 import javafx.beans.property.*;
 import model.enums.PurityCondition;
 
-import java.sql.Time;
 import java.util.Date;
 
 /**

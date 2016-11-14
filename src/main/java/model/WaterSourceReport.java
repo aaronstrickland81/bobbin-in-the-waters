@@ -5,7 +5,6 @@ import javafx.beans.property.SimpleObjectProperty;
 import model.enums.SourceCondition;
 import model.enums.WaterType;
 
-import java.sql.Time;
 import java.util.Date;
 
 /**

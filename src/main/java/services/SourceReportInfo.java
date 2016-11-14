@@ -44,7 +44,9 @@ public class SourceReportInfo {
     }
 
     /**
-     * @return
+     * Gets all the source reports
+     *
+     * @return arraylist of all the reports
      */
     public static ArrayList<WaterSourceReport> getSourceReports() {
         ArrayList<WaterSourceReport> aList = new ArrayList<>();
@@ -71,6 +73,11 @@ public class SourceReportInfo {
         return aList;
     }
 
+    /**
+     * Gets the number of source reports in the database
+     *
+     * @return int of the number of source reports
+     */
     public static int getSourceCounter() {
         try {
             Class.forName("com.mysql.jdbc.Driver");

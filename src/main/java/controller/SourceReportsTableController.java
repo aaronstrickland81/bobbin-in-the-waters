@@ -43,9 +43,6 @@ public class SourceReportsTableController {
     @FXML
     private TableColumn<WaterSourceReport, SourceCondition> conditionCol;
 
-    /** The stage for this dialog */
-    private Stage _dialogStage;
-
     /** reference to FX App */
     private FXApplication app;
 
@@ -66,43 +63,27 @@ public class SourceReportsTableController {
     }
 
     /**
-     * Sets the stage of this dialog.
-     *
-     * @param dialogStage the stage for this dialog
-     */
-    public void setDialogStage(Stage dialogStage) {
-        _dialogStage = dialogStage;
-    }
-
-    /**
      * Called automatically upon load. Populates table with reports from the
      * list of source reports.
      */
     @FXML
     private void initialize() {
-        //reportNumCol = new TableColumn("Report#");
         reportNumCol.setCellValueFactory(
                 new PropertyValueFactory<WaterSourceReport, Integer>("_reportNumber")
         );
-        //dateOf = new TableColumn("DateOf");
         dateOf.setCellValueFactory(
                 new PropertyValueFactory<WaterSourceReport, Date>("_date")
         );
-       // locationCol = new TableColumn("Location");
         locationCol.setCellValueFactory(
                 new PropertyValueFactory<WaterSourceReport, String>("_location")
         );
-
         typeCol.setCellValueFactory(
                 new PropertyValueFactory<WaterSourceReport, WaterType>("_type")
         );
-
         conditionCol.setCellValueFactory(
                 new PropertyValueFactory<WaterSourceReport, SourceCondition>("_condition")
         );
-
         reportTable.setItems(list);
-        //reportTable.getColumns().addAll(reportNumCol, dateOf, locationCol);
     }
 
     /**

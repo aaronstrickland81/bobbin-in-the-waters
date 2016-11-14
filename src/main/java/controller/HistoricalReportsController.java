@@ -64,22 +64,14 @@ public class HistoricalReportsController {
     @FXML
     private ToggleGroup group;
 
-    /** The stage for this dialog */
-    private Stage _dialogStage;
-
     /** Reference to FX App */
     private FXApplication app;
-
-    /** list of water quality reports */
-    private List<WaterQualityReport> qualityReports;
 
     /** map of quality reports by location */
     private Map<String, List<WaterQualityReport>> locationMap;
 
     /** map of quality reports by year */
     private Map<Integer, List<WaterQualityReport>> yearMap;
-
-    private Map<String, PPMDataHandler> ppmMap;
 
     private List<PPMDataHandler> ppmList;
 
@@ -92,7 +84,8 @@ public class HistoricalReportsController {
      */
     @FXML
     private void initialize() {
-        qualityReports = Model.getQualityReports();
+        /* list of water quality reports */
+        List<WaterQualityReport> qualityReports = Model.getQualityReports();
         locationMap = new HashMap<>();
         lineChart.setAnimated(false);
         lineChart.setStyle(
@@ -128,7 +121,8 @@ public class HistoricalReportsController {
      * @param dialogStage the stage for this dialog
      */
     public void setDialogStage(Stage dialogStage) {
-        _dialogStage = dialogStage;
+        /* The stage for this dialog */
+        Stage _dialogStage = dialogStage;
     }
 
     /**
@@ -166,7 +160,7 @@ public class HistoricalReportsController {
     @FXML
     private void handleOnYearAction() {
 
-        ppmMap = new HashMap<>();
+        Map<String, PPMDataHandler> ppmMap = new HashMap<>();
 
         group = new ToggleGroup();
 

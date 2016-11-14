@@ -46,9 +46,6 @@ public class QualityReportsTableController {
     @FXML
     private TableColumn<WaterQualityReport, WaterType> chemCol;
 
-    /** the stage for this dialog */
-    private Stage _dialogStage;
-
     /** reference to FX App */
     private FXApplication app;
 
@@ -74,7 +71,8 @@ public class QualityReportsTableController {
      * @param dialogStage the stage for this dialog
      */
     public void setDialogStage(Stage dialogStage) {
-        _dialogStage = dialogStage;
+        /* the stage for this dialog */
+        Stage _dialogStage = dialogStage;
     }
 
     /**

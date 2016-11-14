@@ -132,8 +132,8 @@ public class User {
 
     @Override
     public boolean equals(Object obj) {
-        if(!(obj instanceof User)) { return false;}
         if (null == obj) { return false; }
+        if(!(obj instanceof User)) { return false;}
         if (this == obj) { return true; }
         User temp = (User) obj;
         if (this.getUname().equals(temp.getUname())

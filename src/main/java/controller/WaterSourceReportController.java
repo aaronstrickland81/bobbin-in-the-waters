@@ -207,10 +207,6 @@ public class WaterSourceReportController {
                         + ")[pP][+-]?" + Digits + "))" +
                         "[fFdD]?))" +
                         "[\\x00-\\x20]*");
-        if (Pattern.matches(fpRegex, str)) {
-            return true;
-        } else {
-            return false;
-        }
+        return Pattern.matches(fpRegex, str);
     }
 }

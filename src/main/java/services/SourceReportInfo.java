@@ -95,8 +95,7 @@ public class SourceReportInfo {
             ResultSet rs = s.executeQuery("SELECT COUNT(*) AS rowcount FROM " +
                     "sourceReportInfo");
             rs.next();
-            int count = rs.getInt("rowcount");
-            return count;
+            return rs.getInt("rowcount");
         } catch (Exception e) {
             e.printStackTrace();
         }

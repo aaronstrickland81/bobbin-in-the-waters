@@ -14,9 +14,9 @@ import java.util.Date;
  */
 public class WaterQualityReport extends Report {
 
-    public final ObjectProperty<PurityCondition> _condition = new SimpleObjectProperty<>();
-    public final DoubleProperty _virusPPM = new SimpleDoubleProperty();
-    public final DoubleProperty _chemPPM = new SimpleDoubleProperty();
+    private final ObjectProperty<PurityCondition> _condition = new SimpleObjectProperty<>();
+    private final DoubleProperty _virusPPM = new SimpleDoubleProperty();
+    private final DoubleProperty _chemPPM = new SimpleDoubleProperty();
 
 
     public WaterQualityReport(Date date, Integer reportnum,
@@ -42,7 +42,7 @@ public class WaterQualityReport extends Report {
         return _condition;
     }
 
-    public void set_condition(PurityCondition _Overall_condition) {
+    private void set_condition(PurityCondition _Overall_condition) {
         this._condition.set(_Overall_condition);
     }
 
@@ -54,7 +54,7 @@ public class WaterQualityReport extends Report {
         return _virusPPM;
     }
 
-    public void set_virusPPM(double _virusPPM) {
+    private void set_virusPPM(double _virusPPM) {
         this._virusPPM.set(_virusPPM);
     }
 
@@ -66,7 +66,7 @@ public class WaterQualityReport extends Report {
         return _chemPPM;
     }
 
-    public void set_chemPPM(double _chemPPM) {
+    private void set_chemPPM(double _chemPPM) {
         this._chemPPM.set(_chemPPM);
     }
 
@@ -88,7 +88,7 @@ public class WaterQualityReport extends Report {
         if(!(obj instanceof WaterQualityReport)) { return false;}
         if (this == obj) { return true; }
         WaterQualityReport temp = (WaterQualityReport) obj;
-        if ((this.get_date().equals(temp.get_date()))
+        return (this.get_date().equals(temp.get_date()))
                 && (this.get_reportNumber() == (temp.get_reportNumber()))
                 && (this.get_location().equals(temp.get_location()))
                 && (this.get_workername().equals(temp.get_workername()))
@@ -96,9 +96,6 @@ public class WaterQualityReport extends Report {
                 && (this.get_longitude().equals(temp.get_longitude()))
                 && (this.get_condition().equals(temp.get_condition()))
                 && (this.get_chemPPM() == (temp.get_chemPPM()))
-                && (this.get_virusPPM() == temp.get_virusPPM())) {
-            return true;
-        }
-        return false;
+                && (this.get_virusPPM() == temp.get_virusPPM());
     }
 }

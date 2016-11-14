@@ -15,14 +15,14 @@ public class User {
     /**
      * Private fields for user properties
      */
-    public final StringProperty uname = new SimpleStringProperty();
-    public final StringProperty email = new SimpleStringProperty();
-    public final StringProperty homeAddress = new SimpleStringProperty();
-    public final StringProperty title = new SimpleStringProperty();
-    public final StringProperty password = new SimpleStringProperty();
-    public final StringProperty fname = new SimpleStringProperty();
-    public final StringProperty lname = new SimpleStringProperty();
-    public final ObjectProperty<AccountType> accountType = new SimpleObjectProperty<>();
+    private final StringProperty uname = new SimpleStringProperty();
+    private final StringProperty email = new SimpleStringProperty();
+    private final StringProperty homeAddress = new SimpleStringProperty();
+    private final StringProperty title = new SimpleStringProperty();
+    private final StringProperty password = new SimpleStringProperty();
+    private final StringProperty fname = new SimpleStringProperty();
+    private final StringProperty lname = new SimpleStringProperty();
+    private final ObjectProperty<AccountType> accountType = new SimpleObjectProperty<>();
 
 
     /**
@@ -75,7 +75,7 @@ public class User {
      *
      * @param uname string that is to be set
      */
-    public void setUname(String uname) {
+    private void setUname(String uname) {
         this.uname.set(uname);
     }
 
@@ -239,17 +239,14 @@ public class User {
         if(!(obj instanceof User)) { return false;}
         if (this == obj) { return true; }
         User temp = (User) obj;
-        if (this.getUname().equals(temp.getUname())
+        return this.getUname().equals(temp.getUname())
                 && this.getPassword().equals(temp.getPassword())
                 && this.getEmail().equals(temp.getEmail())
                 && this.getFname().equals(temp.getFname())
                 && this.getLname().equals(temp.getLname())
                 && this.getAccountType().equals(temp.getAccountType())
                 && this.getHomeAddress().equals(temp.getHomeAddress())
-                && this.getTitle().equals(temp.getTitle())) {
-            return true;
-        }
-        return false;
+                && this.getTitle().equals(temp.getTitle());
     }
 
     @Override

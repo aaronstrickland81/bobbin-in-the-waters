@@ -75,7 +75,7 @@ public class MainScreenController implements Initializable, MapComponentInitiali
     BorderPane border;
 
     /** reference to map display */
-    GoogleMap map;
+    private GoogleMap map;
 
     /** the stage for this page */
     private Stage _dialogStage;

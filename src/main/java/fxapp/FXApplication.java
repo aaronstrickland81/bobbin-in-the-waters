@@ -55,7 +55,7 @@ public class FXApplication extends Application {
      *
      * @return reference to main stage
      */
-    public Stage getMainScreen() { return mainScreen;}
+    private Stage getMainScreen() { return mainScreen;}
 
     /**
      * Initialize the main screen for the application.
@@ -89,7 +89,7 @@ public class FXApplication extends Application {
      * Setup our default application view that is shown on application startup
      * This is displayed in the startup window
      */
-    public void showLoginPage() {
+    private void showLoginPage() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource(

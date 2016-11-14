@@ -10,7 +10,7 @@ public enum SourceCondition {
     TREATABLE_MUDDY("Treatable Muddy"),
     POTABLE("Potable");
 
-    String cond;
+    final String cond;
 
     SourceCondition(String str) {
         this.cond = str;

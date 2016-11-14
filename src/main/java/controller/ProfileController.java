@@ -108,7 +108,7 @@ public class ProfileController {
      * @param user User to be updated
      * @return Updated user
      */
-    private User updateUser(User user) {
+    private void updateUser(User user) {
         user.setFname(firstName.getText());
         user.setLname(lastName.getText());
         user.setEmail(email.getText());
@@ -117,7 +117,6 @@ public class ProfileController {
         if ((newPassword != null) && !newPassword.getText().isEmpty()) {
             user.setPassword(newPassword.getText());
         }
-        return user;
     }
 
     /**

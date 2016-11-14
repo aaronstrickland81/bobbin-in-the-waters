@@ -8,7 +8,7 @@ public enum PurityCondition {
     TREATABLE("Treatable"),
     UNSAFE("Unsafe");
 
-    String cond;
+    final String cond;
 
     PurityCondition(String str) {
         this.cond = str;

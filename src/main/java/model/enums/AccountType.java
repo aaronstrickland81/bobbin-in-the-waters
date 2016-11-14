@@ -1,6 +1,7 @@
 package model.enums;
 
 /**
+ * AccountType Enum for Users
  * Created by Neil on 9/20/2016.
  */
 public enum AccountType {
@@ -9,7 +10,7 @@ public enum AccountType {
     MANAGER("Manager"),
     ADMINISTRATOR("Administrator");
 
-    String name;
+    final String name;
 
     AccountType(String str) {
         this.name = str;
@@ -26,7 +27,6 @@ public enum AccountType {
      * @return AccountType enum
      */
     public static AccountType getType(String tString) {
-        boolean contains = false;
         for(AccountType t: AccountType.values()) {
             if (t.toString().equals(tString)) {
                 return t;

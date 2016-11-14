@@ -12,8 +12,8 @@ import java.util.Date;
  */
 public class WaterSourceReport extends Report {
 
-    public final ObjectProperty<WaterType> _type = new SimpleObjectProperty<>();
-    public final ObjectProperty<SourceCondition> _condition = new SimpleObjectProperty<>();
+    private final ObjectProperty<WaterType> _type = new SimpleObjectProperty<>();
+    private final ObjectProperty<SourceCondition> _condition = new SimpleObjectProperty<>();
 
     public WaterType get_type() {
         return _type.get();
@@ -23,7 +23,7 @@ public class WaterSourceReport extends Report {
         return _type;
     }
 
-    public void set_type(WaterType _type) {
+    private void set_type(WaterType _type) {
         this._type.set(_type);
     }
 
@@ -35,7 +35,7 @@ public class WaterSourceReport extends Report {
         return _condition;
     }
 
-    public void set_condition(SourceCondition _condition) {
+    private void set_condition(SourceCondition _condition) {
         this._condition.set(_condition);
     }
 
@@ -62,17 +62,14 @@ public class WaterSourceReport extends Report {
         if(!(obj instanceof WaterSourceReport)) { return false;}
         if (this == obj) { return true; }
         WaterSourceReport temp = (WaterSourceReport) obj;
-        if ((this.get_date().equals(temp.get_date()))
+        return (this.get_date().equals(temp.get_date()))
                 && (this.get_reportNumber() == (temp.get_reportNumber()))
                 && (this.get_location().equals(temp.get_location()))
                 && (this.get_workername().equals(temp.get_workername()))
                 && (this.get_latitude().equals(temp.get_latitude()))
                 && (this.get_longitude().equals(temp.get_longitude()))
                 && (this.get_condition().equals(temp.get_condition()))
-                && (this.get_type().equals(temp.get_type()))) {
-            return true;
-        }
-        return false;
+                && (this.get_type().equals(temp.get_type()));
     }
 
 }

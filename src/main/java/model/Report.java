@@ -19,12 +19,12 @@ import java.util.Date;
  * Created by Neil on 10/13/2016.
  */
 public abstract class Report {
-    public final ObjectProperty<Date> _date = new SimpleObjectProperty<>();
-    public final IntegerProperty _reportNumber = new SimpleIntegerProperty();
-    public final StringProperty _workername = new SimpleStringProperty();
-    public final StringProperty _location = new SimpleStringProperty();
-    public final DoubleProperty _longitude = new SimpleDoubleProperty();
-    public final DoubleProperty _latitude = new SimpleDoubleProperty();
+    private final ObjectProperty<Date> _date = new SimpleObjectProperty<>();
+    private final IntegerProperty _reportNumber = new SimpleIntegerProperty();
+    private final StringProperty _workername = new SimpleStringProperty();
+    private final StringProperty _location = new SimpleStringProperty();
+    private final DoubleProperty _longitude = new SimpleDoubleProperty();
+    private final DoubleProperty _latitude = new SimpleDoubleProperty();
 
     /**
      * Full parameter constructor to create an instance of report
@@ -35,7 +35,7 @@ public abstract class Report {
      * @param longitude the longitude
      * @param latitude the latitude
      */
-    public Report(Date date, Integer reportnum, String name, Double
+    Report(Date date, Integer reportnum, String name, Double
             longitude, Double latitude) {
         set_date(date);
         set_reportNumber(reportnum);
@@ -129,7 +129,7 @@ public abstract class Report {
      *
      * @param _date Sets the date to this date
      */
-    public void set_date(Date _date) {
+    private void set_date(Date _date) {
         this._date.set(_date);
     }
 
@@ -157,7 +157,7 @@ public abstract class Report {
      *
      * @param _reportNumber Sets this report's number to this number
      */
-    public void set_reportNumber(int _reportNumber) {
+    private void set_reportNumber(int _reportNumber) {
         this._reportNumber.set(_reportNumber);
     }
 
@@ -184,7 +184,7 @@ public abstract class Report {
      *
      * @param _workername the worker's name to associate with this report
      */
-    public void set_workername(String _workername) {
+    private void set_workername(String _workername) {
         this._workername.set(_workername);
     }
 
@@ -211,7 +211,7 @@ public abstract class Report {
      *
      * @param _location the new location of this water report
      */
-    public void set_location(String _location) {
+    private void set_location(String _location) {
         this._location.set(_location);
     }
 
@@ -238,7 +238,7 @@ public abstract class Report {
      *
      * @param _longitude the longitude for this report
      */
-    public void set_longitude(Double _longitude) {
+    private void set_longitude(Double _longitude) {
         this._longitude.set(_longitude);
     }
 
@@ -265,7 +265,7 @@ public abstract class Report {
      *
      * @param _latitude the new latitude for this report
      */
-    public void set_latitude(Double _latitude) {
+    private void set_latitude(Double _latitude) {
         this._latitude.set(_latitude);
     }
 
@@ -275,7 +275,7 @@ public abstract class Report {
      *
      * @return the title of water report.
      */
-    public abstract String getTitle();
+    protected abstract String getTitle();
 
     @Override
     public String toString() {

@@ -12,7 +12,11 @@ import javafx.stage.Stage;
 import model.Model;
 import model.WaterQualityReport;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**

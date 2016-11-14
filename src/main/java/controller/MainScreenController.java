@@ -86,6 +86,10 @@ public class MainScreenController implements Initializable, MapComponentInitiali
     /** reference to FX App */
     private FXApplication app;
 
+    private static final int INITLAT = 34;
+    private static final int INITLONG = -88;
+
+
     /**
      * Called to initialize a controller after its root element has been
      * completely processed.
@@ -124,7 +128,7 @@ public class MainScreenController implements Initializable, MapComponentInitiali
         MapOptions options = new MapOptions();
 
         //set up the center location for the map
-        LatLong center = new LatLong(34, -88);
+        LatLong center = new LatLong(INITLAT, INITLONG);
 
         options.center(center)
                 .zoom(9)

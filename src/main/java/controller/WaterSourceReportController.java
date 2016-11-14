@@ -69,9 +69,6 @@ public class WaterSourceReportController {
     /** flag to signal whether dialog was closed normally */
     private boolean _waterSourceReportCompleted = false;
 
-    public WaterSourceReportController() {
-    }
-
     /**
      * Called automatically upon load. Populates combo boxes with appropriate
      * enum values.

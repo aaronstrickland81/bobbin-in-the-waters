@@ -71,9 +71,6 @@ public class WaterQualityReportController {
     /** flag to signal whether dialog was closed normally */
     private boolean _waterQualityReportCompleted = false;
 
-    public WaterQualityReportController() {
-    }
-
     /**
      * Called automatically upon load. Populates the combobox for water
      * condition with the appropriate enum values.

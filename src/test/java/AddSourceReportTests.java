@@ -44,9 +44,6 @@ public class AddSourceReportTests {
                 "jlin", 10.0, 10.0, WaterType.Well,
                 SourceCondition.TREATABLE_CLEAR);
         SourceReportInfo.addSourceReport(test);
-        for (WaterSourceReport e : SourceReportInfo.getSourceReports()) {
-            System.out.println(e);
-        }
         WaterSourceReport comp = SourceReportInfo.getSourceReports().get(
                 SourceReportInfo.getSourceCounter() - 1);
         Assert.assertEquals("Added report should be equal to user " +

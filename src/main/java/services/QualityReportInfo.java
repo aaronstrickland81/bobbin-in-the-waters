@@ -45,7 +45,7 @@ public class QualityReportInfo {
             ps.execute();
             con.close();
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -75,7 +75,7 @@ public class QualityReportInfo {
             con.close();
             return aList;
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return aList;
     }
@@ -116,7 +116,7 @@ public class QualityReportInfo {
             con.close();
             return aList;
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return aList;
     }
@@ -140,7 +140,7 @@ public class QualityReportInfo {
             con.close();
             return count;
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return -1;
     }

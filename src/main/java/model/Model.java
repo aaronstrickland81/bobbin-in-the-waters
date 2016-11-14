@@ -21,6 +21,7 @@ public class Model {
 
     /**
      * Returns the current instance
+     * @return singleton instance of Model
      */
     public static Model getInstance() {
         return instance;

@@ -45,7 +45,7 @@ public class UserInfoTable {
             con.close();
 
         } catch (Exception e) {
-            System.out.println(e);
+           e.printStackTrace();
         }
     }
 
@@ -78,7 +78,7 @@ public class UserInfoTable {
             con.close();
 
         } catch (Exception e) {
-            System.out.println(e);
+           e.printStackTrace();
         }
     }
 
@@ -116,7 +116,7 @@ public class UserInfoTable {
             }
             con.close();
         } catch (Exception e) {
-            System.out.println(e);
+           e.printStackTrace();
         }
         return null;
     }
@@ -147,7 +147,7 @@ public class UserInfoTable {
                 return false;
             }
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return false;
     }
@@ -196,7 +196,7 @@ public class UserInfoTable {
             con.close();
 
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return null;
     }
@@ -214,7 +214,7 @@ public class UserInfoTable {
             ps.execute();
             con.close();
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 

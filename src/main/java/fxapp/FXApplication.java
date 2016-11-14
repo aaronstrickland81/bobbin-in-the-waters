@@ -337,6 +337,10 @@ public class FXApplication extends Application {
         }
     }
 
+    /**
+     * main method
+     * @param args args to be passed
+     */
     public static void main(String[] args) {
         launch(args);
     }

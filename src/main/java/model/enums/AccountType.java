@@ -20,6 +20,11 @@ public enum AccountType {
         return name;
     }
 
+    /**
+     * gets the type from string
+     * @param tString string representation of type
+     * @return AccountType enum
+     */
     public static AccountType getType(String tString) {
         boolean contains = false;
         for(AccountType t: AccountType.values()) {

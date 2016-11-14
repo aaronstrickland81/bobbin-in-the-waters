@@ -18,6 +18,11 @@ public enum PurityCondition {
         return cond;
     }
 
+    /**
+     * get condition from string
+     * @param tString string representation of Condition
+     * @return Condition to return
+     */
     public static PurityCondition getCondition(String tString) {
         for (PurityCondition t : PurityCondition.values()) {
             if (t.toString().equals(tString)) {

@@ -46,7 +46,7 @@ public class SourceReportInfo {
             ps.execute();
             con.close();
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -75,7 +75,7 @@ public class SourceReportInfo {
             con.close();
             return aList;
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return aList;
     }
@@ -98,7 +98,7 @@ public class SourceReportInfo {
             int count = rs.getInt("rowcount");
             return count;
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
         return -1;
     }

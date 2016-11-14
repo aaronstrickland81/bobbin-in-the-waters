@@ -26,6 +26,14 @@ public abstract class Report {
     public final DoubleProperty _longitude = new SimpleDoubleProperty();
     public final DoubleProperty _latitude = new SimpleDoubleProperty();
 
+    /**
+     * full param constructor
+     * @param date the date
+     * @param reportnum the report number
+     * @param name name of worker
+     * @param longitude the longitude
+     * @param latitude the latitude
+     */
     public Report(Date date, Integer reportnum, String name, Double
             longitude, Double latitude) {
         set_date(date);
@@ -36,6 +44,10 @@ public abstract class Report {
         set_latitude(latitude);
     }
 
+    /**
+     * gets the date from the property
+     * @return Date object
+     */
     public Date get_date() {
         return _date.get();
     }

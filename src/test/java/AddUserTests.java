@@ -1,3 +1,4 @@
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -22,6 +23,11 @@ public class AddUserTests {
     @Before
     public void init() {
 
+    }
+
+    @After
+    public void removeFromDB() {
+        UserInfoTable.removeUser("kp45");
     }
 
     @Test

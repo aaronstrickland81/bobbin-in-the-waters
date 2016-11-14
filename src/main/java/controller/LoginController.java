@@ -34,7 +34,7 @@ public class LoginController {
     /** Reference to FX APP */
     private FXApplication app;
 
-    private Model model = Model.getInstance();
+    private final Model model = Model.getInstance();
 
 
     /** flag to signal whether dialog was closed normally */
@@ -107,15 +107,15 @@ public class LoginController {
         String errorMessage = "";
 
         //for now just check they actually typed something
-        if (userField.getText() == null || userField.getText().length() == 0) {
+        if ((userField.getText() == null) || userField.getText().isEmpty()) {
             errorMessage += "No username entered\n";
         }
-        if (pwField.getText() == null || pwField.getText().length() == 0) {
+        if ((pwField.getText() == null) || pwField.getText().isEmpty()) {
             errorMessage += "No password entered\n";
         }
 
         //no error message means success / good input
-        if (errorMessage.length() == 0) {
+        if (errorMessage.isEmpty()) {
             return true;
         } else {
             // Show the error message if bad data

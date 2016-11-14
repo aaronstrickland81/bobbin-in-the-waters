@@ -25,7 +25,7 @@ public class ProfileController {
     private FXApplication app;
 
     /** reference to the model instance */
-    private Model model = Model.getInstance();
+    private final Model model = Model.getInstance();
 
     /**
      * Sets the stage for this dialog.
@@ -114,7 +114,7 @@ public class ProfileController {
         user.setEmail(email.getText());
         user.setHomeAddress(homeAddress.getText());
         user.setTitle(title.getText());
-        if (newPassword != null && newPassword.getText().length() != 0) {
+        if ((newPassword != null) && !newPassword.getText().isEmpty()) {
             user.setPassword(newPassword.getText());
         }
         return user;
@@ -135,7 +135,7 @@ public class ProfileController {
         }
 
         //no error message means success / good input
-        if (errorMessage.length() == 0) {
+        if (errorMessage.isEmpty()) {
             return true;
         } else {
             // Show the error message if bad data

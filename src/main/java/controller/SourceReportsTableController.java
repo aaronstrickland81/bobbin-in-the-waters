@@ -47,10 +47,10 @@ public class SourceReportsTableController {
     private FXApplication app;
 
     /** reference to the instance of Model */
-    private Model model = Model.getInstance();
+    private final Model model = Model.getInstance();
 
     /** list of water source reports */
-    private ObservableList<WaterSourceReport> list = FXCollections
+    private final ObservableList<WaterSourceReport> list = FXCollections
             .observableList(Model.getSourceReports());
 
     /**

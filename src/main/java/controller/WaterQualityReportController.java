@@ -154,13 +154,13 @@ public class WaterQualityReportController {
         String errorMessage = "";
 
         //for now just check they actually typed something
-        if (longitude.getText() == null || longitude.getText().length() == 0) {
+        if ((longitude.getText() == null) || longitude.getText().isEmpty()) {
             errorMessage += "No longitude entered\n";
         } else if (!validDouble(longitude.getText())) {
             errorMessage += "That is not a valid longitude. Please give a " +
                     "number\n";
         }
-        if (latitude.getText() == null || latitude.getText().length() == 0) {
+        if ((latitude.getText() == null) || latitude.getText().isEmpty()) {
             errorMessage += "No latitude entered\n";
         } else if (!validDouble(latitude.getText())) {
             errorMessage += "That is not a valid latitude. Please give a " +
@@ -182,7 +182,7 @@ public class WaterQualityReportController {
             errorMessage += "No water condition selected\n";
         }
         //no error message means success / good input
-        if (errorMessage.length() == 0) {
+        if (errorMessage.isEmpty()) {
             return true;
         } else {
             // Show the error message if bad data

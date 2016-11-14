@@ -121,26 +121,26 @@ public class RegistrationController {
         String errorMessage = "";
 
         //check if they actually typed something
-        if (firstNameField.getText() == null
-                || firstNameField.getText().length() == 0) {
+        if ((firstNameField.getText() == null)
+                || firstNameField.getText().isEmpty()) {
             errorMessage += "No first name entered\n";
         }
-        if (lastNameField.getText() == null
-                || lastNameField.getText().length() == 0) {
+        if ((lastNameField.getText() == null)
+                || lastNameField.getText().isEmpty()) {
             errorMessage += "No last name entered\n";
         }
-        if (userField.getText() == null || userField.getText().length() == 0) {
+        if ((userField.getText() == null) || userField.getText().isEmpty()) {
             errorMessage += "No username entered\n";
         }
-        if (emailField.getText() == null
-                || emailField.getText().length() == 0) {
+        if ((emailField.getText() == null)
+                || emailField.getText().isEmpty()) {
             errorMessage += "No email entered\n";
         }
-        if (passField.getText() == null || passField.getText().length() == 0) {
+        if ((passField.getText() == null) || passField.getText().isEmpty()) {
             errorMessage += "No password entered\n";
         }
-        if (confirmPassField.getText() == null
-                || confirmPassField.getText().length() == 0) {
+        if ((confirmPassField.getText() == null)
+                || confirmPassField.getText().isEmpty()) {
             errorMessage += "No confirm password entered\n";
         }
         if (accountTypeComboBox.getValue() == null) {
@@ -161,7 +161,7 @@ public class RegistrationController {
         //TODO: check if email is of valid format (maybe if it exists already as well?)
 
         //no error message means success / good input
-        if (errorMessage.length() == 0) {
+        if (errorMessage.isEmpty()) {
             return true;
         } else {
             // Show the error message if bad data

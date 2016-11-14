@@ -50,10 +50,10 @@ public class QualityReportsTableController {
     private FXApplication app;
 
     /** reference to the instance of Model */
-    private Model model = Model.getInstance();
+    private final Model model = Model.getInstance();
 
     /** list of water quality reports */
-    private ObservableList<WaterQualityReport> list = FXCollections
+    private final ObservableList<WaterQualityReport> list = FXCollections
             .observableList(Model.getQualityReports());
 
     /**

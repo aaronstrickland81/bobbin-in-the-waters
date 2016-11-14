@@ -198,7 +198,7 @@ public class WaterSourceReportController {
      * @param str Input to be validated
      * @return true if valid double, false otherwise
      */
-    private boolean validDouble(String str) {
+    private boolean validDouble(CharSequence str) {
         final String Digits = "(\\p{Digit}+)";
         final String HexDigits = "(\\p{XDigit}+)";
         final String Exp = "[eE][+-]?" + Digits;

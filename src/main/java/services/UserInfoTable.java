@@ -201,6 +201,10 @@ public class UserInfoTable {
         return null;
     }
 
+    /**
+     * remove a user from database
+     * @param username user to remove
+     */
     public static void removeUser(String username) {
         try {
             Class.forName("com.mysql.jdbc.Driver");

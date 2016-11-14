@@ -89,9 +89,9 @@ public class User {
     }
 
     /**
-     * Se
+     * Setter for account type
      *
-     * @param t
+     * @param t account type to set
      */
     public void setAccountType(AccountType t) {
         this.accountType.set(t);

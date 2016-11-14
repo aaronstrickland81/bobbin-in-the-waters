@@ -18,7 +18,17 @@ public class WaterQualityReport extends Report {
     private final DoubleProperty _virusPPM = new SimpleDoubleProperty();
     private final DoubleProperty _chemPPM = new SimpleDoubleProperty();
 
-
+    /**
+     * Constructor for Water Quality Reports
+     * @param date date of report
+     * @param reportnum report number
+     * @param name worker name
+     * @param longitude longitude
+     * @param latitude latitude
+     * @param cond condition
+     * @param virus virus ppm
+     * @param chem chemical ppm
+     */
     public WaterQualityReport(Date date, Integer reportnum,
                               String name,
                               Double longitude,
@@ -33,7 +43,10 @@ public class WaterQualityReport extends Report {
     }
 
 
-
+    /**
+     * getter for purity condition
+     * @return the report's purity condition
+     */
     public PurityCondition get_condition() {
         return _condition.get();
     }

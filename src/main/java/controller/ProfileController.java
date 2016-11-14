@@ -106,7 +106,6 @@ public class ProfileController {
      * Updates a user based on the information in the entry fields.
      *
      * @param user User to be updated
-     * @return Updated user
      */
     private void updateUser(User user) {
         user.setFname(firstName.getText());

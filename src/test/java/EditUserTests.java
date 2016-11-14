@@ -43,7 +43,7 @@ public class EditUserTests {
 
     @Test
     public void editAccountType() {
-        testUser.setType(AccountType.WORKER);
+        testUser.setAccountType(AccountType.WORKER);
     }
 
     @Test

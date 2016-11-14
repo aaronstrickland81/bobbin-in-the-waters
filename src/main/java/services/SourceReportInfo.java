@@ -26,7 +26,7 @@ public class SourceReportInfo {
                             ".amazonaws.com:3306/bobbin", "root", "password");
             String query = " insert into sourceReportInfo (date, " +
                     "reportNumber, " +
-                    "username, longitude, latitude, type, cond) "
+                    "username, longitude, latitude, accountType, cond) "
                     + "        values  (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setDate(1, new Date(report.get_date().getTime()));

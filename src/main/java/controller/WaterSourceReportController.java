@@ -169,7 +169,7 @@ public class WaterSourceReportController {
                     "number\n";
         }
         if (waterType.getValue() == null) {
-            errorMessage += "No water type selected\n";
+            errorMessage += "No water accountType selected\n";
         }
         if (waterCondition.getValue() == null) {
             errorMessage += "No water condition selected\n";

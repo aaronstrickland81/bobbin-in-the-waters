@@ -145,7 +145,7 @@ public class RegistrationController {
             errorMessage += "No confirm password entered\n";
         }
         if (accountTypeComboBox.getValue() == null) {
-            errorMessage += "No account type selected\n";
+            errorMessage += "No account accountType selected\n";
         }
 
         //check if password and confirm password match

@@ -153,7 +153,7 @@ public abstract class Report {
 
     /**
      * Returns a string representation of the
-     * type of water report
+     * accountType of water report
      *
      * @return the title of water report.
      */

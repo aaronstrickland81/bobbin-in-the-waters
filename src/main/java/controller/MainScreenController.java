@@ -195,7 +195,7 @@ public class MainScreenController implements Initializable, MapComponentInitiali
      */
     @FXML
     private void handleSubmitReports() {
-        if (Model.getUser().getType().equals(AccountType.USER)) {
+        if (Model.getUser().getAccountType().equals(AccountType.USER)) {
             app.showSubmitWaterSourceReport();
         } else {
             toggleButton(submitSourceReport);
@@ -228,12 +228,12 @@ public class MainScreenController implements Initializable, MapComponentInitiali
      */
     @FXML
     private void handleViewReports() {
-        if (Model.getUser().getType().equals(AccountType.USER)) {
+        if (Model.getUser().getAccountType().equals(AccountType.USER)) {
             app.showViewSourceReportsTable();
         } else {
             toggleButton(viewSourceReports);
             toggleButton(viewQualityReports);
-            if (Model.getUser().getType().equals(AccountType.MANAGER)) {
+            if (Model.getUser().getAccountType().equals(AccountType.MANAGER)) {
                 toggleButton(viewHistoricalReport);
             }
         }

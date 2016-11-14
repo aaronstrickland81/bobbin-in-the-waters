@@ -157,7 +157,7 @@ public class HistoricalReportsController {
     /**
      * When a manager selects a year, two options for choosing which
      * graph to plot are brought into view, and a list of data
-     * for each type of graph is populated
+     * for each accountType of graph is populated
      */
     @FXML
     private void handleOnYearAction() {

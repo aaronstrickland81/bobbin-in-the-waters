@@ -34,7 +34,7 @@ public class UserInfoTable {
             preparedStmt.setString(3, user.getUname());
             preparedStmt.setString(4, user.getEmail());
             preparedStmt.setString(5, user.getPassword());
-            preparedStmt.setString(6, user.getType().toString());
+            preparedStmt.setString(6, user.getAccountType().toString());
 
             preparedStmt.execute();
             con.close();

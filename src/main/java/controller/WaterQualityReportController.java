@@ -52,9 +52,9 @@ public class WaterQualityReportController {
     private Button submit;
 
     /**
-     * Helper Function that converts LocalDateTime to Date
+            * Helper Function that converts LocalDateTime to Date
      *
-     * @return current date
+             * @return current date
      */
     private Date dateConverter() {
         Date in = new Date();

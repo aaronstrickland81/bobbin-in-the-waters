@@ -5,7 +5,7 @@ import services.QualityReportInfo;
 import services.SourceReportInfo;
 import services.UserInfoTable;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Singleton for accessing all services
@@ -98,7 +98,7 @@ public class Model {
      *
      * @return an ArrayList of all Source Reports
      */
-    public static ArrayList<WaterSourceReport> getSourceReports() {
+    public static List<WaterSourceReport> getSourceReports() {
         return SourceReportInfo.getSourceReports();
     }
 
@@ -125,7 +125,7 @@ public class Model {
      *
      * @return arraylist of all quality reports
      */
-    public static ArrayList<WaterQualityReport> getQualityReports() {
+    public static List<WaterQualityReport> getQualityReports() {
         return QualityReportInfo.getQualityReports();
     }
 

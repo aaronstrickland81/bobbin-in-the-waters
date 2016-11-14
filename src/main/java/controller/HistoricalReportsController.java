@@ -71,7 +71,7 @@ public class HistoricalReportsController {
     private FXApplication app;
 
     /** list of water quality reports */
-    private ArrayList<WaterQualityReport> qualityReports;
+    private List<WaterQualityReport> qualityReports;
 
     /** map of quality reports by location */
     private Map<String, List<WaterQualityReport>> locationMap;
@@ -81,7 +81,7 @@ public class HistoricalReportsController {
 
     private Map<String, PPMDataHandler> ppmMap;
 
-    private ArrayList<PPMDataHandler> ppmList;
+    private List<PPMDataHandler> ppmList;
 
     /**
      * Called automatically upon load.

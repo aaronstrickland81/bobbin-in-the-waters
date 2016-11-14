@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kavish on 10/27/16.
@@ -53,8 +54,8 @@ public class QualityReportInfo {
      *
      * @return arraylist of quality reports
      */
-    public static ArrayList<WaterQualityReport> getQualityReports() {
-        ArrayList<WaterQualityReport> aList = new ArrayList<>();
+    public static List<WaterQualityReport> getQualityReports() {
+        List<WaterQualityReport> aList = new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(
@@ -87,9 +88,9 @@ public class QualityReportInfo {
      * @param date      the date to search for
      * @return arraylist of qualityreports matching query
      */
-    public static ArrayList<WaterQualityReport> getQualityReports(
+    public static List<WaterQualityReport> getQualityReports(
             Double longitude, Double latitude, String date) {
-        ArrayList<WaterQualityReport> aList = new ArrayList<>();
+        List<WaterQualityReport> aList = new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(

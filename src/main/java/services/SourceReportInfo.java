@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kavish on 10/16/16.
@@ -54,8 +55,8 @@ public class SourceReportInfo {
      *
      * @return arraylist of all the reports
      */
-    public static ArrayList<WaterSourceReport> getSourceReports() {
-        ArrayList<WaterSourceReport> aList = new ArrayList<>();
+    public static List<WaterSourceReport> getSourceReports() {
+        List<WaterSourceReport> aList = new ArrayList<>();
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(

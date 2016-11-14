@@ -25,84 +25,162 @@ public class User {
     public final ObjectProperty<AccountType> accountType = new SimpleObjectProperty<>();
 
 
+    /**
+     * Getter for home address
+     *
+     * @return String of home address
+     */
     public String getHomeAddress() {
         return homeAddress.get();
     }
 
+    /**
+     * Setter for home address
+     *
+     * @param newhAddress string that is to be set
+     */
     public void setHomeAddress(String newhAddress) {
         homeAddress.set(newhAddress);
     }
 
+    /**
+     * Getter for title
+     *
+     * @return String of title
+     */
     public String getTitle() {
         return title.get();
     }
 
+    /**
+     * Setter for title
+     *
+     * @param newTitle string that is to be set
+     */
     public void setTitle(String newTitle) {
         title.set(newTitle);
     }
 
+    /**
+     * Getter for username
+     *
+     * @return String of username
+     */
     public String getUname() {
         return uname.get();
     }
 
+    /**
+     * Setter for username
+     *
+     * @param uname string that is to be set
+     */
     public void setUname(String uname) {
         this.uname.set(uname);
     }
 
+    /**
+     * Getter for account type
+     *
+     * @return AccountType of the account type
+     */
     public AccountType getAccountType() {
         return accountType.get();
     }
 
-    public String getPassword() {
-        return password.get();
-    }
-
-    public void setPassword(String password) {
-        this.password.set(password);
-    }
-
-    public String getFname() {
-        return fname.get();
-    }
-
-    public void setFname(String fname) {
-        this.fname.set(fname);
-    }
-
-    public String getLname() {
-        return lname.get();
-    }
-
-    public void setLname(String lname) {
-        this.lname.set(lname);
-    }
-
+    /**
+     * Se
+     *
+     * @param t
+     */
     public void setAccountType(AccountType t) {
         this.accountType.set(t);
     }
 
+    /**
+     * Getter for password
+     *
+     * @return String of password
+     */
+    public String getPassword() {
+        return password.get();
+    }
+
+    /**
+     * Setter for password
+     *
+     * @param password string to be set
+     */
+    public void setPassword(String password) {
+        this.password.set(password);
+    }
+
+    /**
+     * Getter for first name
+     *
+     * @return String of first name
+     */
+    public String getFname() {
+        return fname.get();
+    }
+
+    /**
+     * Setter for first name
+     *
+     * @param fname string to set
+     */
+    public void setFname(String fname) {
+        this.fname.set(fname);
+    }
+
+    /**
+     * Getter for last name
+     *
+     * @return String of last name
+     */
+    public String getLname() {
+        return lname.get();
+    }
+
+    /**
+     * Setter for last name
+     *
+     * @param lname string to set
+     */
+    public void setLname(String lname) {
+        this.lname.set(lname);
+    }
+
+    /**
+     * Getter for email
+     *
+     * @return String of email
+     */
     public String getEmail() {
         return email.get();
     }
 
+    /**
+     * Setter for email
+     *
+     * @param email the string to set
+     */
     public void setEmail(String email) {
         this.email.set(email);
     }
 
     /**
-     * Default Constructor
+     * Default constructor
      *
      * @param user username
+     * @param pass password
+     * @param type type
+     * @param email email
      * @param fname first name
      * @param lname last name
-     * @param email email
-     * @param pass password
-     * @param type account accountType
+     * @param address address
+     * @param title title
      */
-    public User(String user, String pass, AccountType type, String email, String fname, String lname) {
-        this(user, pass, type, email, fname, lname, "", "");
-    }
-
     public User(String user, String pass, AccountType type, String email,
                 String fname, String lname, String address, String title) {
         setUname(user);
@@ -115,10 +193,35 @@ public class User {
         setTitle(title);
     }
 
+    /**
+     * Constructor
+     *
+     * @param user  username
+     * @param pass  password
+     * @param type  account accountType
+     * @param email email
+     * @param fname first name
+     * @param lname last name
+     */
+    public User(String user, String pass, AccountType type, String email, String fname, String lname) {
+        this(user, pass, type, email, fname, lname, "", "");
+    }
+
+    /**
+     * Constructor
+     *
+     * @param user username
+     * @param pass password
+     */
     public User(String user, String pass) {
         this(user,pass, AccountType.USER, "", "", "", "", "");
     }
 
+    /**
+     * Constructor
+     *
+     * @param aUser user
+     */
     public User(User aUser) {
         this(aUser.getUname()
                 , aUser.getPassword()

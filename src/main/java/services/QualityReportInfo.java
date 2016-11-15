@@ -39,8 +39,8 @@ public class QualityReportInfo {
             ps.setDouble(4, report.get_longitude());
             ps.setDouble(5, report.get_latitude());
             ps.setString(6, report.get_condition().toString());
-            ps.setDouble(7, report.get_virusPPM());
-            ps.setDouble(8, report.get_chemPPM());
+            ps.setDouble(7, report.getVirusPPM());
+            ps.setDouble(8, report.getChemPPM());
 
             ps.execute();
             con.close();

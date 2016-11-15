@@ -33,13 +33,13 @@ public class HistoricalReportsController {
 
         public void addFromReport(WaterQualityReport report) {
             if (report.get_month_name().equals(this.month)) {
-                virusPPM = ((virusPPM * collisions) + report.get_virusPPM()) / (collisions + 1);
-                contaminantPPM = ((contaminantPPM * collisions) + report.get_chemPPM()) / (collisions + 1);
+                virusPPM = ((virusPPM * collisions) + report.getVirusPPM()) / (collisions + 1);
+                contaminantPPM = ((contaminantPPM * collisions) + report.getChemPPM()) / (collisions + 1);
             } else {
                 month = report.get_month_name();
                 monthNumber = report.get_month();
-                virusPPM = report.get_virusPPM();
-                contaminantPPM = report.get_chemPPM();
+                virusPPM = report.getVirusPPM();
+                contaminantPPM = report.getChemPPM();
             }
             collisions++;
         }

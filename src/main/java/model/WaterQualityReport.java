@@ -37,9 +37,9 @@ public class WaterQualityReport extends Report {
                               Double virus,
                               Double chem) {
         super(date, reportnum, name, longitude, latitude);
-        set_condition(cond);
-        set_virusPPM(virus);
-        set_chemPPM(chem);
+        setCondition(cond);
+        setVirusPPM(virus);
+        setChemPPM(chem);
     }
 
 
@@ -51,35 +51,43 @@ public class WaterQualityReport extends Report {
         return _condition.get();
     }
 
-    public ObjectProperty<PurityCondition> _conditionProperty() {
-        return _condition;
-    }
-
-    private void set_condition(PurityCondition _Overall_condition) {
+    /**
+     * Setter for purity condition
+     * @param _Overall_condition condition to be set
+     */
+    private void setCondition(PurityCondition _Overall_condition) {
         this._condition.set(_Overall_condition);
     }
 
-    public double get_virusPPM() {
+    /**
+     * Getter for virus PPM
+     * @return virus PPM
+     */
+    public double getVirusPPM() {
         return _virusPPM.get();
     }
 
-    public DoubleProperty _virusPPMProperty() {
-        return _virusPPM;
-    }
-
-    private void set_virusPPM(double _virusPPM) {
+    /**
+     * Setter for virus PPM
+     * @param _virusPPM virus PPM to be set
+     */
+    private void setVirusPPM(double _virusPPM) {
         this._virusPPM.set(_virusPPM);
     }
 
-    public double get_chemPPM() {
+    /**
+     * Getter for chem PPM
+     * @return chem PPM
+     */
+    public double getChemPPM() {
         return _chemPPM.get();
     }
 
-    public DoubleProperty _chemPPMProperty() {
-        return _chemPPM;
-    }
-
-    private void set_chemPPM(double _chemPPM) {
+    /**
+     * Setter for chem PPM
+     * @param _chemPPM chem PPM to be set
+     */
+    private void setChemPPM(double _chemPPM) {
         this._chemPPM.set(_chemPPM);
     }
 
@@ -108,7 +116,7 @@ public class WaterQualityReport extends Report {
                 && (this.get_latitude().equals(temp.get_latitude()))
                 && (this.get_longitude().equals(temp.get_longitude()))
                 && (this.get_condition().equals(temp.get_condition()))
-                && (this.get_chemPPM() == (temp.get_chemPPM()))
-                && (this.get_virusPPM() == temp.get_virusPPM());
+                && (this.getChemPPM() == (temp.getChemPPM()))
+                && (this.getVirusPPM() == temp.getVirusPPM());
     }
 }

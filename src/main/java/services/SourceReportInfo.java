@@ -40,8 +40,8 @@ public class SourceReportInfo {
             ps.setString(3, report.get_workername());
             ps.setDouble(4, report.get_longitude());
             ps.setDouble(5, report.get_latitude());
-            ps.setString(6, report.get_type().toString());
-            ps.setString(7, report.get_condition().toString());
+            ps.setString(6, report.getType().toString());
+            ps.setString(7, report.getCondition().toString());
 
             ps.execute();
             con.close();

@@ -21,6 +21,12 @@ public enum SourceCondition {
         return cond;
     }
 
+    /**
+     * Converts string to appropriate SourceCondition object.
+     *
+     * @param tString String representing SourceCondition
+     * @return SourceCondition object matching given string
+     */
     public static SourceCondition getCondition(String tString) {
         for (SourceCondition t : SourceCondition.values()) {
             if (t.toString().equals(tString)) {

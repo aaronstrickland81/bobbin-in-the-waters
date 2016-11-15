@@ -61,7 +61,8 @@ public class UserInfoTable {
                     "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
                             ".amazonaws.com:3306/bobbin", "root", "password");
 
-            PreparedStatement ps = con.prepareStatement("UPDATE userInfo SET firstName = ?," +
+            PreparedStatement ps = con.prepareStatement(
+                    "UPDATE userInfo SET firstName = ?," +
                     " lastName = ?, email = ?, password = ?, address = ?, " +
                     "title = ?" +
                     " WHERE " +
@@ -97,8 +98,8 @@ public class UserInfoTable {
                             ".amazonaws.com:3306/bobbin", "root", "password");
 
             Statement stmt = con.createStatement();
-            PreparedStatement ps = con.prepareStatement("select * from userInfo where " +
-                    "username = ?");
+            PreparedStatement ps = con.prepareStatement(
+                    "select * from userInfo where " + "username = ?");
             ps.setString(1, uname);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -135,8 +136,8 @@ public class UserInfoTable {
                             ".amazonaws.com:3306/bobbin", "root", "password");
 
             Statement stmt = con.createStatement();
-            PreparedStatement ps = con.prepareStatement("select * from userInfo where " +
-                    "username = ?");
+            PreparedStatement ps = con.prepareStatement(
+                    "select * from userInfo where " + "username = ?");
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -168,8 +169,8 @@ public class UserInfoTable {
                             ".amazonaws.com:3306/bobbin", "root", "password");
 
             Statement stmt = con.createStatement();
-            PreparedStatement ps = con.prepareStatement("select * from userInfo where " +
-                    "username = ?");
+            PreparedStatement ps = con.prepareStatement(
+                    "select * from userInfo where " + "username = ?");
             ps.setString(1, uname);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

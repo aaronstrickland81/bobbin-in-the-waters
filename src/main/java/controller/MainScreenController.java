@@ -41,7 +41,8 @@ import java.util.Optional;
  * UPDATE: Combined with MapController (Neil)
  * and revamped by Karthik on 10/25/2016
  */
-public class MainScreenController implements Initializable, MapComponentInitializedListener{
+public class MainScreenController
+        implements Initializable, MapComponentInitializedListener{
 
     /** references to FXML Widgets */
     @FXML
@@ -64,9 +65,6 @@ public class MainScreenController implements Initializable, MapComponentInitiali
 
     @FXML
     private Button viewHistoricalReport;
-
-    @FXML
-    private Button viewMap;
 
     @FXML
     GoogleMapView mapView;
@@ -94,22 +92,14 @@ public class MainScreenController implements Initializable, MapComponentInitiali
      * Called to initialize a controller after its root element has been
      * completely processed.
      *
-     * @param location  The location used to resolve relative paths for the root object, or
-     *                  <tt>null</tt> if the location is not known.
-     * @param resources The resources used to localize the root object, or <tt>null</tt> if
+     * @param location  The location used to resolve relative paths for the root
+     *                  object, or <tt>null</tt> if the location is not known.
+     * @param resources The resources used to localize the root object,
+     *                  or <tt>null</tt> if
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mapView.addMapInializedListener(this);
-    }
-
-    /**
-     * Sets the stage of this dialog.
-     *
-     * @param dialogStage the stage for this dialog
-     */
-    public void setDialogStage(Stage dialogStage) {
-        _dialogStage = dialogStage;
     }
 
     /**
@@ -145,8 +135,6 @@ public class MainScreenController implements Initializable, MapComponentInitiali
 
         //Talk with Model to get reports
 
-        Model model = Model.getInstance();
-
         List<WaterSourceReport> reports = Model.getSourceReports();
         for (WaterSourceReport r : reports) {
             MarkerOptions markerOptions = new MarkerOptions();
@@ -161,7 +149,8 @@ public class MainScreenController implements Initializable, MapComponentInitiali
             map.addUIEventHandler(marker,
                     UIEventType.click,
                     (JSObject obj) -> {
-                        InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
+                        InfoWindowOptions infoWindowOptions
+                                = new InfoWindowOptions();
                         infoWindowOptions.content(r.toString());
 
                         InfoWindow window = new InfoWindow(infoWindowOptions);
@@ -296,14 +285,5 @@ public class MainScreenController implements Initializable, MapComponentInitiali
             button.setVisible(true);
             button.setManaged(true);
         }
-    }
-
-    /**
-     * Checks to see if the user has pressed the logout button
-     *
-     * @return boolean representing whether they have pressed the button or not
-     */
-    public boolean verifyLogout() {
-        return _logoutPressed;
     }
 }

@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 import model.Model;
 import model.WaterSourceReport;
@@ -46,9 +45,6 @@ public class SourceReportsTableController {
     /** reference to FX App */
     private FXApplication app;
 
-    /** reference to the instance of Model */
-    private final Model model = Model.getInstance();
-
     /** list of water source reports */
     private final ObservableList<WaterSourceReport> list = FXCollections
             .observableList(Model.getSourceReports());
@@ -69,7 +65,8 @@ public class SourceReportsTableController {
     @FXML
     private void initialize() {
         reportNumCol.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, Integer>("_reportNumber")
+                new PropertyValueFactory<WaterSourceReport, Integer>(
+                        "_reportNumber")
         );
         dateOf.setCellValueFactory(
                 new PropertyValueFactory<WaterSourceReport, Date>("_date")
@@ -81,7 +78,8 @@ public class SourceReportsTableController {
                 new PropertyValueFactory<WaterSourceReport, WaterType>("_type")
         );
         conditionCol.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, SourceCondition>("_condition")
+                new PropertyValueFactory<WaterSourceReport, SourceCondition>(
+                        "_condition")
         );
         reportTable.setItems(list);
     }

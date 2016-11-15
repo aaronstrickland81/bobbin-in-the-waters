@@ -14,7 +14,8 @@ import java.util.Date;
  */
 public class WaterQualityReport extends Report {
 
-    private final ObjectProperty<PurityCondition> _condition = new SimpleObjectProperty<>();
+    private final ObjectProperty<PurityCondition> _condition
+            = new SimpleObjectProperty<>();
     private final DoubleProperty _virusPPM = new SimpleDoubleProperty();
     private final DoubleProperty _chemPPM = new SimpleDoubleProperty();
 
@@ -99,8 +100,8 @@ public class WaterQualityReport extends Report {
     @Override
     public String toString() {
         return super.toString() + "<p>Condition: " + get_condition() + "</p>"
-                + "</br><p>VirusPPM: " + _virusPPM.get() + "</p><br><p>Chemical PPM: "
-                + _chemPPM.get() + "</p>";
+                + "</br><p>VirusPPM: " + _virusPPM.get() +
+                "</p><br><p>Chemical PPM: " + _chemPPM.get() + "</p>";
     }
 
     @Override

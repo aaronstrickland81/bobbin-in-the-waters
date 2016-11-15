@@ -8,8 +8,6 @@ import org.junit.Test;
 import org.junit.rules.Timeout;
 import services.UserInfoTable;
 
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.Assert.assertEquals;
 
 /**

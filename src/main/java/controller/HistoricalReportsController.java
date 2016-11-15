@@ -20,6 +20,10 @@ import java.util.Map;
 
 
 /**
+ * Controller for Historical Report Page. This page allows the user to generate
+ * a graph displaying Virus PPM or Contaminant PPM against the date for a
+ * specific water source. Only managers can access this page.
+ *
  * Created by Karthik Praturu on 11/5/2016.
  */
 public class HistoricalReportsController {
@@ -33,8 +37,10 @@ public class HistoricalReportsController {
 
         public void addFromReport(WaterQualityReport report) {
             if (report.get_month_name().equals(this.month)) {
-                virusPPM = ((virusPPM * collisions) + report.getVirusPPM()) / (collisions + 1);
-                contaminantPPM = ((contaminantPPM * collisions) + report.getChemPPM()) / (collisions + 1);
+                virusPPM = ((virusPPM * collisions) + report.getVirusPPM())
+                        / (collisions + 1);
+                contaminantPPM = ((contaminantPPM * collisions)
+                        + report.getChemPPM()) / (collisions + 1);
             } else {
                 month = report.get_month_name();
                 monthNumber = report.get_month();
@@ -116,23 +122,14 @@ public class HistoricalReportsController {
     }
 
     /**
-     * Sets the stage of this dialog.
-     *
-     * @param dialogStage the stage for this dialog
-     */
-    public void setDialogStage(Stage dialogStage) {
-        /* The stage for this dialog */
-        Stage _dialogStage = dialogStage;
-    }
-
-    /**
      * When manager clicks on a location, a hash map of years related to
      * reports for that location is populated, and a year box is brought
      * into view
      */
     @FXML
     private void handleOnLocAction() {
-        List<WaterQualityReport> relevantReports = locationMap.get(locationBox.getValue());
+        List<WaterQualityReport> relevantReports
+                = locationMap.get(locationBox.getValue());
         yearMap = new HashMap<>();
         yearBox.getSelectionModel().clearSelection();
 
@@ -173,7 +170,8 @@ public class HistoricalReportsController {
         virusButton.setToggleGroup(group);
         contaminantButton.setToggleGroup(group);
 
-        List<WaterQualityReport> relevantReports = yearMap.get(yearBox.getValue());
+        List<WaterQualityReport> relevantReports
+                = yearMap.get(yearBox.getValue());
 
         if (null != relevantReports) {
             for (WaterQualityReport report : relevantReports) {
@@ -187,13 +185,15 @@ public class HistoricalReportsController {
             }
 
             ppmList = new ArrayList<>(ppmMap.values());
-            Collections.sort(ppmList, (o1, o2) -> o1.monthNumber - o2.monthNumber);
+            Collections.sort(ppmList, (o1, o2) -> o1.monthNumber
+                    - o2.monthNumber);
         }
     }
 
     /**
      * When virusPPM option is clicked, graph the virus data by making use of
-     * inner class, which automatically handles reports created in the same month
+     * inner class, which automatically handles reports created in the same
+     * month
      */
     @FXML
     private void handleVirusPPM() {
@@ -203,15 +203,16 @@ public class HistoricalReportsController {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
 
         for (PPMDataHandler ppmData : ppmList) {
-            series.getData().add(new XYChart.Data<String, Number>(ppmData.month, ppmData.virusPPM));
+            series.getData().add(new XYChart.Data<String, Number>(
+                    ppmData.month, ppmData.virusPPM));
         }
         lineChart.getData().add(series);
     }
 
     /**
-     * When contaminantPPM option is clicked, graph the contaminant data by making use of
-     * the PPMDataHandler inner class, which automatically handles reports created in
-     * the same month
+     * When contaminantPPM option is clicked, graph the contaminant data by
+     * making use of the PPMDataHandler inner class, which automatically handles
+     * reports created in the same month
      */
     @FXML
     private void handleContaminantPPM() {
@@ -220,7 +221,8 @@ public class HistoricalReportsController {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
 
         for (PPMDataHandler ppmData : ppmList) {
-            series.getData().add(new XYChart.Data<String, Number>(ppmData.month, ppmData.contaminantPPM));
+            series.getData().add(new XYChart.Data<String, Number>(
+                    ppmData.month, ppmData.contaminantPPM));
         }
         lineChart.getData().add(series);
     }

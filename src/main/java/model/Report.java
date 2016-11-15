@@ -106,6 +106,7 @@ public abstract class Report {
                 break;
             case 10: monthString = "Nov";
                 break;
+            //noinspection MagicNumber
             case 11: monthString = "Dec";
                 break;
             default: monthString = "Invalid month";
@@ -113,15 +114,6 @@ public abstract class Report {
         }
 
         return monthString;
-    }
-
-    /**
-     * Gets the date property
-     *
-     * @return the date property
-     */
-    public ObjectProperty<Date> _dateProperty() {
-        return _date;
     }
 
     /**
@@ -144,15 +136,6 @@ public abstract class Report {
     }
 
     /**
-     * Gets the report number property
-     *
-     * @return the report number property
-     */
-    public IntegerProperty _reportNumberProperty() {
-        return _reportNumber;
-    }
-
-    /**
      * Sets the report number for this report
      *
      * @param _reportNumber Sets this report's number to this number
@@ -168,15 +151,6 @@ public abstract class Report {
      */
     public String get_workername() {
         return _workername.get();
-    }
-
-    /**
-     * Gets the worker name property associated with this report
-     *
-     * @return worker name property
-     */
-    public StringProperty _workernameProperty() {
-        return _workername;
     }
 
     /**
@@ -198,15 +172,6 @@ public abstract class Report {
     }
 
     /**
-     * Gets the location property
-     *
-     * @return the location property
-     */
-    public StringProperty _locationProperty() {
-        return _location;
-    }
-
-    /**
      * Sets the location association with this report
      *
      * @param _location the new location of this water report
@@ -225,15 +190,6 @@ public abstract class Report {
     }
 
     /**
-     * Gets the longitude property of this report
-     *
-     * @return the longitude property
-     */
-    public DoubleProperty _longitudeProperty() {
-        return _longitude;
-    }
-
-    /**
      * Sets the longitude of this report
      *
      * @param _longitude the longitude for this report
@@ -249,15 +205,6 @@ public abstract class Report {
      */
     public Double get_latitude() {
         return this._latitude.get();
-    }
-
-    /**
-     * Gets the latitude property associated with this report
-     *
-     * @return the latitude property of this report
-     */
-    public DoubleProperty _latitudeProperty() {
-        return _latitude;
     }
 
     /**

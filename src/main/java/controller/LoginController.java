@@ -34,8 +34,6 @@ public class LoginController {
     /** Reference to FX APP */
     private FXApplication app;
 
-    private final Model model = Model.getInstance();
-
 
     /** flag to signal whether dialog was closed normally */
     private boolean _loginAuthenticated = false;
@@ -56,15 +54,6 @@ public class LoginController {
      */
     public void setDialogStage(Stage dialogStage) {
         _dialogStage = dialogStage;
-    }
-
-    /**
-     * Returns true if the user has logged in successfully, false otherwise.
-     *
-     * @return  true if the user has logged in.
-     */
-    public boolean verifyLogin() {
-        return _loginAuthenticated;
     }
 
     /**

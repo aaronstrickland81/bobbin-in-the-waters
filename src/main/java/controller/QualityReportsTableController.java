@@ -49,9 +49,6 @@ public class QualityReportsTableController {
     /** reference to FX App */
     private FXApplication app;
 
-    /** reference to the instance of Model */
-    private final Model model = Model.getInstance();
-
     /** list of water quality reports */
     private final ObservableList<WaterQualityReport> list = FXCollections
             .observableList(Model.getQualityReports());
@@ -63,16 +60,6 @@ public class QualityReportsTableController {
      */
     public void setMainApp(FXApplication fxapp) {
         app = fxapp;
-    }
-
-    /**
-     * Sets the stage of this dialog.
-     *
-     * @param dialogStage the stage for this dialog
-     */
-    public void setDialogStage(Stage dialogStage) {
-        /* the stage for this dialog */
-        Stage _dialogStage = dialogStage;
     }
 
     /**
@@ -90,7 +77,8 @@ public class QualityReportsTableController {
         );
 
         locationCol.setCellValueFactory(
-                new PropertyValueFactory<WaterQualityReport, String>("_location")
+                new PropertyValueFactory<WaterQualityReport, String>(
+                        "_location")
         );
 
         conditionCol.setCellValueFactory(

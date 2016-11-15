@@ -56,7 +56,8 @@ public class WaterSourceReportController {
      */
     private Date dateConverter() {
         Date in = new Date();
-        LocalDateTime ldt = LocalDateTime.ofInstant(in.toInstant(), ZoneId.systemDefault());
+        LocalDateTime ldt = LocalDateTime.ofInstant(in.toInstant(),
+                ZoneId.systemDefault());
         return Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
     }
 
@@ -91,24 +92,6 @@ public class WaterSourceReportController {
     }
 
     /**
-     * Sets the stage of this dialog.
-     *
-     * @param dialogStage the stage for this dialog
-     */
-    public void setDialogStage(Stage dialogStage) {
-        _dialogStage = dialogStage;
-    }
-
-    /**
-     * Returns true if the user has registered successfully, false otherwise.
-     *
-     * @return true if the user has registered
-     */
-    public boolean isWaterSourceReportCompleted() {
-        return _waterSourceReportCompleted;
-    }
-
-    /**
      * Called when the user clicks the submit button. Validates input, if valid
      * creates a new source report, adds it to the database, and displays the
      * main page.
@@ -119,7 +102,8 @@ public class WaterSourceReportController {
             //output user info to CSV
             Model.addSourceReport(new WaterSourceReport(dateConverter(), Model
                     .sourceNumGenerator(), Model.getUser().getUname(),
-                    Double.parseDouble(longitude.getText()), Double.parseDouble(latitude.getText()),
+                    Double.parseDouble(longitude.getText()), Double.parseDouble(
+                            latitude.getText()),
                     (WaterType) waterType.getValue(),
                     (SourceCondition) waterCondition.getValue()));
 
@@ -201,9 +185,10 @@ public class WaterSourceReportController {
         final String Exp = "[eE][+-]?" + Digits;
         final String fpRegex =
                 ("[\\x00-\\x20]*[+-]?(NaN|Infinity|(((" + Digits + "(\\.)?" +
-                        "(" + Digits + "?)(" + Exp + ")?)|(\\.(" + Digits + ")(" +
-                        Exp + ")?)|"
-                        + "(((0[xX]" + HexDigits + "(\\.)?)|(0[xX]" + HexDigits + "?(\\.)" + HexDigits + ")"
+                        "(" + Digits + "?)(" + Exp + ")?)|(\\.(" + Digits + ")("
+                        + Exp + ")?)|"
+                        + "(((0[xX]" + HexDigits + "(\\.)?)|(0[xX]" + HexDigits
+                        + "?(\\.)" + HexDigits + ")"
                         + ")[pP][+-]?" + Digits + "))" +
                         "[fFdD]?))" +
                         "[\\x00-\\x20]*");

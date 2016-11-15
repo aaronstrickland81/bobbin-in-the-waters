@@ -65,7 +65,8 @@ public class QualityReportInfo {
                     "qualityReportInfo");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                java.util.Date utilDate = new java.util.Date(rs.getDate(1).getTime());
+                java.util.Date utilDate = new java.util.Date(
+                        rs.getDate(1).getTime());
                 WaterQualityReport w = new WaterQualityReport(utilDate, rs
                         .getInt(2), rs.getString(3), rs.getDouble(4), rs
                         .getDouble(5), PurityCondition.getCondition(rs
@@ -80,46 +81,47 @@ public class QualityReportInfo {
         return aList;
     }
 
-    /**
-     * Gets quality report based off date
-     *
-     * @param longitude the longitude to search for
-     * @param latitude  the latitude to search for
-     * @param date      the date to search for
-     * @return arraylist of qualityreports matching query
-     */
-    public static List<WaterQualityReport> getQualityReports(
-            Double longitude, Double latitude, String date) {
-        List<WaterQualityReport> aList = new ArrayList<>();
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
-                            ".amazonaws.com:3306/bobbin", "root", "password");
-            PreparedStatement ps = con.prepareStatement("select from " +
-                    "qualityReportInfo where longitude = ? and latitude = ? ");
-            ps.setDouble(1, longitude);
-            ps.setDouble(2, latitude);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                String d = rs.getDate(1).toString();
-                d = d.substring(0, 4);
-                if (d.equals(date)) {
-                    java.util.Date utilDate = new java.util.Date(rs.getDate(1).getTime());
-                    WaterQualityReport w = new WaterQualityReport(utilDate, rs
-                            .getInt(2), rs.getString(3), rs.getDouble(4), rs
-                            .getDouble(5), PurityCondition.getCondition(rs
-                            .getString(6)), rs.getDouble(7), rs.getDouble(8));
-                    aList.add(w);
-                }
-            }
-            con.close();
-            return aList;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return aList;
-    }
+//    /**
+//     * Gets quality report based off date
+//     *
+//     * @param longitude the longitude to search for
+//     * @param latitude  the latitude to search for
+//     * @param date      the date to search for
+//     * @return arraylist of qualityreports matching query
+//     */
+//    public static List<WaterQualityReport> getQualityReports(
+//            Double longitude, Double latitude, String date) {
+//        List<WaterQualityReport> aList = new ArrayList<>();
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = DriverManager.getConnection(
+//                    "jdbc:mysql://bobbindb.chwrjcnilfzs.us-west-2.rds" +
+//                            ".amazonaws.com:3306/bobbin", "root", "password");
+//            PreparedStatement ps = con.prepareStatement("select from " +
+//                    "qualityReportInfo where longitude = ? and latitude = ? ");
+//            ps.setDouble(1, longitude);
+//            ps.setDouble(2, latitude);
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()) {
+//                String d = rs.getDate(1).toString();
+//                d = d.substring(0, 4);
+//                if (d.equals(date)) {
+//                    java.util.Date utilDate = new java.util.Date(
+//                            rs.getDate(1).getTime());
+//                    WaterQualityReport w = new WaterQualityReport(utilDate, rs
+//                            .getInt(2), rs.getString(3), rs.getDouble(4), rs
+//                            .getDouble(5), PurityCondition.getCondition(rs
+//                            .getString(6)), rs.getDouble(7), rs.getDouble(8));
+//                    aList.add(w);
+//                }
+//            }
+//            con.close();
+//            return aList;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return aList;
+//    }
 
     /**
      * Gets the number of rows of reports

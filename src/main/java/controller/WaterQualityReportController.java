@@ -58,7 +58,8 @@ public class WaterQualityReportController {
      */
     private Date dateConverter() {
         Date in = new Date();
-        LocalDateTime ldt = LocalDateTime.ofInstant(in.toInstant(), ZoneId.systemDefault());
+        LocalDateTime ldt = LocalDateTime.ofInstant(in.toInstant(),
+                ZoneId.systemDefault());
         return Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
     }
 
@@ -91,24 +92,6 @@ public class WaterQualityReportController {
     }
 
     /**
-     * Sets the stage of this dialog.
-     *
-     * @param dialogStage the stage for this dialog
-     */
-    public void setDialogStage(Stage dialogStage) {
-        _dialogStage = dialogStage;
-    }
-
-    /**
-     * Returns true if the user has registered successfully, false otherwise.
-     *
-     * @return true if the user has registered
-     */
-    public boolean isWaterQualityReportCompleted() {
-        return _waterQualityReportCompleted;
-    }
-
-    /**
      * Called when the user clicks the submit button. Validates user input, if
      * valid creates a new quality report, adds it to the database, and displays
      * the main page.
@@ -119,8 +102,10 @@ public class WaterQualityReportController {
             //output user info to CSV
             Model.addQualityReport(new WaterQualityReport(dateConverter(), Model
                     .qualityNumGenerator(), Model.getUser().getUname(),
-                    Double.parseDouble(longitude.getText()), Double.parseDouble(latitude.getText()),
-                    (PurityCondition) waterCondition.getValue(), Double.parseDouble(virusPPM.getText()),
+                    Double.parseDouble(longitude.getText()), Double.parseDouble(
+                            latitude.getText()),
+                    (PurityCondition) waterCondition.getValue(),
+                    Double.parseDouble(virusPPM.getText()),
                     Double.parseDouble(contaminantPPM.getText())));
 
             _waterQualityReportCompleted = true;
@@ -175,8 +160,8 @@ public class WaterQualityReportController {
         if (contaminantPPM.getText() == null) {
             errorMessage += "No contaminate PPM entered\n";
         } else if (!validDouble(contaminantPPM.getText())) {
-            errorMessage += "That is not a valid contaminant PPM. Please give a " +
-                    "number\n";
+            errorMessage += "That is not a valid contaminant PPM. Please give" +
+                    " a number\n";
         }
         if (waterCondition.getValue() == null) {
             errorMessage += "No water condition selected\n";
@@ -210,9 +195,10 @@ public class WaterQualityReportController {
         final String Exp = "[eE][+-]?" + Digits;
         final String fpRegex =
                 ("[\\x00-\\x20]*[+-]?(NaN|Infinity|(((" + Digits + "(\\.)?" +
-                        "(" + Digits + "?)(" + Exp + ")?)|(\\.(" + Digits + ")(" +
-                        Exp + ")?)|"
-                        + "(((0[xX]" + HexDigits + "(\\.)?)|(0[xX]" + HexDigits + "?(\\.)" + HexDigits + ")"
+                        "(" + Digits + "?)(" + Exp + ")?)|(\\.(" + Digits + ")("
+                        + Exp + ")?)|"
+                        + "(((0[xX]" + HexDigits + "(\\.)?)|(0[xX]" + HexDigits
+                        + "?(\\.)" + HexDigits + ")"
                         + ")[pP][+-]?" + Digits + "))" +
                         "[fFdD]?))" +
                         "[\\x00-\\x20]*");

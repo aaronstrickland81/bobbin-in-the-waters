@@ -22,7 +22,8 @@ public class User {
     private final StringProperty password = new SimpleStringProperty();
     private final StringProperty fname = new SimpleStringProperty();
     private final StringProperty lname = new SimpleStringProperty();
-    private final ObjectProperty<AccountType> accountType = new SimpleObjectProperty<>();
+    private final ObjectProperty<AccountType> accountType
+            = new SimpleObjectProperty<>();
 
 
     /**
@@ -89,11 +90,13 @@ public class User {
     }
 
     /**
-     * Setter for account type
+     * Setter for account type.
      *
      * @param t account type to set
      */
-    public void setAccountType(AccountType t) {
+    // set to private because it can't be changed, only set upon registration,
+    // which is handled by constructor
+    private void setAccountType(AccountType t) {
         this.accountType.set(t);
     }
 
@@ -203,7 +206,8 @@ public class User {
      * @param fname first name
      * @param lname last name
      */
-    public User(String user, String pass, AccountType type, String email, String fname, String lname) {
+    public User(String user, String pass, AccountType type, String email,
+                String fname, String lname) {
         this(user, pass, type, email, fname, lname, "", "");
     }
 
@@ -215,22 +219,6 @@ public class User {
      */
     public User(String user, String pass) {
         this(user,pass, AccountType.USER, "", "", "", "", "");
-    }
-
-    /**
-     * Constructor
-     *
-     * @param aUser user
-     */
-    public User(User aUser) {
-        this(aUser.getUname()
-                , aUser.getPassword()
-                , aUser.getAccountType()
-                , aUser.getEmail()
-                , aUser.getFname()
-                , aUser.getLname()
-                , aUser.getHomeAddress()
-                , aUser.getTitle());
     }
 
     @Override

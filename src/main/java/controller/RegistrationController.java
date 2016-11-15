@@ -71,24 +71,6 @@ public class RegistrationController {
     }
 
     /**
-     * Sets the stage of this dialog.
-     *
-     * @param dialogStage the stage for this dialog
-     */
-    public void setDialogStage(Stage dialogStage) {
-        _dialogStage = dialogStage;
-    }
-
-    /**
-     * Returns true if the user has registered successfully, false otherwise.
-     *
-     * @return true if the user has registered
-     */
-    public boolean isRegistrationCompleted() {
-        return _registrationCompleted;
-    }
-
-    /**
      * Called when the user clicks the register button. Validates input, if
      * valid creates a new user, stores it to the database, and displays the
      * login page.
@@ -98,7 +80,8 @@ public class RegistrationController {
         if (this.isInputValid()) {
             User user = new User(userField.getText(), passField.getText(),
                     (AccountType) accountTypeComboBox.getValue(), emailField
-                    .getText(), firstNameField.getText(), lastNameField.getText());
+                    .getText(), firstNameField.getText(),
+                    lastNameField.getText());
             Model.addUser(user);
 
             _registrationCompleted = true;
@@ -158,7 +141,8 @@ public class RegistrationController {
         }
 
 
-        //TODO: check if email is of valid format (maybe if it exists already as well?)
+        //maybe check if email is of valid format/ if it already exists
+
 
         //no error message means success / good input
         if (errorMessage.isEmpty()) {

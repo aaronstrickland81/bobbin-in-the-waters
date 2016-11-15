@@ -24,18 +24,6 @@ public class ProfileController {
     /** reference to the FX App */
     private FXApplication app;
 
-    /** reference to the model instance */
-    private final Model model = Model.getInstance();
-
-    /**
-     * Sets the stage for this dialog.
-     *
-     * @param dialogStage Stage for the dialog
-     */
-    public void setDialogStage(Stage dialogStage) {
-        _dialogStage = dialogStage;
-    }
-
     /** reference to currently logged in User */
     private User aUser;
 

@@ -70,9 +70,13 @@ public class FXApplication extends Application {
                     "../view/rootLayout.fxml"));
             rootLayout = loader.load();
 
+            rootLayout.setStyle(
+                    "-fx-background-color: rgba(63, 63, 63, 0.8);"
+            );
+            mainScreen.initStyle(StageStyle.TRANSPARENT);
             mainScreen.setTitle("Main Page");
-
             Scene scene = new Scene(rootLayout);
+            scene.setFill(Color.TRANSPARENT);
             mainScreen.setScene(scene);
             mainScreen.show();
 
@@ -119,15 +123,7 @@ public class FXApplication extends Application {
                     "../view/MainScreen.fxml"));
             AnchorPane mainPage = loader.load();
 
-            mainPage.setStyle(
-                    "-fx-background-color: rgba(63, 63, 63, 0.8);"
-            );
-
-            Scene scene = new Scene(mainPage);
-            scene.setFill(Color.TRANSPARENT);
-            mainScreen.setScene(scene);
-            mainScreen.show();
-
+            rootLayout.setCenter(mainPage);
             MainScreenController controller = loader.getController();
             controller.setMainApp(this);
 
@@ -149,9 +145,7 @@ public class FXApplication extends Application {
                     "../view/registrationPage.fxml"));
             AnchorPane mainPage = loader.load();
 
-            Scene scene = new Scene(mainPage);
-            mainScreen.setScene(scene);
-            mainScreen.show();
+            rootLayout.setCenter(mainPage);
 
             RegistrationController controller = loader.getController();
             controller.setMainApp(this);
@@ -173,9 +167,7 @@ public class FXApplication extends Application {
                     "../view/loginPage.fxml"));
             AnchorPane mainPage = loader.load();
 
-            Scene scene = new Scene(mainPage);
-            mainScreen.setScene(scene);
-            mainScreen.show();
+            rootLayout.setCenter(mainPage);
 
             LoginController controller = loader.getController();
             controller.setMainApp(this);
@@ -198,9 +190,7 @@ public class FXApplication extends Application {
                     "../view/profile.fxml"));
             AnchorPane mainPage = loader.load();
 
-            Scene scene = new Scene(mainPage);
-            mainScreen.setScene(scene);
-            mainScreen.show();
+            rootLayout.setCenter(mainPage);
 
             ProfileController controller = loader.getController();
             controller.setMainApp(this);
@@ -222,9 +212,7 @@ public class FXApplication extends Application {
                     "../view/viewReports/viewSourceReportTable.fxml"));
             AnchorPane mainPage = loader.load();
 
-            Scene scene = new Scene(mainPage);
-            mainScreen.setScene(scene);
-            mainScreen.show();
+            rootLayout.setCenter(mainPage);
 
             SourceReportsTableController controller = loader.getController();
             controller.setMainApp(this);
@@ -246,10 +234,7 @@ public class FXApplication extends Application {
                     "../view/viewReports/viewQualityReportTable.fxml"));
             AnchorPane mainPage = loader.load();
 
-            Scene scene = new Scene(mainPage);
-            mainScreen.setScene(scene);
-            mainScreen.show();
-
+            rootLayout.setCenter(mainPage);
             QualityReportsTableController controller = loader.getController();
             controller.setMainApp(this);
 
@@ -270,9 +255,7 @@ public class FXApplication extends Application {
                     "../view/submitReports/submitWaterSource.fxml"));
             AnchorPane mainPage = loader.load();
 
-            Scene scene = new Scene(mainPage);
-            mainScreen.setScene(scene);
-            mainScreen.show();
+            rootLayout.setCenter(mainPage);
 
             WaterSourceReportController controller = loader.getController();
             controller.setMainApp(this);
@@ -294,9 +277,7 @@ public class FXApplication extends Application {
                     "../view/submitReports/submitWaterQuality.fxml"));
             AnchorPane mainPage = loader.load();
 
-            Scene scene = new Scene(mainPage);
-            mainScreen.setScene(scene);
-            mainScreen.show();
+            rootLayout.setCenter(mainPage);
 
             WaterQualityReportController controller = loader.getController();
             controller.setMainApp(this);
@@ -322,10 +303,7 @@ public class FXApplication extends Application {
                     "-fx-background-color: rgba(63, 63, 63, 0.8);"
             );
 
-            Scene scene = new Scene(mainPage);
-            scene.setFill(Color.TRANSPARENT);
-            mainScreen.setScene(scene);
-            mainScreen.show();
+            rootLayout.setCenter(mainPage);
 
             HistoricalReportsController controller = loader.getController();
             controller.setMainApp(this);

@@ -26,6 +26,7 @@
                styleClass="rootToolbar">
         <items>
           <Pane HBox.hgrow="ALWAYS" />
+          <Button styleClass="minimizeButton" fx:id="minimizeButton" onAction="#handleMinimize"/>
           <Button styleClass="exitButton" fx:id="exitButton" onAction="#handleExit"/>
         </items>
       </ToolBar>

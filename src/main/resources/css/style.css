@@ -44,7 +44,9 @@
 .mainButton:hover {
     -fx-text-fill: #4286f4;
 }
-
+.rootToolbar {
+    -fx-background-color: rgba(34,34,34, 8.0);
+}
 .exitButton {
     -fx-background-radius: 20px;
     -fx-min-width: 20px;
@@ -61,8 +63,20 @@
     -fx-graphic: url('../img/highlightedClose.png');
 }
 
-.rootToolbar {
-    -fx-background-color: rgba(34,34,34, 8.0);
+.minimizeButton {
+    -fx-background-radius: 20px;
+    -fx-min-width: 20px;
+    -fx-min-height: 20px;
+    -fx-max-width: 20px;
+    -fx-max-height: 20px;
+    -fx-base: #222222;
+    -fx-graphic: url('../img/minimizeIcon.png');
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.minimizeButton: hover {
+    -fx-graphic: url('../img/highlightedMinimize.png');
 }
 
 .historicalRadioButton {

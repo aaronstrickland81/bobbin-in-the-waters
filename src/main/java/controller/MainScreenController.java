@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -109,6 +110,34 @@ public class MainScreenController
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mapView.addMapInializedListener(this);
+        Image defaultImg = new Image(getClass().getResourceAsStream("../img/addIcon.png"));
+        addReportButton.setGraphic(new ImageView(defaultImg));
+
+        addReportButton.setStyle("    -fx-background-radius: 20px;" +
+                "    -fx-min-width: 20px;" +
+                "    -fx-min-height: 20px;" +
+                "    -fx-max-width: 20px;" +
+                "    -fx-max-height: 20px;" +
+                "    -fx-focus-color: transparent;" +
+                "    -fx-faint-focus-color: transparent;");
+
+        addReportButton.addEventHandler(MouseEvent.MOUSE_ENTERED,
+                event-> {
+                    Image img = new Image(getClass().getResourceAsStream("../img/hoverAddIcon.png"));
+                    addReportButton.setGraphic(new ImageView(img));
+                });
+
+        addReportButton.addEventHandler(MouseEvent.MOUSE_EXITED,
+                event -> {
+                        Image img;
+                        if (optionsBox.isVisible()) {
+                            img = new Image(getClass().getResourceAsStream("../img/cancelIcon.png"));
+                            addReportButton.setGraphic(new ImageView(img));
+                        } else {
+                            img = new Image(getClass().getResourceAsStream("../img/addIcon.png"));
+                            addReportButton.setGraphic(new ImageView(img));
+                        }
+                });
     }
 
     /**
@@ -197,21 +226,6 @@ public class MainScreenController
     }
 
     /**
-     * Called when the user clicks the submit report button. If the user is of
-     * AccountType User, displays the water source report submission page.
-     * Otherwise, drops down more menu button options.
-     */
-    @FXML
-    private void handleSubmitReports() {
-        if (Model.getUser().getAccountType().equals(AccountType.USER)) {
-            app.showSubmitWaterSourceReport();
-        } else {
-            toggleButton(submitSourceReport);
-            toggleButton(submitQualityReport);
-        }
-    }
-
-    /**
      * Called when the user clicks the submit source report button. Displays the
      * submit source report page.
      */
@@ -280,15 +294,28 @@ public class MainScreenController
     }
 
 
+    /**
+     * Called when user clicks on button to add a report.
+     */
     @FXML
     private void handleAddReport() {
-        if (optionsBox.isVisible()) {
-            optionsBox.setVisible(false);
-            optionsBox.setManaged(false);
-            addReportButton.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("../../resources/img/cancelIcon.png"))));
+        if (Model.getUser().getAccountType().equals(AccountType.USER)) {
+            app.showSubmitWaterSourceReport();
         } else {
-            optionsBox.setVisible(true);
-            optionsBox.setManaged(true);
+            toggleButton(submitSourceReport);
+            toggleButton(submitQualityReport);
+            Image img;
+            if (optionsBox.isVisible()) {
+                optionsBox.setVisible(false);
+                optionsBox.setManaged(false);
+                img = new Image(getClass().getResourceAsStream("../img/addIcon.png"));
+                addReportButton.setGraphic(new ImageView(img));
+            } else {
+                optionsBox.setVisible(true);
+                optionsBox.setManaged(true);
+                img = new Image(getClass().getResourceAsStream("../img/cancelIcon.png"));
+                addReportButton.setGraphic(new ImageView(img));
+            }
         }
     }
 

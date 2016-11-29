@@ -90,7 +90,7 @@
     -fx-graphic: url('../img/highlightedMinimize.png');
     -fx-cursor: hand;
 }
-
+/*
 .addButton {
     -fx-background-radius: 20px;
     -fx-min-width: 20px;
@@ -101,6 +101,7 @@
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
 }
+*/
 
 .addButton: hover {
     -fx-graphic: url('../img/hoverAddIcon.png');

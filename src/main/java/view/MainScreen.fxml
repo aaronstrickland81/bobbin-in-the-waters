@@ -22,19 +22,9 @@
       <BorderPane fx:id="border" opacity="0.8">
          <left>
             <VBox prefHeight="400.0" prefWidth="125.0">
-               <Button fx:id="editProfile" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" onAction="#handleEdit" text="Edit Profile" styleClass="mainButton"/>
-               <Button fx:id="submitReports" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0"  onAction="#handleSubmitReports" text="Submit Report" styleClass="mainButton"/>
-                <Button fx:id="submitSourceReport" alignment="TOP_CENTER"
-                        mnemonicParsing="false" prefHeight="31.0"
-                        prefWidth="123.0" onAction="#handleSubmitSourceReport"
-                        text="   -Source Report" styleClass="mainButton"
-                        visible="false" managed="false"/>
-                <Button fx:id="submitQualityReport" alignment="TOP_CENTER"
-                        mnemonicParsing="false" prefHeight="31.0"
-                        prefWidth="123.0"
-                        onAction="#handleSubmitQualityReport"
-                        text="   -Quality Report" styleClass="mainButton"
-                        visible="false" managed="false"/>
+               <Button fx:id="editProfile" alignment="TOP_CENTER" mnemonicParsing="false"
+                       prefHeight="31.0" prefWidth="123.0" onAction="#handleEdit"
+                       text="Edit Profile" styleClass="mainButton"/>
                 <Button fx:id="viewReports" alignment="TOP_CENTER"
                         mnemonicParsing="false" prefHeight="31.0"
                         prefWidth="123.0" onAction="#handleViewReports"
@@ -66,13 +56,16 @@
                  <GoogleMapView fx:id="mapView" prefHeight="400.0" prefWidth="475.0"
                                 AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0.0"
                                 AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0.0"/>
-                 <Button fx:id="addReportButton" styleClass="addButton" AnchorPane.rightAnchor="50" AnchorPane.bottomAnchor="50" onAction="#handleAddReport"/>
+                 <Button fx:id="addReportButton" styleClass="addButton"
+                         AnchorPane.rightAnchor="50" AnchorPane.bottomAnchor="50" onAction="#handleAddReport"/>
 
-
-                 <VBox alignment="TOP_CENTER" fx:id="optionsBox" fillWidth="false" layoutX="26.0" layoutY="29.0" prefHeight="100.0" prefWidth="100.0" spacing="10.0"
+                 <VBox alignment="TOP_CENTER" fx:id="optionsBox" fillWidth="false"
+                       layoutX="26.0" layoutY="29.0" prefHeight="100.0" prefWidth="100.0" spacing="10.0"
                        AnchorPane.bottomAnchor="90.0" AnchorPane.rightAnchor="10.0" styleClass="addOptions" visible="false">
-                     <Button text="Source" />
-                     <Button text="Quality" />
+                     <Button text="Source" fx:id="submitSourceReport" styleClass="loginButton"
+                             onAction="#handleSubmitSourceReport" visible="false"/>
+                     <Button text="Quality" fx:id="submitQualityReport" styleClass="loginButton"
+                             onAction="#handleSubmitQualityReport" visible="false"/>
                  </VBox>
              </AnchorPane>
          </right>

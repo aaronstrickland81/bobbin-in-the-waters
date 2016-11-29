@@ -11,41 +11,45 @@
             minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/8.0.102-ea"
             xmlns:fx="http://javafx.com/fxml/1"
+            styleClass="profileBackground"
+            stylesheets="@../css/style.css"
             fx:controller="controller.ProfileController">
     <children>
-        <Button fx:id="backButton" layoutX="15.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="25.0" prefWidth="92.0" text="Back" />
+        <Button fx:id="backButton" layoutX="15.0" layoutY="22.0"
+                mnemonicParsing="false" onAction="#handleBack" prefHeight="25.0"
+                prefWidth="92.0" text="Back" styleClass="loginButton"/>
         <TextField fx:id="firstName" layoutX="150.0" layoutY="65.0"
-                   prefHeight="31.0" prefWidth="143.0"/>
-        <TextField fx:id="lastName" layoutX="377.0" layoutY="65.0" prefHeight="31.0" prefWidth="143.0" />
+                   prefHeight="31.0" prefWidth="143.0" styleClass="loginTBox"/>
+        <TextField fx:id="lastName" layoutX="377.0" layoutY="65.0" prefHeight="31.0" prefWidth="143.0" styleClass="loginTBox"/>
         <TextField fx:id="title" layoutX="151.0" layoutY="104.0"
-                   prefHeight="31.0" prefWidth="375.0"/>
+                   prefHeight="31.0" prefWidth="375.0" styleClass="loginTBox"/>
         <TextField fx:id="email" layoutX="151.0" layoutY="145.0"
-                   prefHeight="31.0" prefWidth="375.0"/>
+                   prefHeight="31.0" prefWidth="375.0" styleClass="loginTBox"/>
         <TextField fx:id="homeAddress" layoutX="151.0" layoutY="189.0"
-                   prefHeight="31.0" prefWidth="375.0"/>
+                   prefHeight="31.0" prefWidth="375.0" styleClass="loginTBox"/>
         <PasswordField fx:id="newPassword" layoutX="151.0" layoutY="235.0"
-                       prefHeight="31.0" prefWidth="375.0"/>
+                       prefHeight="31.0" prefWidth="375.0" styleClass="loginTBox"/>
         <PasswordField fx:id="confPassword" layoutX="151.0" layoutY="285.0"
-                       prefHeight="31.0" prefWidth="375.0"/>
-        <Label layoutX="68.0" layoutY="65.0" prefHeight="31.0" prefWidth="76.0" text="First Name:" />
-        <Label layoutX="300.0" layoutY="65.0" prefHeight="31.0" prefWidth="76.0" text="Last Name:" />
+                       prefHeight="31.0" prefWidth="375.0" styleClass="loginTBox"/>
+        <Label layoutX="68.0" layoutY="65.0" prefHeight="31.0" prefWidth="76.0" text="First Name:" styleClass="loginText"/>
+        <Label layoutX="300.0" layoutY="65.0" prefHeight="31.0" prefWidth="76.0" text="Last Name:" styleClass="loginText"/>
         <Label layoutX="69.0" layoutY="145.0" prefHeight="31.0" prefWidth="76.0"
-               text="Email:"/>
+               text="Email:" styleClass="loginText"/>
         <Label layoutX="68.0" layoutY="235.0" prefHeight="46.0" prefWidth="76.0"
-               text="New Password:"/>
+               text="New Password:" styleClass="loginText"/>
         <Label layoutX="68.0" layoutY="278.0" prefHeight="46.0" prefWidth="76.0"
-               text="Confirm Password:" wrapText="true"/>
+               text="Confirm Password:" wrapText="true" styleClass="loginText"/>
         <Label layoutX="69.0" layoutY="189.0" prefHeight="46.0" prefWidth="76.0"
-               text="Home Address:" wrapText="true"/>
+               text="Home Address:" wrapText="true" styleClass="loginText"/>
         <Label layoutX="69.0" layoutY="97.0" prefHeight="46.0" prefWidth="76.0"
-               text="Title:" wrapText="true"/>
-        <Label layoutX="221.0" layoutY="25.0" prefHeight="34.0" prefWidth="106.0" text="Profile">
+               text="Title:" wrapText="true" styleClass="loginText"/>
+        <Label layoutX="221.0" layoutY="25.0" prefHeight="34.0" prefWidth="106.0" text="Profile" styleClass="loginText">
             <font>
                 <Font size="28.0" />
             </font>
         </Label>
         <Button fx:id="saveButton" layoutX="265.0" layoutY="326.0"
                 mnemonicParsing="false" onAction="#handleSave" prefHeight="34.0"
-                prefWidth="99.0" text="Save"/>
+                prefWidth="99.0" text="Save" styleClass="loginButton"/>
     </children>
 </AnchorPane>

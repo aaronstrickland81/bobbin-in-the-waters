@@ -16,9 +16,12 @@ import com.lynden.gmapsfx.javascript.object.MarkerOptions;
 import fxapp.FXApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.ButtonType;
 import model.Model;
@@ -65,6 +68,12 @@ public class MainScreenController
 
     @FXML
     private Button viewHistoricalReport;
+
+    @FXML
+    private VBox optionsBox;
+
+    @FXML
+    private Button addReportButton;
 
     @FXML
     GoogleMapView mapView;
@@ -268,6 +277,19 @@ public class MainScreenController
     @FXML
     private void handleEdit() {
         app.showEditPage();
+    }
+
+
+    @FXML
+    private void handleAddReport() {
+        if (optionsBox.isVisible()) {
+            optionsBox.setVisible(false);
+            optionsBox.setManaged(false);
+            addReportButton.setGraphic(new ImageView(new Image(getClass().getResourceAsStream("../../resources/img/cancelIcon.png"))));
+        } else {
+            optionsBox.setVisible(true);
+            optionsBox.setManaged(true);
+        }
     }
 
     /**

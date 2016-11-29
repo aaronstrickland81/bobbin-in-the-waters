@@ -14,41 +14,42 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            styleClass="gifBackground" stylesheets="@../css/style.css"
             xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controller.RegistrationController">
    <children>
-      <TextField fx:id="firstNameField" layoutX="145.0" layoutY="65.0" prefHeight="31.0" prefWidth="143.0" />
-      <TextField fx:id="lastNameField" layoutX="377.0" layoutY="65.0" prefHeight="31.0" prefWidth="143.0" />
+      <TextField fx:id="firstNameField" layoutX="145.0" layoutY="65.0" prefHeight="31.0" prefWidth="143.0" styleClass="loginTBox"/>
+      <TextField fx:id="lastNameField" layoutX="377.0" layoutY="65.0" prefHeight="31.0" prefWidth="143.0"  styleClass="loginTBox"/>
        <TextField fx:id="userField" layoutX="145.0" layoutY="108.0"
-                  prefHeight="31.0" prefWidth="375.0"/>
+                  prefHeight="31.0" prefWidth="375.0"  styleClass="loginTBox"/>
        <TextField fx:id="emailField" layoutX="145.0" layoutY="150.0"
-                  prefHeight="31.0" prefWidth="375.0"/>
+                  prefHeight="31.0" prefWidth="375.0"  styleClass="loginTBox"/>
        <PasswordField fx:id="passField" layoutX="145.0" layoutY="191.0"
-                      prefHeight="31.0" prefWidth="375.0"/>
+                      prefHeight="31.0" prefWidth="375.0"  styleClass="loginTBox"/>
        <PasswordField fx:id="confirmPassField" layoutX="145.0" layoutY="233.0"
-                      prefHeight="31.0" prefWidth="375.0"/>
+                      prefHeight="31.0" prefWidth="375.0"  styleClass="loginTBox"/>
        <ComboBox fx:id="accountTypeComboBox" layoutX="237.0" layoutY="276.0"
                  prefHeight="31.0" prefWidth="283.0"/>
-      <Label layoutX="68.0" layoutY="65.0" prefHeight="31.0" prefWidth="76.0" text="First Name:" />
-      <Label layoutX="300.0" layoutY="65.0" prefHeight="31.0" prefWidth="76.0" text="Last Name:" />
+      <Label layoutX="68.0" layoutY="65.0" prefHeight="31.0" prefWidth="76.0" text="First Name:" styleClass="loginText"/>
+      <Label layoutX="300.0" layoutY="65.0" prefHeight="31.0" prefWidth="76.0" text="Last Name:" styleClass="loginText"/>
        <Label layoutX="69.0" layoutY="108.0" prefHeight="31.0" prefWidth="76.0"
-              text="Username:"/>
+              text="Username:" styleClass="loginText"/>
        <Label layoutX="69.0" layoutY="150.0" prefHeight="31.0" prefWidth="76.0"
-              text="Email:"/>
+              text="Email:" styleClass="loginText"/>
        <Label layoutX="69.0" layoutY="191.0" prefHeight="31.0" prefWidth="76.0"
-              text="Password:"/>
+              text="Password:" styleClass="loginText"/>
        <Label layoutX="69.0" layoutY="276.0" prefHeight="31.0" prefWidth="106.0"
-              text="Account Type:"/>
-      <Label layoutX="69.0" layoutY="226.0" prefHeight="46.0" prefWidth="76.0" text="Confirm Password:" wrapText="true" />
+              text="Account Type:" styleClass="loginText"/>
+      <Label layoutX="69.0" layoutY="226.0" prefHeight="46.0" prefWidth="76.0" text="Confirm Password:" wrapText="true" styleClass="loginText"/>
        <Button fx:id="cancel" layoutX="189.0" layoutY="328.0"
                mnemonicParsing="false" onAction="#handleCancel"
-               prefHeight="31.0" prefWidth="123.0" text="Cancel"/>
+               prefHeight="31.0" prefWidth="123.0" text="Cancel" styleClass="loginButton"/>
        <Button layoutX="338.0" layoutY="328.0" mnemonicParsing="false"
                onAction="#handleRegistrationAttempt" prefHeight="31.0"
-               prefWidth="123.0" text="Sign Up" defaultButton="true"/>
+               prefWidth="123.0" text="Sign Up" defaultButton="true" styleClass="loginButton"/>
        <Label layoutX="221.0" layoutY="25.0" prefHeight="21.0" prefWidth="316.0"
-              text="Registration">
+              text="Registration" styleClass="loginText">
            <font>
                <Font size="28.0"/>
          </font>

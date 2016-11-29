@@ -5,6 +5,13 @@
     -fx-background-position: center center;
 }
 
+.profileBackground {
+    -fx-background-image: url('../img/profileBackground.jpg');
+    -fx-background-repeat: stretch;
+    -fx-background-size: cover, auto;
+    -fx-background-position: center center;
+}
+
 .loginText {
     -fx-text-fill: white;
 }
@@ -20,11 +27,13 @@
 
 .registerButton:hover {
     -fx-text-fill: #4286f4;
+    -fx-cursor: hand;
 }
 
 .loginButton:hover {
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
+    -fx-cursor: hand;
 }
 
 .loginTBox {
@@ -43,9 +52,10 @@
 
 .mainButton:hover {
     -fx-text-fill: #4286f4;
+    -fx-cursor: hand;
 }
 .rootToolbar {
-    -fx-background-color: rgba(34,34,34, 8.0);
+    -fx-background-color: rgba(34,34,34, 0.80);
 }
 .exitButton {
     -fx-background-radius: 20px;
@@ -61,6 +71,7 @@
 
 .exitButton: hover {
     -fx-graphic: url('../img/highlightedClose.png');
+    -fx-cursor: hand;
 }
 
 .minimizeButton {
@@ -77,6 +88,7 @@
 
 .minimizeButton: hover {
     -fx-graphic: url('../img/highlightedMinimize.png');
+    -fx-cursor: hand;
 }
 
 .addButton {
@@ -92,6 +104,11 @@
 
 .addButton: hover {
     -fx-graphic: url('../img/hoverAddIcon.png');
+    -fx-cursor: hand;
+}
+
+.addOptions {
+    -fx-background-color: rgba(230,255,255, 0.70);
 }
 
 .historicalRadioButton {

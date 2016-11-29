@@ -157,7 +157,6 @@ public class MainScreenController
                         window.open(map, marker);});
 
             map.addMarker(marker);
-
         }
     }
 

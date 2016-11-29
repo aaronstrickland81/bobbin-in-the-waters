@@ -79,6 +79,21 @@
     -fx-graphic: url('../img/highlightedMinimize.png');
 }
 
+.addButton {
+    -fx-background-radius: 20px;
+    -fx-min-width: 20px;
+    -fx-min-height: 20px;
+    -fx-max-width: 20px;
+    -fx-max-height: 20px;
+    -fx-graphic: url('../img/addIcon.png');
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.addButton: hover {
+    -fx-graphic: url('../img/hoverAddIcon.png');
+}
+
 .historicalRadioButton {
     -fx-text-fill: white;
 }

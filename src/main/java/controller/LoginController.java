@@ -25,9 +25,6 @@ public class LoginController {
     @FXML
     private PasswordField pwField;
 
-    @FXML
-    private Button exitButton;
-
     /** The window for this dialog*/
     private Stage _dialogStage;
 
@@ -118,15 +115,6 @@ public class LoginController {
 
             return false;
         }
-    }
-
-    /**
-     * Called when the user clicks the exit button. Exits the application.
-     */
-    @FXML
-    private void handleExit(){
-        Stage stage = (Stage) exitButton.getScene().getWindow();
-        stage.close();
     }
 
     /**

@@ -13,10 +13,12 @@ import controller.WaterSourceReportController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.event.EventHandler;
 
 import javafx.stage.StageStyle;
 
@@ -41,6 +43,8 @@ public class FXApplication extends Application {
     /** the main layout for the main window */
     private BorderPane rootLayout;
 
+    private double xOffset = 0;
+    private double yOffset = 0;
 
     @Override
     public void start(Stage primaryStage) {
@@ -79,6 +83,16 @@ public class FXApplication extends Application {
             scene.setFill(Color.TRANSPARENT);
             mainScreen.setScene(scene);
             mainScreen.show();
+
+            rootLayout.setOnMousePressed(event -> {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            });
+
+            rootLayout.setOnMouseDragged(event -> {
+                mainScreen.setX(event.getScreenX() - xOffset);
+                mainScreen.setY(event.getScreenY() - yOffset);
+            });
 
         } catch (IOException e) {
             //error on load, so log it

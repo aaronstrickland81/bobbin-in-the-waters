@@ -4,15 +4,29 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane stylesheets="@../css/style.css"
+            xmlns="http://javafx.com/javafx/8.0.60"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.RootController">
    <center>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0" prefHeight="400.0" prefWidth="600.0" />
    </center>
    <top>
-      <ToolBar opacity="0.8" prefHeight="45.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <ToolBar maxHeight="-Infinity"
+               maxWidth="-Infinity"
+               minHeight="-Infinity"
+               minWidth="-Infinity"
+               opacity="0.8"
+               prefHeight="28.0"
+               prefWidth="600.0"
+               BorderPane.alignment="CENTER"
+               styleClass="rootToolbar">
         <items>
-          <Button mnemonicParsing="false" text="Back" />
+          <Pane HBox.hgrow="ALWAYS" />
+          <Button styleClass="exitButton" fx:id="exitButton" onAction="#handleExit"/>
         </items>
       </ToolBar>
    </top>

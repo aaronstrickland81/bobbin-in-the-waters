@@ -1,18 +1,17 @@
 apply plugin: 'java'
 apply plugin: 'application'
-apply plugin: 'idea'
-apply plugin: 'checkstyle'
-apply plugin: 'pmd'
-apply plugin: 'findbugs'
 
 mainClassName = 'fxapp.FXApplication'
 
 version = '1.0'
 
+defaultTasks 'clean', 'run'
+
+
 sourceSets {
     main {
         resources {
-            srcDirs = ["src/main/resources"]
+            srcDirs = ["src/main/resources", "src/main/java"]
             includes = ["**/*.fxml", "**/*.css", "**/*.png", "**/*.jpg", "**/*.gif"]
         }
     }
@@ -21,30 +20,21 @@ sourceSets {
 repositories {
     mavenCentral()
 }
-checkstyle {
-    toolVersion = '7.1.2'
-    ignoreFailures = true
-    sourceSets = [project.sourceSets.main]
-}
 
-findbugs {
-    ignoreFailures = true
-}
-
-pmd {
-    ignoreFailures = true
-}
-
-test {
-    ignoreFailures = true
-}
 
 dependencies {
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.lynden:GMapsFX:2.0.9'
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile files('src/main/resources/mysql-connector.jar')
+    testCompile group: 'junit', name: 'junit', version: '4.+'
 }
+
 jar {
+    /*
+        A cool script to programmatically
+        add jar dependencies
+     */
     from {
         configurations.compile.collect {
             it.isDirectory() ? it : zipTree(it)
@@ -54,30 +44,9 @@ jar {
         }
     }
     manifest {
-        attributes ('Main-Class': 'com.cafebabe.water_project.MainController')
+        attributes 'Implementation-Title': 'bobbin-in-the-waters',
+                'Implementation-Version': version,
+                'Main-Class': 'fxapp.FXApplication'
     }
 }
 
-//jar {
-//    manifest {
-//        attributes 'Implementation-Title': 'bobbin-in-the-waters',
-//            'Implementation-Version': version,
-//            'Main-Class': 'fxapp.FXApplication'
-//    }
-//}
-
-//sourceSets {
-//    main {
-//        java {
-//            srcDirs =["src/main/"]
-//            // exclude '**/test/*'
-//        }
-//        resources {
-//            srcDirs = ["src/main/java/view"]
-//        }
-//    }
-//
-//}
-
-dependencies {
-}

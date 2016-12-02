@@ -4,6 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <?import com.lynden.gmapsfx.GoogleMapView?>
+
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -13,7 +14,7 @@
             minWidth="-Infinity"
             prefHeight="400.0"
             prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/8.0.60"
+            xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
             stylesheets="@../css/style.css"
             fx:controller="controller.MainScreenController">

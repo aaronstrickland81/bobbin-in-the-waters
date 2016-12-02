@@ -110,7 +110,7 @@ public class MainScreenController
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mapView.addMapInializedListener(this);
-        Image defaultImg = new Image(getClass().getResourceAsStream("../img/addIcon.png"));
+        Image defaultImg = new Image(getClass().getResourceAsStream("/img/addIcon.png"));
         addReportButton.setGraphic(new ImageView(defaultImg));
 
         addReportButton.setStyle("    -fx-background-radius: 20px;" +
@@ -123,7 +123,7 @@ public class MainScreenController
 
         addReportButton.addEventHandler(MouseEvent.MOUSE_ENTERED,
                 event-> {
-                    Image img = new Image(getClass().getResourceAsStream("../img/hoverAddIcon.png"));
+                    Image img = new Image(getClass().getResourceAsStream("/img/hoverAddIcon.png"));
                     addReportButton.setGraphic(new ImageView(img));
                 });
 
@@ -131,10 +131,10 @@ public class MainScreenController
                 event -> {
                         Image img;
                         if (optionsBox.isVisible()) {
-                            img = new Image(getClass().getResourceAsStream("../img/cancelIcon.png"));
+                            img = new Image(getClass().getResourceAsStream("/img/cancelIcon.png"));
                             addReportButton.setGraphic(new ImageView(img));
                         } else {
-                            img = new Image(getClass().getResourceAsStream("../img/addIcon.png"));
+                            img = new Image(getClass().getResourceAsStream("/img/addIcon.png"));
                             addReportButton.setGraphic(new ImageView(img));
                         }
                 });
@@ -308,12 +308,12 @@ public class MainScreenController
             if (optionsBox.isVisible()) {
                 optionsBox.setVisible(false);
                 optionsBox.setManaged(false);
-                img = new Image(getClass().getResourceAsStream("../img/addIcon.png"));
+                img = new Image(getClass().getResourceAsStream("/img/addIcon.png"));
                 addReportButton.setGraphic(new ImageView(img));
             } else {
                 optionsBox.setVisible(true);
                 optionsBox.setManaged(true);
-                img = new Image(getClass().getResourceAsStream("../img/cancelIcon.png"));
+                img = new Image(getClass().getResourceAsStream("/img/cancelIcon.png"));
                 addReportButton.setGraphic(new ImageView(img));
             }
         }

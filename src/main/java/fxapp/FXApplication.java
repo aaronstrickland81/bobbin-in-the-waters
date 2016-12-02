@@ -72,7 +72,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource(
-                    "../view/rootLayout.fxml"));
+                    "/view/rootLayout.fxml"));
             rootLayout = loader.load();
 
             rootLayout.setStyle(
@@ -112,7 +112,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource(
-                    "../view/loginPage.fxml"));
+                    "/view/loginPage.fxml"));
             AnchorPane loginPage = loader.load();
 
             rootLayout.setCenter(loginPage);
@@ -135,7 +135,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource(
-                    "../view/MainScreen.fxml"));
+                    "/view/MainScreen.fxml"));
             AnchorPane mainPage = loader.load();
 
             rootLayout.setCenter(mainPage);
@@ -157,7 +157,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource(
-                    "../view/registrationPage.fxml"));
+                    "/view/registrationPage.fxml"));
             AnchorPane mainPage = loader.load();
 
             rootLayout.setCenter(mainPage);
@@ -179,7 +179,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource(
-                    "../view/loginPage.fxml"));
+                    "/view/loginPage.fxml"));
             AnchorPane mainPage = loader.load();
 
             rootLayout.setCenter(mainPage);
@@ -202,7 +202,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource(
-                    "../view/profile.fxml"));
+                    "/view/profile.fxml"));
             AnchorPane mainPage = loader.load();
 
             rootLayout.setCenter(mainPage);
@@ -224,7 +224,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource(
-                    "../view/viewReports/viewSourceReportTable.fxml"));
+                    "/view/viewReports/viewSourceReportTable.fxml"));
             AnchorPane mainPage = loader.load();
 
             rootLayout.setCenter(mainPage);
@@ -246,7 +246,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource(
-                    "../view/viewReports/viewQualityReportTable.fxml"));
+                    "/view/viewReports/viewQualityReportTable.fxml"));
             AnchorPane mainPage = loader.load();
 
             rootLayout.setCenter(mainPage);
@@ -267,7 +267,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource(
-                    "../view/submitReports/submitWaterSource.fxml"));
+                    "/view/submitReports/submitWaterSource.fxml"));
             AnchorPane mainPage = loader.load();
 
             rootLayout.setCenter(mainPage);
@@ -289,7 +289,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource(
-                    "../view/submitReports/submitWaterQuality.fxml"));
+                    "/view/submitReports/submitWaterQuality.fxml"));
             AnchorPane mainPage = loader.load();
 
             rootLayout.setCenter(mainPage);
@@ -311,7 +311,7 @@ public class FXApplication extends Application {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(FXApplication.class.getResource(
-                    "../view/historicalReportsPage.fxml"));
+                    "/view/historicalReportsPage.fxml"));
             AnchorPane mainPage = loader.load();
 
             mainPage.setStyle(

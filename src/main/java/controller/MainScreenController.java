@@ -77,6 +77,9 @@ public class MainScreenController
     private Button addReportButton;
 
     @FXML
+    private Button adminFeatures;
+
+    @FXML
     GoogleMapView mapView;
 
     @FXML
@@ -138,6 +141,12 @@ public class MainScreenController
                             addReportButton.setGraphic(new ImageView(img));
                         }
                 });
+
+        //Show extra button for admin features if the user is an admin
+        if (Model.getUser().getAccountType().equals(
+                AccountType.ADMINISTRATOR)) {
+            toggleButton(adminFeatures);
+        }
     }
 
     /**
@@ -317,6 +326,14 @@ public class MainScreenController
                 addReportButton.setGraphic(new ImageView(img));
             }
         }
+    }
+
+    /**
+     * Called when the user clicks on the admin features button.
+     */
+    @FXML
+    private void handleAdminFeatures() {
+        app.showAdminFeaturesPage();
     }
 
     /**

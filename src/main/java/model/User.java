@@ -25,6 +25,29 @@ public class User {
     private final ObjectProperty<AccountType> accountType
             = new SimpleObjectProperty<>();
 
+    /**
+     * Boolean denoting whether the user is banned. A banned user cannot submit
+     * reports, though they can still view water sources.
+     */
+    private boolean isBanned;
+
+    /**
+     * Getter for isBanned
+     *
+     * @return boolean denoting whether the user is banned
+     */
+    public boolean getBanned() {
+        return isBanned;
+    }
+
+    /**
+     * Setter for isBanned
+     *
+     * @param banned Boolean for setting the user's isBanned
+     */
+    public void setBanned(boolean banned) {
+        isBanned = banned;
+    }
 
     /**
      * Getter for home address
@@ -173,6 +196,34 @@ public class User {
     }
 
     /**
+     * Constructor adding whether the user is banned (needed for database to
+     * create new user appropriately upon login)
+     *
+     * @param user user
+     * @param pass pass
+     * @param type type
+     * @param email email
+     * @param fname fname
+     * @param lname lname
+     * @param address address
+     * @param title title
+     * @param banned banned
+     */
+    public User(String user, String pass, AccountType type, String email,
+                String fname, String lname, String address, String title,
+                boolean banned) {
+        setUname(user);
+        setFname(fname);
+        setLname(lname);
+        setEmail(email);
+        setPassword(pass);
+        setAccountType(type);
+        setHomeAddress(address);
+        setTitle(title);
+        isBanned = banned;
+    }
+
+    /**
      * Default constructor
      *
      * @param user username
@@ -186,14 +237,7 @@ public class User {
      */
     public User(String user, String pass, AccountType type, String email,
                 String fname, String lname, String address, String title) {
-        setUname(user);
-        setFname(fname);
-        setLname(lname);
-        setEmail(email);
-        setPassword(pass);
-        setAccountType(type);
-        setHomeAddress(address);
-        setTitle(title);
+        this(user, pass, type, email, fname, lname, address, title, false);
     }
 
     /**

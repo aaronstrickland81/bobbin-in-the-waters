@@ -1,6 +1,7 @@
 package fxapp;
 
 
+import controller.AdminFeaturesController;
 import controller.HistoricalReportsController;
 import controller.LoginController;
 import controller.MainScreenController;
@@ -326,6 +327,28 @@ public class FXApplication extends Application {
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE,
                     "Failed to find the fxml file for HistoricalReports");
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Displays admin features page
+     */
+    public void showAdminFeaturesPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(FXApplication.class.getResource(
+                    "/view/adminFeatures.fxml"));
+            AnchorPane mainPage = loader.load();
+
+            rootLayout.setCenter(mainPage);
+
+            AdminFeaturesController controller = loader.getController();
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE,
+                    "Failed to find the fxml file for adminFeatures");
             e.printStackTrace();
         }
     }

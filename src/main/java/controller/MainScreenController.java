@@ -240,7 +240,11 @@ public class MainScreenController
      */
     @FXML
     private void handleSubmitSourceReport() {
-        app.showSubmitWaterSourceReport();
+        if (Model.getUser().getBanned()) {
+            this.userBannedAlert();
+        } else {
+            app.showSubmitWaterSourceReport();
+        }
     }
 
     /**
@@ -249,7 +253,22 @@ public class MainScreenController
      */
     @FXML
     private void handleSubmitQualityReport() {
-        app.showSubmitWaterQualityReport();
+        if (Model.getUser().getBanned()) {
+            this.userBannedAlert();
+        } else {
+            app.showSubmitWaterQualityReport();
+        }
+    }
+
+    private void userBannedAlert() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.initOwner(_dialogStage);
+        alert.setTitle("Operation not allowed");
+        alert.setHeaderText("Error: Banned user");
+        alert.setContentText("You have been banned from submitting reports by "
+                + "an administrator. Please contact an administrator for more "
+                + "details.");
+        alert.showAndWait();
     }
 
     /**

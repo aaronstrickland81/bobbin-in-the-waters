@@ -30,8 +30,8 @@ public class UserInfoTable {
                             ".amazonaws.com:3306/bobbin", "root", "password");
 
             String query = " insert into userInfo (firstName, lastName, " +
-                    "username, email, password, accountType)"
-                    + " values (?, ?, ?, ?, ?, ?)";
+                    "username, email, password, accountType, isBanned)"
+                    + " values (?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1, user.getFname());
@@ -40,6 +40,7 @@ public class UserInfoTable {
             preparedStmt.setString(4, user.getEmail());
             preparedStmt.setString(5, user.getPassword());
             preparedStmt.setString(6, user.getAccountType().toString());
+            preparedStmt.setBoolean(7, user.getBanned());
 
             preparedStmt.execute();
             con.close();
@@ -64,7 +65,7 @@ public class UserInfoTable {
             PreparedStatement ps = con.prepareStatement(
                     "UPDATE userInfo SET firstName = ?," +
                     " lastName = ?, email = ?, password = ?, address = ?, " +
-                    "title = ?" +
+                    "title = ?, isBanned = ?" +
                     " WHERE " +
                     "username = ?");
             ps.setString(1, user.getFname());
@@ -73,7 +74,8 @@ public class UserInfoTable {
             ps.setString(4, user.getPassword());
             ps.setString(5, user.getHomeAddress());
             ps.setString(6, user.getTitle());
-            ps.setString(7, user.getUname());
+            ps.setBoolean(7, user.getBanned());
+            ps.setString(8, user.getUname());
 
             ps.execute();
             con.close();
@@ -110,7 +112,8 @@ public class UserInfoTable {
                     User u = new User(userName, password,
                             account, rs
                             .getString(4), rs.getString(1), rs
-                            .getString(2), rs.getString(7), rs.getString(8));
+                            .getString(2), rs.getString(7), rs.getString(8),
+                            rs.getBoolean(9));
                     con.close();
                     return u;
                 }
@@ -189,7 +192,7 @@ public class UserInfoTable {
                     User u = new User(userName, password,
                             account, rs
                             .getString(4), rs.getString(1), rs
-                            .getString(2), address, title);
+                            .getString(2), address, title, rs.getBoolean(9));
                     con.close();
                     return u;
                 }

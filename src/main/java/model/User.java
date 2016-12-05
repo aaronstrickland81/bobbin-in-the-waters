@@ -287,6 +287,7 @@ public class User {
                 + this.accountType.get().toString() + "," + this.email.get()
                 + ","
                 + this.fname.get() + "," + this.lname.get() + ","
-                + this.homeAddress.get() + "," + this.title.get();
+                + this.homeAddress.get() + "," + this.title.get()
+                + String.valueOf(this.isBanned);
     }
 }

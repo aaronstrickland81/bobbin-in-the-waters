@@ -3,9 +3,13 @@ package controller;
 import fxapp.FXApplication;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.User;
 import services.UserInfoTable;
+
+import java.util.Optional;
 
 /**
  * Controller for the Admin Features page. On this page an administrator can
@@ -44,7 +48,22 @@ public class AdminFeaturesController {
     private void handleDeleteUser() {
         String uname = unameField.getText();
         if (UserInfoTable.checkUserExists(uname)) {
-            UserInfoTable.removeUser(uname);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.initOwner(_dialogStage);
+            alert.setTitle("Confirm Deletion");
+            alert.setHeaderText("Confirm deletion of user");
+            alert.setContentText("Are you sure you want to delete the user \""
+                    + uname + "\"?");
+
+            ButtonType yes = new ButtonType("Yes");
+            ButtonType no = new ButtonType("No");
+            alert.getButtonTypes().setAll(yes, no);
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == yes) {
+                UserInfoTable.removeUser(uname);
+                app.showMainPage();
+            }
         } else {
             invalidUserAlert();
         }
@@ -54,7 +73,24 @@ public class AdminFeaturesController {
     private void handleBanUser() {
         String uname = unameField.getText();
         if (UserInfoTable.checkUserExists(uname)) {
-            //TODO: ban user
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.initOwner(_dialogStage);
+            alert.setTitle("Confirm Ban");
+            alert.setHeaderText("Confirm ban of user");
+            alert.setContentText("Are you sure you want to ban the user \""
+                    + uname + "\" from submitting reports?");
+
+            ButtonType yes = new ButtonType("Yes");
+            ButtonType no = new ButtonType("No");
+            alert.getButtonTypes().setAll(yes, no);
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == yes) {
+                User user = UserInfoTable.getUserFromUserName(uname);
+                user.setBanned(true);
+                UserInfoTable.updateUser(user);
+                app.showMainPage();
+            }
         } else {
             invalidUserAlert();
         }
@@ -72,7 +108,7 @@ public class AdminFeaturesController {
 
     @FXML
     private void handleBack() {
-        app.backToLoginPage();
+        app.showMainPage();
     }
 
     /**

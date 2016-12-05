@@ -24,7 +24,7 @@ public class WaterSourceReport extends Report {
      * Getter for water type
      * @return water type
      */
-    public WaterType getType() {
+    public WaterType get_type() {
         return _type.get();
     }
 
@@ -32,7 +32,7 @@ public class WaterSourceReport extends Report {
      * Setter for water type
      * @param _type Water type to be set
      */
-    private void setType(WaterType _type) {
+    private void set_type(WaterType _type) {
         this._type.set(_type);
     }
 
@@ -40,7 +40,7 @@ public class WaterSourceReport extends Report {
      * Getter for water condition
      * @return water condition
      */
-    public SourceCondition getCondition() {
+    public SourceCondition get_condition() {
         return _condition.get();
     }
 
@@ -48,7 +48,7 @@ public class WaterSourceReport extends Report {
      * Setter for water condition
      * @param _condition water condition to be set
      */
-    private void setCondition(SourceCondition _condition) {
+    private void set_condition(SourceCondition _condition) {
         this._condition.set(_condition);
     }
 
@@ -67,8 +67,8 @@ public class WaterSourceReport extends Report {
                              Double longitude, Double latitude, WaterType type,
                              SourceCondition cond) {
         super(date, reportNum, name, longitude, latitude);
-        setType(type);
-        setCondition(cond);
+        set_type(type);
+        set_condition(cond);
     }
 
     @Override
@@ -76,8 +76,8 @@ public class WaterSourceReport extends Report {
         return "Water Source Report";
     }
     public String toString() {
-        return super.toString() + "<p>Type: " + getType() + "</p>"
-                                + "<p>Condition: " + getCondition() + "</p>";
+        return super.toString() + "<p>Type: " + get_type() + "</p>"
+                + "<p>Condition: " + get_condition() + "</p>";
     }
     @Override
     public boolean equals(Object obj) {
@@ -91,8 +91,8 @@ public class WaterSourceReport extends Report {
                 && (this.get_workername().equals(temp.get_workername()))
                 && (this.get_latitude().equals(temp.get_latitude()))
                 && (this.get_longitude().equals(temp.get_longitude()))
-                && (this.getCondition().equals(temp.getCondition()))
-                && (this.getType().equals(temp.getType()));
+                && (this.get_condition().equals(temp.get_condition()))
+                && (this.get_type().equals(temp.get_type()));
     }
 
 }

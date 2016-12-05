@@ -8,7 +8,6 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.stage.Stage;
 import model.Model;
 import model.WaterQualityReport;
 
@@ -37,15 +36,15 @@ public class HistoricalReportsController {
 
         public void addFromReport(WaterQualityReport report) {
             if (report.get_month_name().equals(this.month)) {
-                virusPPM = ((virusPPM * collisions) + report.getVirusPPM())
+                virusPPM = ((virusPPM * collisions) + report.get_virusPPM())
                         / (collisions + 1);
                 contaminantPPM = ((contaminantPPM * collisions)
-                        + report.getChemPPM()) / (collisions + 1);
+                        + report.get_chemPPM()) / (collisions + 1);
             } else {
                 month = report.get_month_name();
                 monthNumber = report.get_month();
-                virusPPM = report.getVirusPPM();
-                contaminantPPM = report.getChemPPM();
+                virusPPM = report.get_virusPPM();
+                contaminantPPM = report.get_chemPPM();
             }
             collisions++;
         }

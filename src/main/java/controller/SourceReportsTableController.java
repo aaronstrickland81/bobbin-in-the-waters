@@ -75,11 +75,10 @@ public class SourceReportsTableController {
                 new PropertyValueFactory<WaterSourceReport, String>("_location")
         );
         typeCol.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, WaterType>("_type")
+                new PropertyValueFactory<>("_type")
         );
         conditionCol.setCellValueFactory(
-                new PropertyValueFactory<WaterSourceReport, SourceCondition>(
-                        "_condition")
+                new PropertyValueFactory<>("_condition")
         );
         reportTable.setItems(list);
     }

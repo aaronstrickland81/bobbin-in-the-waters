@@ -38,9 +38,9 @@ public class WaterQualityReport extends Report {
                               Double virus,
                               Double chem) {
         super(date, reportnum, name, longitude, latitude);
-        setCondition(cond);
-        setVirusPPM(virus);
-        setChemPPM(chem);
+        set_condition(cond);
+        set_virusPPM(virus);
+        set_chemPPM(chem);
     }
 
 
@@ -56,7 +56,7 @@ public class WaterQualityReport extends Report {
      * Setter for purity condition
      * @param _Overall_condition condition to be set
      */
-    private void setCondition(PurityCondition _Overall_condition) {
+    private void set_condition(PurityCondition _Overall_condition) {
         this._condition.set(_Overall_condition);
     }
 
@@ -64,7 +64,7 @@ public class WaterQualityReport extends Report {
      * Getter for virus PPM
      * @return virus PPM
      */
-    public double getVirusPPM() {
+    public double get_virusPPM() {
         return _virusPPM.get();
     }
 
@@ -72,7 +72,7 @@ public class WaterQualityReport extends Report {
      * Setter for virus PPM
      * @param _virusPPM virus PPM to be set
      */
-    private void setVirusPPM(double _virusPPM) {
+    private void set_virusPPM(double _virusPPM) {
         this._virusPPM.set(_virusPPM);
     }
 
@@ -80,7 +80,7 @@ public class WaterQualityReport extends Report {
      * Getter for chem PPM
      * @return chem PPM
      */
-    public double getChemPPM() {
+    public double get_chemPPM() {
         return _chemPPM.get();
     }
 
@@ -88,7 +88,7 @@ public class WaterQualityReport extends Report {
      * Setter for chem PPM
      * @param _chemPPM chem PPM to be set
      */
-    private void setChemPPM(double _chemPPM) {
+    private void set_chemPPM(double _chemPPM) {
         this._chemPPM.set(_chemPPM);
     }
 
@@ -117,7 +117,7 @@ public class WaterQualityReport extends Report {
                 && (this.get_latitude().equals(temp.get_latitude()))
                 && (this.get_longitude().equals(temp.get_longitude()))
                 && (this.get_condition().equals(temp.get_condition()))
-                && (this.getChemPPM() == (temp.getChemPPM()))
-                && (this.getVirusPPM() == temp.getVirusPPM());
+                && (this.get_chemPPM() == (temp.get_chemPPM()))
+                && (this.get_virusPPM() == temp.get_virusPPM());
     }
 }

@@ -39,8 +39,8 @@ public class QualityReportInfo {
             ps.setDouble(4, report.get_longitude());
             ps.setDouble(5, report.get_latitude());
             ps.setString(6, report.get_condition().toString());
-            ps.setDouble(7, report.getVirusPPM());
-            ps.setDouble(8, report.getChemPPM());
+            ps.setDouble(7, report.get_virusPPM());
+            ps.setDouble(8, report.get_chemPPM());
 
             ps.execute();
             con.close();
@@ -110,7 +110,7 @@ public class QualityReportInfo {
 //                            rs.getDate(1).getTime());
 //                    WaterQualityReport w = new WaterQualityReport(utilDate, rs
 //                            .getInt(2), rs.getString(3), rs.getDouble(4), rs
-//                            .getDouble(5), PurityCondition.getCondition(rs
+//                            .getDouble(5), PurityCondition.get_condition(rs
 //                            .getString(6)), rs.getDouble(7), rs.getDouble(8));
 //                    aList.add(w);
 //                }

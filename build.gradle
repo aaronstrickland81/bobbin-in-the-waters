@@ -23,6 +23,8 @@ repositories {
 
 
 dependencies {
+    runtime files(org.gradle.internal.jvm.Jvm.current().toolsJar)
+
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.lynden:GMapsFX:2.0.9'
 
@@ -31,10 +33,6 @@ dependencies {
 }
 
 jar {
-    /*
-        A cool script to programmatically
-        add jar dependencies
-     */
     from {
         configurations.compile.collect {
             it.isDirectory() ? it : zipTree(it)

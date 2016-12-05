@@ -12,6 +12,13 @@
     -fx-background-position: center center;
 }
 
+.reportBackground {
+    -fx-background-image: url('../img/reportBackground.jpg');
+    -fx-background-repeat: stretch;
+    -fx-background-size: cover, auto;
+    -fx-background-position: center center;
+}
+
 .loginText {
     -fx-text-fill: white;
 }
@@ -38,6 +45,16 @@
 
 .loginTBox {
     -fx-background-color: rgba(63,63,63, .80);
+    -fx-text-fill: white;
+}
+
+.reportTBox {
+    -fx-background-color: rgba(31,122,122, .70);
+    -fx-text-fill: white;
+}
+
+.profileTBox {
+    -fx-background-color: rgba(41,163,163, .70);
     -fx-text-fill: white;
 }
 

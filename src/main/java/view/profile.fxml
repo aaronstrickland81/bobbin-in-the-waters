@@ -19,18 +19,18 @@
                 mnemonicParsing="false" onAction="#handleBack" prefHeight="25.0"
                 prefWidth="92.0" text="Back" styleClass="loginButton"/>
         <TextField fx:id="firstName" layoutX="150.0" layoutY="65.0"
-                   prefHeight="31.0" prefWidth="143.0" styleClass="loginTBox"/>
-        <TextField fx:id="lastName" layoutX="377.0" layoutY="65.0" prefHeight="31.0" prefWidth="143.0" styleClass="loginTBox"/>
+                   prefHeight="31.0" prefWidth="143.0" styleClass="profileTBox"/>
+        <TextField fx:id="lastName" layoutX="377.0" layoutY="65.0" prefHeight="31.0" prefWidth="143.0" styleClass="profileTBox"/>
         <TextField fx:id="title" layoutX="151.0" layoutY="104.0"
-                   prefHeight="31.0" prefWidth="375.0" styleClass="loginTBox"/>
+                   prefHeight="31.0" prefWidth="375.0" styleClass="profileTBox"/>
         <TextField fx:id="email" layoutX="151.0" layoutY="145.0"
-                   prefHeight="31.0" prefWidth="375.0" styleClass="loginTBox"/>
+                   prefHeight="31.0" prefWidth="375.0" styleClass="profileTBox"/>
         <TextField fx:id="homeAddress" layoutX="151.0" layoutY="189.0"
-                   prefHeight="31.0" prefWidth="375.0" styleClass="loginTBox"/>
+                   prefHeight="31.0" prefWidth="375.0" styleClass="profileTBox"/>
         <PasswordField fx:id="newPassword" layoutX="151.0" layoutY="235.0"
-                       prefHeight="31.0" prefWidth="375.0" styleClass="loginTBox"/>
+                       prefHeight="31.0" prefWidth="375.0" styleClass="profileTBox"/>
         <PasswordField fx:id="confPassword" layoutX="151.0" layoutY="285.0"
-                       prefHeight="31.0" prefWidth="375.0" styleClass="loginTBox"/>
+                       prefHeight="31.0" prefWidth="375.0" styleClass="profileTBox"/>
         <Label layoutX="68.0" layoutY="65.0" prefHeight="31.0" prefWidth="76.0" text="First Name:" styleClass="loginText"/>
         <Label layoutX="300.0" layoutY="65.0" prefHeight="31.0" prefWidth="76.0" text="Last Name:" styleClass="loginText"/>
         <Label layoutX="69.0" layoutY="145.0" prefHeight="31.0" prefWidth="76.0"

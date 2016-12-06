@@ -93,6 +93,7 @@ public class HistoricalReportsController {
         List<WaterQualityReport> qualityReports = Model.getQualityReports();
         locationMap = new HashMap<>();
         lineChart.setAnimated(false);
+        lineChart.setLegendVisible(false);
         lineChart.setStyle(
                 "-fx-background-color: rgba(255,255,255,1);"
         );

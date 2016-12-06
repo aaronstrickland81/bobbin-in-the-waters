@@ -19,6 +19,10 @@
     -fx-background-position: center center;
 }
 
+.viewBackground {
+    -fx-background-color: rgba(63,63,63,1.0);
+}
+
 .loginText {
     -fx-text-fill: white;
 }
@@ -71,6 +75,7 @@
     -fx-text-fill: #4286f4;
     -fx-cursor: hand;
 }
+
 .rootToolbar {
     -fx-background-color: rgba(34,34,34, 0.80);
 }
@@ -107,18 +112,7 @@
     -fx-graphic: url('../img/highlightedMinimize.png');
     -fx-cursor: hand;
 }
-/*
-.addButton {
-    -fx-background-radius: 20px;
-    -fx-min-width: 20px;
-    -fx-min-height: 20px;
-    -fx-max-width: 20px;
-    -fx-max-height: 20px;
-    -fx-graphic: url('../img/addIcon.png');
-    -fx-focus-color: transparent;
-    -fx-faint-focus-color: transparent;
-}
-*/
+
 
 .addButton: hover {
     -fx-graphic: url('../img/hoverAddIcon.png');
@@ -127,8 +121,63 @@
 
 .addOptions {
     -fx-background-color: rgba(230,255,255, 0.70);
+    -fx-padding: 10px;
+}
+
+.sideMenu {
+    -fx-padding: 20px 0px 20px 0px;
 }
 
 .historicalRadioButton {
     -fx-text-fill: white;
+}
+
+
+.table-view{
+   -fx-background-color: transparent;
+}
+
+.table-view:focused{
+    -fx-background-color: transparent;
+}
+
+
+.table-view .column-header-background{
+    -fx-background-color: rgba(63,63,63,1.0);
+}
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: white;
+}
+
+.table-row-cell{
+    -fx-background-color: -fx-table-cell-border-color, #616161;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, #424242;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em; /* 0 */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #005797;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+.scroll-bar:horizontal {
+    -fx-opacity: 0;
+    -fx-padding:-7;
 }

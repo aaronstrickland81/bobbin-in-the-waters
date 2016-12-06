@@ -6,40 +6,63 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminFeaturesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.76-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            stylesheets="@../css/style.css"
+            fx:controller="controller.AdminFeaturesController">
    <children>
-      <Label layoutX="154.0" layoutY="56.0" text="Administrator Features">
+      <Label layoutX="154.0" layoutY="56.0" text="Administrator Features"
+             styleClass="loginText">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Label layoutX="146.0" layoutY="158.0" prefHeight="30.0" prefWidth="107.0" text="Username:">
+      <Label layoutX="146.0" layoutY="158.0" prefHeight="30.0" prefWidth="107.0"
+             text="Username:" styleClass="loginText">
          <font>
             <Font size="20.0" />
          </font></Label>
-      <TextField fx:id="unameField" layoutX="274.0" layoutY="157.0" prefHeight="31.0" prefWidth="189.0" />
-      <Button fx:id="deleteUser" layoutX="71.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleDeleteUser" prefHeight="39.0" prefWidth="137.0" text="Delete User">
+      <TextField fx:id="unameField" layoutX="274.0" layoutY="157.0"
+                 prefHeight="31.0" prefWidth="189.0" />
+      <Button fx:id="deleteUser" layoutX="71.0" layoutY="282.0"
+              mnemonicParsing="false" onAction="#handleDeleteUser"
+              prefHeight="39.0" prefWidth="137.0" text="Delete User"
+              styleClass="loginButton">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
-      <Button fx:id="banUser" layoutX="234.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleBanUser" prefHeight="39.0" prefWidth="137.0" text="Ban User">
+      <Button fx:id="back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false"
+              onAction="#handleBack" text="Back" styleClass="loginButton" />
+      <Button fx:id="banUser" layoutX="234.0" layoutY="282.0"
+              mnemonicParsing="false" onAction="#handleBanUser"
+              prefHeight="39.0" prefWidth="137.0" text="Ban User"
+              styleClass="loginButton">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="unblockUser" layoutX="396.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleUnblockUser" prefHeight="39.0" prefWidth="137.0" text="Unblock User">
+      <Button fx:id="unblockUser" layoutX="396.0" layoutY="282.0"
+              mnemonicParsing="false" onAction="#handleUnblockUser"
+              prefHeight="39.0" prefWidth="137.0" text="Unblock User"
+              styleClass="loginButton">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" layoutX="199.0" layoutY="228.0" prefHeight="17.0" prefWidth="207.0" text="Action to take with above user:">
+      <Label alignment="CENTER" layoutX="199.0" layoutY="228.0"
+             prefHeight="17.0" prefWidth="207.0"
+             text="Action to take with above user:" styleClass="loginText">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="unbanUser" layoutX="234.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleUnbanUser" prefHeight="39.0" prefWidth="137.0" text="Unban User">
+      <Button fx:id="unbanUser" layoutX="234.0" layoutY="335.0"
+              mnemonicParsing="false" onAction="#handleUnbanUser"
+              prefHeight="39.0" prefWidth="137.0" text="Unban User"
+              styleClass="loginButton">
          <font>
             <Font size="18.0" />
          </font>

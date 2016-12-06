@@ -50,6 +50,31 @@ public class User {
     }
 
     /**
+     * Integer denoting the number of incorrect login attempts with this user's
+     * username. If it reaches the maximum allowed, the user will be locked and
+     * will have to contact an administrator.
+     */
+    private int lockoutNum = 0;
+
+    /**
+     * Getter for lockoutNum
+     *
+     * @return number of incorrect login attempts with this user's username
+     */
+    public int getLockoutNum() {
+        return lockoutNum;
+    }
+
+    /**
+     * Setter for lockoutNum
+     *
+     * @param num number of incorrect login attempts with this user's username
+     */
+    public void setLockoutNum(int num) {
+        lockoutNum = num;
+    }
+
+    /**
      * Getter for home address
      *
      * @return String of home address
@@ -211,7 +236,7 @@ public class User {
      */
     public User(String user, String pass, AccountType type, String email,
                 String fname, String lname, String address, String title,
-                boolean banned) {
+                boolean banned, int lockoutNum) {
         setUname(user);
         setFname(fname);
         setLname(lname);
@@ -221,6 +246,7 @@ public class User {
         setHomeAddress(address);
         setTitle(title);
         isBanned = banned;
+        this.lockoutNum = lockoutNum;
     }
 
     /**
@@ -237,7 +263,7 @@ public class User {
      */
     public User(String user, String pass, AccountType type, String email,
                 String fname, String lname, String address, String title) {
-        this(user, pass, type, email, fname, lname, address, title, false);
+        this(user, pass, type, email, fname, lname, address, title, false, 0);
     }
 
     /**

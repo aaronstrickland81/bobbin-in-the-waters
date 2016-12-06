@@ -39,5 +39,10 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <Button fx:id="unbanUser" layoutX="234.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleUnbanUser" prefHeight="39.0" prefWidth="137.0" text="Unban User">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

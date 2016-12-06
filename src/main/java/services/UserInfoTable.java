@@ -65,7 +65,7 @@ public class UserInfoTable {
             PreparedStatement ps = con.prepareStatement(
                     "UPDATE userInfo SET firstName = ?," +
                     " lastName = ?, email = ?, password = ?, address = ?, " +
-                    "title = ?, isBanned = ?" +
+                    "title = ?, isBanned = ?, lockoutNum = ?" +
                     " WHERE " +
                     "username = ?");
             ps.setString(1, user.getFname());
@@ -75,7 +75,9 @@ public class UserInfoTable {
             ps.setString(5, user.getHomeAddress());
             ps.setString(6, user.getTitle());
             ps.setBoolean(7, user.getBanned());
-            ps.setString(8, user.getUname());
+            ps.setInt(8, user.getLockoutNum());
+            ps.setString(9, user.getUname());
+
 
             ps.execute();
             con.close();
@@ -113,7 +115,7 @@ public class UserInfoTable {
                             account, rs
                             .getString(4), rs.getString(1), rs
                             .getString(2), rs.getString(7), rs.getString(8),
-                            rs.getBoolean(9));
+                            rs.getBoolean(9), rs.getInt(10));
                     con.close();
                     return u;
                 }
@@ -192,7 +194,8 @@ public class UserInfoTable {
                     User u = new User(userName, password,
                             account, rs
                             .getString(4), rs.getString(1), rs
-                            .getString(2), address, title, rs.getBoolean(9));
+                            .getString(2), address, title, rs.getBoolean(9),
+                            rs.getInt(10));
                     con.close();
                     return u;
                 }

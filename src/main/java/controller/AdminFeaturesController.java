@@ -100,7 +100,51 @@ public class AdminFeaturesController {
     private void handleUnblockUser() {
         String uname = unameField.getText();
         if (UserInfoTable.checkUserExists(uname)) {
-            //TODO: unblock user
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.initOwner(_dialogStage);
+            alert.setTitle("Confirm Unblock");
+            alert.setHeaderText("Confirm unblock of user");
+            alert.setContentText("Are you sure you want to unblock the user \""
+                    + uname + "\" from logging in?");
+
+            ButtonType yes = new ButtonType("Yes");
+            ButtonType no = new ButtonType("No");
+            alert.getButtonTypes().setAll(yes, no);
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == yes) {
+                User user = UserInfoTable.getUserFromUserName(uname);
+                user.setLockoutNum(0);
+                UserInfoTable.updateUser(user);
+                app.showMainPage();
+            }
+        } else {
+            invalidUserAlert();
+        }
+    }
+
+    @FXML
+    private void handleUnbanUser() {
+        String uname = unameField.getText();
+        if (UserInfoTable.checkUserExists(uname)) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.initOwner(_dialogStage);
+            alert.setTitle("Confirm Unban");
+            alert.setHeaderText("Confirm unban of user");
+            alert.setContentText("Are you sure you want to unban the user \""
+                    + uname + "\" from submitting reports?");
+
+            ButtonType yes = new ButtonType("Yes");
+            ButtonType no = new ButtonType("No");
+            alert.getButtonTypes().setAll(yes, no);
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == yes) {
+                User user = UserInfoTable.getUserFromUserName(uname);
+                user.setBanned(false);
+                UserInfoTable.updateUser(user);
+                app.showMainPage();
+            }
         } else {
             invalidUserAlert();
         }

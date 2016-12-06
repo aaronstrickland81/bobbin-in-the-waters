@@ -8,6 +8,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import model.Model;
+import model.User;
+import services.UserInfoTable;
 
 /**
  * The controller for the login page. At the login page the user can login or
@@ -61,26 +63,62 @@ public class LoginController {
     private void handleLoginAttempt() {
 
         if (isInputValid()) {
+            String uname = userField.getText();
+            if (Model.doesUsernameExist(uname)) {
+                User user = Model.verifyLogin(uname, pwField.getText());
 
-            Model.setUser(Model.verifyLogin(userField
-                    .getText(), pwField.getText()));
-            String errorMessage = "";
+                if (user == null) {
+                    // uname exists but incorrect login
+                    user = UserInfoTable.getUserFromUserName(uname);
+                    _loginAuthenticated = false;
+                    user.setLockoutNum(user.getLockoutNum() + 1);
+                    Model.editUser(user);
 
-            if (Model.getUser() == null) {
-                _loginAuthenticated = false;
-                // Show the error message if bad data
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.initOwner(_dialogStage);
-                alert.setTitle("Please Correct Invalid Fields ");
-                alert.setHeaderText("Incorrect password and/or username");
-                alert.setContentText(errorMessage);
-
-                alert.showAndWait();
-            } else {
-                _loginAuthenticated = true;
-                app.showMainPage();
+                    // increment incorrect login attempts, check if banned
+                    if (user.getLockoutNum() >= 3) {
+                        bannedAlert();
+                        return;
+                    }
+                } else {
+                    // uname exists and correct login
+                    // check if banned
+                    if (user.getLockoutNum() >= 3) {
+                        bannedAlert();
+                        return;
+                    }
+                    user.setLockoutNum(0);
+                    Model.editUser(user);
+                    Model.setUser(user);
+                    _loginAuthenticated = true;
+                    app.showMainPage();
+                    return;
+                }
             }
+            // Show the error message if bad data
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(_dialogStage);
+            alert.setTitle("Please Correct Invalid Fields ");
+            alert.setHeaderText("Incorrect password and/or username");
+
+            alert.showAndWait();
         }
+    }
+
+    /**
+     * Helper function to alert user that their account has been banned.
+     */
+    private void bannedAlert() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.initOwner(_dialogStage);
+        alert.setTitle("Account blocked");
+        alert.setHeaderText("Account blocked");
+        alert.setContentText("Your account has been blocked due"
+                + " to too many incorrect login attempts. To "
+                + "unblock your account, please contact an "
+                + "administrator.");
+
+        alert.showAndWait();
+        return;
     }
 
     /**
